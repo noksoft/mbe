@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="requisicion" extends="struts-default" namespace="/requisicion">        
+	<action name="requisicion" method="requisicionValidUser" class="requisicionAction">		
+		<result name="error">/jsp/amerror.jsp</result>
+		<result name="success">/jsp/nokrequisicion.jsp</result>
+	</action>
+
+    </package>
+    
+    <package name="adquisicion" extends="struts-default" namespace="/adquisicion">        
+	<action name="adquisicion" method="requisicionValidUser" class="requisicionAction">		
+		<result name="error">/jsp/amerror.jsp</result>
+		<result name="success">/jsp/nokadquisicion.jsp</result>
+	</action>
+
+    </package>
+    <!--  asignacionrecursotaller -->
+    <package name="asignacionrecursotaller" extends="struts-default" namespace="/asignacionrecursotaller">        
+	<action name="asignacionrecursotaller" method="asignacionrecursotallerValidUser" class="adquisicionAction">		
+		<result name="error">/jsp/amerror.jsp</result>
+		<result name="success">/jsp/nokasignacionrecursotaller.jsp</result>
+	</action>
+    </package>
+    
+    <!-- 	Solicitudes 	-->
+    <package name="solicitudes" extends="struts-default" namespace="/solicitud">
+    	<action name="solicitudA" method="solicitudValidUser" class="solicitudAction">
+    		<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/noksolicitud.jsp</result>
+    	</action>
+    </package>
+</struts>

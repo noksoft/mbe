@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="fallaMap">
+	<typeAlias alias ="classFallaMap" type="mx.com.nok.falla.model.dto.FallaDTO"/>
+	<typeAlias alias ="classSubfallaMap" type="mx.com.nok.falla.model.dto.SubfallaDTO"/>
+
+			
+	<resultMap id="fallaMap" class="classFallaMap">		
+		<result property="idFalla" 		column="id_falla" />
+		<result property="falla" 		column="falla" />		
+		<result property="estatus" 		column="estatus" />		
+	</resultMap>
+	
+	
+	<resultMap id="subfallaMap" class="classSubfallaMap">		
+		<result property="idFalla" 		column="id_falla" />
+		<result property="falla" 		column="falla" />		
+		<result property="idSubfalla" 		column="id_subfalla" />
+		<result property="subfalla" 		column="subfalla" />		
+		<result property="estatus" 		column="estatus" />		
+	</resultMap>
+	
+	
+	
+		
+	<procedure id="infoSubfalla" resultMap="subfallaMap" parameterClass="classSubfallaMap" >
+		SELECT * FROM spr_subfalla(#idFalla#,#idSubfalla#,#filterEstatusSubfalla#)
+	</procedure>
+	
+		
+	<procedure id="updateSubfalla" resultMap="subfallaMap" parameterClass="classSubfallaMap" >
+		SELECT * FROM spu_subfalla(#idFalla#, #idSubfalla# , #subfalla#, #estatus#)
+	</procedure>
+	
+	<procedure id="deleteSubfalla" resultClass="java.lang.Boolean" parameterClass="classSubfallaMap" >
+		SELECT * FROM spd_subfalla(#idFalla#, #idSubfalla# )
+	</procedure>	
+		
+	<procedure id="insertSubfalla" resultMap="subfallaMap"  parameterClass="classSubfallaMap">
+		SELECT * FROM spi_subfalla(#idFalla#, #subfalla#)
+	</procedure>
+
+	
+	<procedure id="updateEstatusSubfalla" resultMap="subfallaMap"  parameterClass="classSubfallaMap">
+		SELECT * FROM spu_subfallaEstatus(#idFalla#, #idSubfalla#,#estatus#)
+	</procedure>		
+	
+		
+	<procedure id="infoFalla" resultMap="fallaMap" parameterClass="classFallaMap" >
+		SELECT * FROM spr_falla(#idFalla#,#filterEstatusFalla#);
+	</procedure>
+	
+	<procedure id="updateFalla" resultMap="fallaMap" parameterClass="classFallaMap" >
+		SELECT * FROM spu_falla(#idFalla#, #falla# ,  #estatus#)
+	</procedure>
+	
+	<procedure id="deleteFalla" resultClass="java.lang.Boolean" parameterClass="classFallaMap" >
+		SELECT * FROM spd_falla(#idFalla#)
+	</procedure>	
+		
+	<procedure id="insertFalla" resultMap="fallaMap"  parameterClass="classFallaMap">
+		SELECT * FROM spi_falla(#falla#)
+	</procedure>
+
+	
+	<procedure id="updateEstatusFalla" resultMap="fallaMap"  parameterClass="classFallaMap">
+		SELECT * FROM spu_fallaEstatus(#idFalla#,#estatus#)
+	</procedure>	
+	
+	
+	
+</sqlMap>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="portletMap">
+	<typeAlias alias ="portlet" type="mx.com.nok.portlet.model.dto.PortletDTO"/>
+	<typeAlias alias ="classSeccion" type="mx.com.nok.portlet.model.dto.SeccionDTO"/>
+	
+	<typeAlias alias ="classConfigPanel" type="mx.com.nok.portlet.model.dto.ConfigPanelDTO"/>
+		
+		
+	<resultMap id="configuracionPanelMap"   
+		class="classConfigPanel">		
+		<result property="idConfig" 				column="id_config" />				
+	</resultMap>
+		
+	
+		
+		
+		<!-- Mapeo hacia las porpiedades del Portlet -->  
+	<resultMap id="mapPortlet"   
+		class="portlet">		
+		<result property="id_config" 				column="id_config" />		
+		<result property="main_posicion" 			column="main_posicion" />
+		<result property="posicion" 		 		column="posicion" />
+		<result property="id_componente" 		 	column="id_componente" />	
+		<result property="id_menu" 		 			column="id_menu" />				
+	    <result property="componente_class" 		column="componente" />
+		<result property="nombre_submenu" 			column="nombre_submenu" />	
+		<result property="nombreCortoMenu" 			column="nombreCortoMenu" />	
+		<result property="nombreCortoComponente" 	column="nombreCortoComponente" />	
+		
+	</resultMap>
+	
+	
+	
+	<resultMap id="mapSeccion" 
+		class="classSeccion">		
+		<result property="id_menu" 					column="id_menu" />
+		<result property="menu" 					column="menu" />
+		<result property="nombreCortoMenu" 					column="nombreCortoMenu" />
+	</resultMap>
+	
+	
+	<!--Servicio encargado de obtener la información de los portles del usuario -->
+	<procedure id="infoPortlet" resultMap="mapPortlet" parameterClass="classConfigPanel" >
+		select * from spr_portlet(#idUsuario#,#idMenu#);
+	</procedure>
+	
+	
+	<procedure id="updateInfoPortlet"  resultMap="configuracionPanelMap"  parameterClass="classConfigPanel" >
+		select * from spu_configpanel(#idConfig#,#idUsuario#,#idComponente#,#mainPosicion#,#posicion#);
+	</procedure>
+	
+	
+	<procedure id="infoSeccion" resultMap="mapSeccion" parameterClass="mx.com.nok.core.usuario.model.dto.UsuarioDTO" >
+		select  *  from spr_seccionPortlet(#idUsuario#);
+	</procedure>
+	
+	
+	
+</sqlMap>

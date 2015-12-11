@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  
+	<include file="config/struts/struts-login.xml"/>
+	<!-- <include file="config/struts/struts-portlet.xml"/>  -->
+	<include file="config/struts/struts-articulo.xml"/>
+	<include file="config/struts/struts-empleado.xml"/>
+	<!--  <include file="config/struts/struts-portlet.xml"/> -->
+	<include file="config/struts/struts-componente.xml"/>
+	<include file="config/struts/struts-menu.xml"/>
+	<include file="config/struts/struts-falla.xml"/>
+	<include file="config/struts/struts-proveedor.xml"/>
+	<include file="config/struts/struts-maqune.xml"/>
+	<include file="config/struts/struts-obra.xml"/>
+	<include file="config/struts/struts-flete.xml"/>
+	<include file="config/struts/struts-salida.xml"/>
+	<include file="config/struts/struts-notificacion.xml"/>
+	<include file="config/struts/struts-mantenimiento.xml"/>
+	<include file="config/struts/struts-requisicion.xml"/>
+	<include file="config/struts/struts-direccion.xml"/>
+	<include file="config/struts/struts-categoria.xml"/>
+	<include file="config/struts/struts-resguardo.xml"/>
+	<include file="config/struts/struts-equipo.xml"/>
+	<include file="config/struts/struts-fallaEquipo.xml"/>
+</struts>

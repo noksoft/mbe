@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="obraMap">
+	<typeAlias alias="classObraMap" type="mx.com.nok.obra.model.dto.ObraDTO" />
+ 
+	<typeAlias alias="classObraRecursoMaquneMap" type="mx.com.nok.obra.model.dto.ObraRecursoMaquneDTO" />
+	
+	<typeAlias alias="classEmpleadoDisponibleMap" type="mx.com.nok.obra.model.dto.EmpleadoDisponibleDTO"/>
+	<typeAlias alias="classEquiposAsignadosObraMap" type="mx.com.nok.obra.model.dto.EquiposAsignadosObraDTO"/>
+	<typeAlias alias="classEmpleadosAsignadosObraMap" type="mx.com.nok.obra.model.dto.EmpleadosAsignadosObraDTO"/>
+<!-- 	Traemos la lista de equipos -->
+	<typeAlias alias="classEquiposMap" type="mx.com.nok.equipo.model.dto.EquipoDTO"/>
+	
+	<typeAlias alias="classAsignacionMap" type="mx.com.nok.asignacion.model.dto.AsignacionDTO"/>
+	
+	<resultMap id="asignacionObraMap" class="classAsignacionMap">
+		<result property="idAsignacionObra"					column="id_asignacion_obra"/>
+		<result property="fechaAsignacion"					column="fecha_asignacion"/>
+		<result property="tipoAsignacion"					column="tipo_asignacion"/>
+		<result property="idObra"							column="id_obra"/>
+		<result property="nombreObra"						column="nombre_obra"/>
+		<result property="descripcionObra"					column="descripcion_obra"/>
+		<result property="idEmpleado"						column="id_empleado"/>
+		<result property="nombre"							column="nombre"/>
+		<result property="paterno"							column="paterno"/>
+		<result property="materno"							column="materno"/>
+		<result property="nombreCompleto"					column="nombreCompleto"/>
+		<result property="idEquipo"							column="id_equipo"/>
+		<result property="numeroeconomico"					column="numeroeconomico"/>
+		<result property="descripcion"						column="descripcion"/>
+		<result property="tipocategoria"					column="tipocategoria"/>
+		<result property="categoria"						column="categoria"/>
+		<result property="subcategoria"						column="subcategoria"/>
+		<result property="estatus"							column="estatus"/>
+		<result property="habilidades"						column="habilidades"/>
+		<result property="estatusEquipo"					column="estatus_equipo"/>
+	</resultMap>
+	
+	
+	<resultMap id="empleadosAsignadosMap" class="classEmpleadosAsignadosObraMap">
+		<result property="nombre" column="nombre" />
+		<result property="estatus" column="estatus" />
+		<result property="habilidades" column="habilidades"/>
+		<result property="idEmpleado" column = "id_empleado"/>
+		<result property="idObra" column = "id_obra"/>
+	</resultMap>
+	
+	<resultMap id="equiposAsignadosMap" class="classEquiposAsignadosObraMap">
+		<result property="idObra" column="id_obra" />
+		<result property="idEquipo" column="id_equipo" />
+		<result property="descripcion" column="descripcion"/>
+		<result property="numeroEconomico" column = "numeroeconomico"/>
+		<result property="tipoCategoria" column = "tipocategoria"/>
+		<result property="categoria" column = "categoria"/>
+		<result property="subCategoria" column = "subcategoria"/>
+		<result property="estatus" column = "estatus"/>
+	</resultMap>
+
+
+	<resultMap id="obraRecursoMaquneMap" class="classObraRecursoMaquneMap">
+		<result property="idObra" column="id_obra" />
+		<result property="idMaqune" column="id_maqune" />
+		<result property="fechaAsignacion" column="fecha_asignacion" />
+
+	</resultMap>
+
+	<resultMap id="obraMap" class="classObraMap">
+		<result property="idObra" column="id_obra" />
+		<result property="claveObra" column="clave_obra" />
+		<result property="nombre" column="nombre" />
+		<result property="lat" column="lat" />
+		<result property="lng" column="lng" />
+		<result property="idEmpleado" column="id_empleado" />
+		<result property="nombreEmpleado" column="nombre_empleado"/>
+		<result property="presupuestoEstimado" column="presupuesto_estimado" />
+		<result property="contrato" column="contrato" />
+		<result property="status" column="status" />
+		<result property="fechaInicio" column="fecha_inicio" />
+		<result property="fechaTermina" column="fecha_termina" />
+		<result property="idEntidad" column="id_entidad" />
+		<result property="idMunicipio" column="id_municipio" />
+		<result property="idLocalidad" column="id_localidad" />
+		<result property="jornadaLaboral" column="jornada_laboral" />
+		<result property="descripcion" column="descripcion" />
+		<result property="tipoJornada" column="tipo_jornada" />
+		
+	</resultMap>
+	
+	<resultMap id="empleadoDisponibleMap" class="classEmpleadoDisponibleMap">
+		<result property="idEmpleado" column="id_empleado" />
+		<result property="nombre" column="nombre" />
+		<result property="estatus" column="estatus" />
+		<result property="habilidad" column = "habilidades"/>
+	</resultMap>
+	
+	
+	<!--  EMPLEADO DISPONIBLE -->
+	<procedure id= "infoEmpleadoDisponible" resultMap = "empleadoDisponibleMap">
+		select id_empleado, concat(nombre, ' ', paterno, ' ', materno) as nombre, sputil_estatus_empleado(id_empleado)::character varying as estatus, habilidades
+  from cat_empleados;
+	</procedure>
+	
+	<!-- info de equipos y empleados asignados en Obra -->
+	<procedure id="infoAsignacionesObra" parameterClass="classAsignacionMap" resultMap="asignacionObraMap">
+		SELECT * FROM spr_infoasignacionobra(#idAsignacionObra#, #idObra#,#idEmpleado#,#idEquipo#,#typeQuery#)
+	</procedure>
+	
+	<procedure id="insertAsignacionObra" parameterClass="classAsignacionMap" resultMap="asignacionObraMap">
+		SELECT * FROM spi_asignacion_obra(#idObra#,#idEmpleado#,#tipoAsignacion#, #fechaAsignacion#, #estatus#, #idEquipo#,#estatusEquipo#, #typeInsert#)
+	</procedure>
+	
+	<procedure id="updateAsignacionObra" parameterClass="classAsignacionMap" resultMap="asignacionObraMap">
+		SELECT * FROM spu_asignacion_obra(#idAsignacionObra#, #idObra#,#idEmpleado#,#tipoAsignacion#, #fechaAsignacion#, #estatus#, #idEquipo#,#estatusEquipo#, #typeInsert#)
+	</procedure>
+	
+	<procedure id="deleteAsignacionObra" parameterClass="classAsignacionMap" resultClass="java.lang.Boolean">
+		SELECT * FROM spd_asignacion_obra (#idAsignacionObra#)
+	</procedure>
+	
+	
+	<!--  infoEquiposAsignadosObra -->
+	<procedure id= "infoEquiposAsignadosObra" parameterClass="classEquiposAsignadosObraMap" resultMap = "equiposAsignadosMap">
+		select id_obra, id_equipo, descripcion, numeroeconomico, tipocategoria, categoria, subcategoria, estatus from vw_asignacion where id_obra = #idObra# and id_equipo is not null
+	</procedure>
+	
+	<!--  infoEquiposAsignadosObra -->
+	<procedure id= "infoEmpleadosAsignadosObra" parameterClass="classEmpleadosAsignadosObraMap" resultMap = "empleadosAsignadosMap">
+		select concat( nombre,' ' ,paterno,' ', materno) as nombre, estatus, spd_util_habilidades(id_empleado) as habilidades, id_empleado, id_obra from vw_asignacion where id_obra = #idObra# and id_empleado is not null;
+	</procedure>
+	
+	<procedure id= "cambiaEstatusEmpleado" resultClass = "java.lang.Boolean" parameterClass="classEmpleadosAsignadosObraMap">
+		SELECT * FROM spu_estatus_empleado_asignado(#estatus#,#idEmpleado#,#idObra#)
+	</procedure>
+	
+	<procedure id= "cambiaEstatusEquipo" resultClass = "java.lang.Boolean" parameterClass="classEquiposAsignadosObraMap">
+		SELECT * FROM spu_estatus_equipo_asignado(#estatus#,#idEquipo#,#idObra#)
+	</procedure>
+	
+	<procedure id= "addEquipo" resultClass = "java.lang.Boolean" parameterClass="classEquiposAsignadosObraMap">
+		SELECT * FROM spi_add_equipo_obra(#idEquipo#,#idObra#)
+	</procedure>
+	
+	<procedure id= "addEmpleado" resultClass = "java.lang.Boolean" parameterClass="classEmpleadosAsignadosObraMap">
+		SELECT * FROM spi_add_empleado_obra(#idEmpleado#,#idObra#)
+	</procedure>
+	
+	<procedure id= "utilEmpleadoEstatus" resultClass = "java.lang.String" parameterClass="classEmpleadosAsignadosObraMap">
+		SELECT * FROM sputil_estatus_empleado(#idEmpleado#)
+	</procedure>
+	
+	
+	
+	
+
+	<!-- Recurso Obra Maqune -->
+	<procedure id="infoObraRecursoMaqune" resultMap="obraRecursoMaquneMap"
+		parameterClass="classObraRecursoMaquneMap">
+		SELECT * FROM
+		spr_obrarecursoMaqune(#idObra#,#idMaqune#)
+	</procedure>
+
+	<procedure id="insertObraRecursoMaqune" resultMap="obraRecursoMaquneMap"
+		parameterClass="classObraRecursoMaquneMap">
+		SELECT * FROM
+		spi_obrarecursoMaqune(#idObra# , #fechaAsignacion#, #idMaqune#)
+	</procedure>
+	<procedure id="updateObraRecursoMaqune" resultMap="obraRecursoMaquneMap"
+		parameterClass="classObraRecursoMaquneMap">
+		SELECT * FROM
+		spu_obrarecursoMaqune(#idObra# , #fechaAsignacion# , #idMaqune#)
+	</procedure>
+
+
+	<procedure id="deleteObraRecursoMaqune" resultClass="java.lang.Boolean"
+		parameterClass="classObraRecursoMaquneMap">
+		SELECT * FROM
+		spd_obrarecursoMaqune(#idObra#,#idMaqune#)
+	</procedure>
+
+
+	<!-- Obra -->
+
+
+	<procedure id="infoObra" resultMap="obraMap" parameterClass="classObraMap">
+		SELECT * FROM spr_Obra(#idObra#,#nombre#,#contrato#,#idEmpleado#,#status#)
+	</procedure>
+
+	<procedure id="insertObra" resultMap="obraMap"
+		parameterClass="classObraMap">
+		SELECT * FROM spi_Obra(#claveObra# ,
+		#nombre# , #lat# , #lng# , #idEmpleado# , #presupuestoEstimado# ,
+		#contrato# , #status# , #fechaInicio# , #fechaTermina#, #idEntidad#, #idMunicipio#, #idLocalidad#, #jornadaLaboral#, #descripcion# )
+	</procedure>
+	<procedure id="updateObra" resultMap="obraMap"
+		parameterClass="classObraMap">
+		SELECT * FROM spu_Obra(#idObra# ,
+		#claveObra# , #nombre# , #lat# , #lng# , #idEmpleado# ,
+		#presupuestoEstimado# , #contrato# , #status# , #fechaInicio# ,
+		#fechaTermina#,  #idEntidad#, #idMunicipio#, #idLocalidad#, #jornadaLaboral#, #descripcion# )
+	</procedure>
+
+
+	<procedure id="deleteObra" resultClass="java.lang.Boolean"
+		parameterClass="classObraMap">
+		SELECT * FROM
+		 (#idObra#,#idEmpleado#)
+	</procedure>
+	
+	<procedure id="getEmpleadoConMaquinaria" resultMap="obraMap" parameterClass = "classEquiposMap">
+		select * from t_asignacion_obra where empleado;
+	</procedure>
+
+
+
+
+</sqlMap>

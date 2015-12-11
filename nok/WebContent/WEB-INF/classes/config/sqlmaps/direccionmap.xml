@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="direccionMap">
+
+	<typeAlias alias ="classEntidad" type="mx.com.nok.direccion.model.dto.EntidadDTO"/>
+	<typeAlias alias ="classLocalidad" type="mx.com.nok.direccion.model.dto.LocalidadDTO"/>
+	<typeAlias alias ="classMunicipio" type="mx.com.nok.direccion.model.dto.MunicipioDTO"/>
+			
+	<resultMap id="entidadMap"	class="classEntidad">		
+		<result property="idEntidad" 	column="id_entidad" />				
+		<result property="entidad" 		column="entidad" />
+		<result property="sigla" 		column="sigla" />
+	</resultMap>
+				
+	<resultMap id="localidadMap"	class="classLocalidad">		
+	<result property="idLocalidad" 		column="id_Localidad" />				
+		<result property="localidad" 		column="localidad" />				
+		<result property="idMunicipio" 		column="id_municipio" />
+		<result property="idEntidad" 		column="id_entidad" />
+		<result property="entidad" 		column="entidad" />
+		<result property="municipio" 		column="municipio" />
+	</resultMap>
+
+	
+	<resultMap id="municipioMap"	class="classMunicipio">		
+		<result property="idMunicipio" 		column="id_municipio" />				
+		<result property="municipio" 		column="municipio" />
+		<result property="idEntidad" 		column="id_entidad" />
+		<result property="entidad" 		column="entidad" />
+	</resultMap>
+	
+	
+	<procedure id="infoEntidad" resultMap="entidadMap" parameterClass="classEntidad" >
+		SELECT * FROM spr_entidad(#idEntidad#)
+	</procedure>
+	
+	<procedure id="insertEntidad" resultMap="entidadMap"  parameterClass="classEntidad">
+		SELECT * FROM spi_entidad(#idEntidad#,#entidad#,#sigla#)
+	</procedure>
+	
+	<procedure id="updateEntidad" resultMap="entidadMap" parameterClass="classEntidad" >
+		SELECT * FROM spu_entidad(#idEntidad#,#entidad#,#sigla#)
+	</procedure>
+	
+	<procedure id="deleteEntidad" resultClass="java.lang.Boolean" parameterClass="classEntidad" >
+		SELECT * FROM spd_entidad(#idEntidad#)
+	</procedure>	
+		
+	
+	
+	
+	
+	<procedure id="infoLocalidad" resultMap="localidadMap" parameterClass="classLocalidad" >
+		SELECT * FROM spr_localidad(#idLocalidad#,#idMunicipio#,#idEntidad#)
+	</procedure>
+	
+	<procedure id="insertLocalidad" resultMap="localidadMap"  parameterClass="classLocalidad">
+		SELECT * FROM spi_localidad(#idLocalidad#,#localidad#,#idMunicipio#,#idEntidad#)
+	</procedure>
+	
+	<procedure id="updateLocalidad" resultMap="localidadMap" parameterClass="classLocalidad" >
+		SELECT * FROM spu_localidad(#idLocalidad#,#localidad#,#idMunicipio#,#idEntidad#)
+	</procedure>
+	
+	<procedure id="deleteLocalidad" resultClass="java.lang.Boolean" parameterClass="classLocalidad" >
+		SELECT * FROM spd_localidad(#idLocalidad#,#idMunicipio#,#idEntidad#)
+	</procedure>	
+		
+		
+		
+		<procedure id="infoMunicipio" resultMap="municipioMap" parameterClass="classMunicipio" >
+		SELECT * FROM spr_municipio(#idMunicipio#,#idEntidad#)
+	</procedure>
+	
+	<procedure id="insertMunicipio" resultMap="municipioMap"  parameterClass="classMunicipio">
+		SELECT * FROM spi_municipio(#idMunicipio#,#municipio#,#idEntidad#)
+	</procedure>
+	
+	<procedure id="updateMunicipio" resultMap="municipioMap" parameterClass="classMunicipio" >
+		SELECT * FROM spu_municipio(#idMunicipio#,#municipio#,#idEntidad#)
+	</procedure>
+	
+	<procedure id="deleteMunicipio" resultClass="java.lang.Boolean" parameterClass="classMunicipio" >
+		SELECT * FROM spd_municipio(#idMunicipio#,#idEntidad#)
+	</procedure>	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</sqlMap>

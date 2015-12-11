@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="equipoMap">
+	<typeAlias alias ="classFallaEquipoMap" type="mx.com.nok.fallaEquipo.model.dto.FallaEquipoDTO"/>
+		
+	<resultMap id="fallaEquipoMap" 	class="classFallaEquipoMap">		
+		<result property="id_tfallas" 			column="id_tfallas" />
+		<result property="tipo_falla" 			column="tipo_falla" />
+		<result property="id_empleado" 			column="id_empleado" />
+		<result property="id_subfalla" 			column="id_subfalla" />
+		<result property="descripcion" 			column="descripcion" />
+		<result property="prioridad" 			column="prioridad" />
+		<result property="observaciones" 		column="observaciones" />
+		<result property="estatus" 				column="estatus" />
+		<result property="fecha_registro" 		column="fecha_registro" />
+		<result property="id_equipo" 			column="id_equipo" />
+		<result property="id_obra" 				column="id_obra" />
+		<result property="nombreequipo"         column="nombreequipo"/>
+		<result property="descripcionequipo" 	column="descripcionequipo"/>
+		<result property="tipoadquisicion" 		column="tipoadquisicion"/>
+		<result property="numeroserie" 			column="numeroserie"/>
+		<result property="id_tipocategoria" 	column="id_tipocategoria"/>
+		<result property="tipocategoria" 		column="tipocategoria"/>
+		<result property="id_categoria" 		column="id_categoria"/>
+		<result property="categoria" 			column="categoria"/>
+		<result property="numeroeconomico" 		column="numeroeconomico"/>
+		<result property="clave_obra" 			column="clave_obra"/>
+		<result property="nombreobra" 			column="nombreobra"/>
+		<result property="descripcionobra" 		column="descripcionobra"/>
+		<result property="falla" 				column="falla"/>
+		<result property="subfalla" 			column="subfalla"/>
+	</resultMap>
+
+
+	<!--Equipo-->	
+	<procedure id="getFallaEquipo" resultMap="fallaEquipoMap" parameterClass="classFallaEquipoMap" >
+		SELECT * FROM spr_fallaequipo(#id_tfallas#, #numeroeconomico#, #id_equipo#, #id_empleado#, #id_obra#, #id_subfalla#)
+	</procedure>	
+
+	<procedure id="insertFallaEquipo" resultMap="fallaEquipoMap" parameterClass="classFallaEquipoMap" >
+		 SELECT * FROM spi_fallaequipo(
+					#tipo_falla#,
+					#id_empleado#,
+					#id_subfalla#,
+					#descripcion#,
+					#prioridad#,
+					#observaciones#,
+					#fecha_registro#,					
+					#id_equipo#,
+					#id_obra#,
+					#estatus#) 		 
+</procedure>
+	
+<procedure id="updateFallaEquipo" resultMap="fallaEquipoMap" parameterClass="classFallaEquipoMap" >
+	SELECT * FROM spu_fallaequipo(
+					#id_tfallas#,
+					#tipo_falla#,
+					#id_empleado#,
+					#id_subfalla#,
+					#descripcion#,
+					#prioridad#,
+					#observaciones#,
+					#fecha_registro#,					
+					#id_equipo#,
+					#id_obra#,
+					#estatus#)
+	</procedure>
+	
+	
+	<procedure id="deleteFallaEquipo" resultClass="java.lang.Boolean" parameterClass="classFallaEquipoMap" >
+		SELECT * FROM spd_fallaequipo(#id_tfallas#)
+	</procedure>	
+	
+</sqlMap>

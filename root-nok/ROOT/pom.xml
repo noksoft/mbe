@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>mx.com.accival.accimarket</groupId>
+	<artifactId>accimarket-principal</artifactId>
+	<version>5.0.1.0</version>
+	<packaging>pom</packaging>
+	<name>Accimarket</name>
+
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>nexus.dev.accival</id>
+			<name>Internal Repository Accival DEV -> Nexus Maven</name>
+			<url>dav:${urlRepositorioAccival}</url>
+		</repository>
+	</distributionManagement>
+
+	<modules>
+		<!-- ACCIMARKET - APPSERVER -->
+		<module>amJavaProperties</module>
+		<module>acci-core</module>
+		<!--<module>am-mdodinmov</module>
+		<module>am-captdir</module>
+		<module>am-consperfil</module>
+		<module>am-ctrlrdip</module>
+		<module>am-repmensual</module>
+		<module>am-listaContratos</module>
+		<module>medAPIFacade</module>
+		<module>medComun</module>
+		<module>medDTO</module>
+		<module>medEJBFacade</module>
+		<module>medModel</module>
+		<module>medPersistence</module>
+		<module>medService</module>
+		<module>medESBAdapter</module>
+		<module>amFOV</module>
+		<module>AMFovService</module>
+		<module>posicionsic</module>
+		<module>liqCtrlInversion</module>
+		<module>am-reclasifsocinv</module>-->
+		<module>am-aperturacontrato</module>
+		<module>accimarketWar</module>
+		<!--<module>accimarketWarCob</module>
+		<module>accimarketEar</module>
+		<module>accimarketEarCob</module> -->
+
+		<!-- ACCIMARKET - WEBSERVER -->
+		<module>medFlexProperties</module>
+    <module>AMCoreLib</module>
+		<!-- <module>medWebRSL</module>
+		<module>medWebConfig</module>
+		<module>medWebShell</module>
+		<module>medWebShellAccitrade</module>
+		<module>medWebCorporativos</module>
+		<module>medWebLiquidacion</module>
+		<module>medWebRegistroDerechos</module>
+		<module>AMCaptEfvoLib</module>
+		<module>AMCaptEfvo</module>
+		 <module>AMConsMov</module>
+		<module>AMCaptCapitales</module>
+		<module>AMProductRiskRating</module>
+		<module>AMRMRecClienProd</module>
+		<module>AMSeguimiento</module>
+		<module>AMCaptGlobal</module>
+		<module>AMLiqPosicion</module>		 
+		<module>AMListaContratos</module>
+		<module>MDMovimiento</module>
+		<module>AMConsMdoDin</module>-->
+		<module>AMAperContrato</module>
+		<module>AMPerfil</module> 
+		<!--<module>AMCaptSocInv</module>-->
+		<module>iplanet</module>
+	</modules>
+</project>

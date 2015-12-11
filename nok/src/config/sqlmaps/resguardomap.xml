@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="resguardoMap">
+
+	<typeAlias alias ="classResguardoMap" type="mx.com.nok.resguardo.model.dto.ResguardoDTO"/>
+	<typeAlias alias ="classArticuloMap" type="mx.com.nok.articulo.model.dto.ArticuloDTO"/>
+		
+		
+	<resultMap id="resguardoMap"   
+		class="classResguardoMap">		
+		<result property="idResguardo" 				column="id_resguardo" />	
+		<result property="idEmpleado" 				column="id_empleado" />
+		<result property="materno" 					column="materno" />	
+		<result property="paterno" 					column="paterno" />
+		<result property="idArticulo" 				column="id_articulo" />
+		<result property="descripcion" 				column="descripcion" />
+		<result property="fechaAsignacion" 			column="fecha_asignacion" />
+		<result property="comentario" 				column="comentario" />
+		<result property="razonDevolucion" 			column="razon_devolucion" />
+		<result property="fechaDevolucion" 			column="fecha_devolucion" />				
+	</resultMap>	
+	
+	
+	<resultMap id="articuloMap" class="classArticuloMap">		
+		<result property="idArticulo" 		column="id_articulo" />	
+		<result property="descripcion" 		column="descripcion" />
+	</resultMap>
+	
+	
+	
+	
+	<procedure id="devolucionResguardo" resultMap="resguardoMap" parameterClass="classResguardoMap" >
+		select * from spu_resguardoDevolucion(#idResguardo#,#razonDevolucion#,#fechaDevolucion#);
+	</procedure>
+		
+	
+	<procedure id="infoResguardo"  resultMap="resguardoMap"  parameterClass="classResguardoMap" >
+		select * from spr_resguardo(#idResguardo#,#idEmpleado#,#idArticulo#);
+	</procedure>
+	
+	
+	<procedure id="insertResguardo" resultMap="resguardoMap" parameterClass="classResguardoMap" >
+		select  *  from spi_resguardo(#idEmpleado#, #idArticulo#, #fechaAsignacion#,#comentario#);
+	</procedure>
+	
+	<procedure id="articuloSinResguardo" resultMap="articuloMap"  >
+		select  *  from spr_articuloSinResguardo();
+	</procedure>
+	
+	
+	
+</sqlMap>

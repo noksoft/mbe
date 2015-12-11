@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="notificacionMap">
+	<typeAlias alias ="classNotificacionMap" type="mx.com.nok.notificacion.model.dto.NotificacionDTO"/>
+
+			
+	<resultMap id="notificacionMap" class="classNotificacionMap">		
+		<result property="idNotificacion" 			column="id_notificacion" />
+		<result property="descripcion" 				column="descripcion" />
+		<result property="labelMin" 				column="label_min" />
+		<result property="idConfig" 				column="id_config" />	
+		<result property="fechaNotificacion"		column="fecha_notificacion" />
+		<result property="estatusNotificacion"	 	column="estatus_notificacion" />
+		<result property="idUsuario" 				column="id_usuario" />
+			
+	</resultMap> 
+	 
+	 <procedure id="infoNotificacion" resultMap="notificacionMap" parameterClass="classNotificacionMap" >
+		SELECT * FROM spr_notificacion(#idNotificacion# , #idConfig# , #idUsuario# )
+	</procedure>		
+	
+	<procedure id="insertNotificacion" resultMap="notificacionMap" parameterClass="classNotificacionMap" >
+		SELECT * FROM spi_notificacion(#descripcion# , #labelMin# , #idConfig# , #fechaNotificacion#,#estatusNotificacion#,#idUsuario# )
+	</procedure>		
+	<procedure id="updateNotificacion" resultMap="notificacionMap" parameterClass="classNotificacionMap" >
+		SELECT * FROM spu_notificacion(#idNotificacion# ,#descripcion# , #labelMin# , #idConfig# , #fechaNotificacion#,#estatusNotificacion#,#idUsuario# )
+	</procedure>	
+	
+		
+	<procedure id="deleteNotificacion" resultClass="java.lang.Boolean" parameterClass="classNotificacionMap" >
+		SELECT * FROM spd_notificacion(#idNotificacion# , #idConfig# , #idUsuario# )
+	</procedure>	
+	 
+</sqlMap>

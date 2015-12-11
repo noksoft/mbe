@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="componenteMap">
+	<typeAlias alias ="classComponenteMap" type="mx.com.nok.componente.model.dto.ComponenteDTO"/>
+	<typeAlias alias ="classComponentePerfilMap" type="mx.com.nok.componente.model.dto.ComponentePerfilDTO"/>
+	
+		
+	<resultMap id="componenteMap" class="classComponenteMap">		
+		<result property="idComponente" 		column="id_componente" />
+		<result property="descripcion" 		column="descripcion" />
+		<result property="idMenu" 		column="id_menu" />	
+		<result property="menu" 		column="menu" />
+		<result property="componente" 		column="componente" />
+		<result property="nombreSubmenu" 		column="nombre_submenu" />		
+		<result property="nombreCortoComponente" 		column="nombre_corto" />
+		<result property="estatus" 		column="estatus" />		
+	</resultMap>	
+	
+
+
+	<resultMap id="componentePerfilMap" class="classComponentePerfilMap">		
+		<result property="idComponente" 		column="id_componente" />
+		<result property="idPerfil" 		column="id_perfil" />
+		<result property="fechaPermiso" 		column="fecha_permiso" />	
+	
+	</resultMap>	
+
+
+
+	<procedure id="infoComponentePerfil" resultMap="componentePerfilMap" parameterClass="classComponentePerfilMap" >
+		SELECT * FROM spr_componentePerfil(#idComponente#,#idPerfil#);
+	</procedure>	
+	
+	<procedure id="insertComponentePerfil" resultMap="componentePerfilMap"  parameterClass="classComponentePerfilMap">
+		SELECT * FROM spi_componentePerfil(#idComponente#, #idPerfil# , #fechaPermiso#)
+	</procedure>	
+	
+	<procedure id="updateComponentePerfil" resultMap="componentePerfilMap" parameterClass="classComponentePerfilMap" >
+		SELECT * FROM spu_componentePerfil(#idComponente#, #idPerfil# , #fechaPermiso#)
+	</procedure>		
+		
+
+	
+	<procedure id="deleteComponentePerfil" resultClass="java.lang.Boolean" parameterClass="classComponentePerfilMap" >
+		SELECT * FROM spd_componentePerfil(#idComponente#,#idPerfil#)
+	</procedure>	
+	
+
+
+
+	<procedure id="infoComponente" resultMap="componenteMap" parameterClass="classComponenteMap" >
+		SELECT * FROM spr_componente(#idMenu#,#idComponente#,#filterEstatusComponente#);
+	</procedure>	
+	
+	<procedure id="insertComponente" resultMap="componenteMap"  parameterClass="classComponenteMap">
+		SELECT * FROM spi_componente(#descripcion# , #idMenu#, #componente#, #nombreSubmenu#,
+		 #nombreCortoComponente#)
+	</procedure>	
+	
+	<procedure id="updateComponente" resultMap="componenteMap" parameterClass="classComponenteMap" >
+		SELECT * FROM spu_componente(#idComponente#, #descripcion# , #idMenu#, #componente#, #nombreSubmenu#,
+		 #nombreCortoComponente#,#estatus#)
+	</procedure>
+	
+	<procedure id="updateEstatusComponente" resultMap="componenteMap"  parameterClass="classComponenteMap">
+	 SELECT * FROM spu_componenteEstatus(#idMenu# , #idComponente# , #estatus# ) 
+	</procedure>	
+		
+	
+	<procedure id="deleteComponente" resultClass="java.lang.Boolean" parameterClass="classComponenteMap" >
+		SELECT * FROM spd_componente(#idMenu#,#idComponente#)
+	</procedure>	
+		
+	
+	
+	
+
+	
+</sqlMap>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="menuMap">
+	<typeAlias alias="classAdquisicionMap" type="mx.com.nok.adquisicion.model.dto.AdquisicionDTO"/>
+	
+	<resultMap id="adquisicionMap" class="classAdquisicionMap">
+		<result property="idAdquisicion"		column="id_adquisicion"/>
+		<result property="folioReq"				column="folio_req"/>
+		<result property="idArticulo"			column="id_articulo"/>
+		<result property="folioFactura"			column="folio_factura"/>
+		<result property="cantidad"				column="cantidad"/>
+		<result property="costoUnitario"		column="costo_unitario"/>
+		<result property="costoTotal"			column="costo_total"/>
+		<result property="fechaAdquisicion"		column="fecha_adquisicion"/>
+		<result property="estatus"				column="estatus"/>
+	</resultMap>
+	
+	<procedure id="getAdquisiciones" resultMap="adquisicionMap" parameterClass="classAdquisicionMap" >
+		SELECT * FROM spr_adquisicion(#idAdquisicion#, #folioReq#, #idArticulo#, #filterEstatus#);
+	</procedure>
+	
+	<procedure id="insertAdquisicion" resultMap="adquisicionMap" parameterClass="classAdquisicionMap" >
+		SELECT * FROM spi_adquisicion(#folioReq#, #idArticulo#, #folioFactura#, #cantidad#, #costoUnitario#, #costoTotal#, #fechaAdquisicion#, #estatus#);
+	</procedure>	
+	
+	<procedure id="updateAdquisicion" resultMap="adquisicionMap" parameterClass="classAdquisicionMap" >
+		SELECT * FROM spu_adquisicion(#idAdquisicion#, #folioReq#, #idArticulo#, #folioFactura#, #cantidad#, #costoUnitario#, #costoTotal#, #fechaAdquisicion#, #estatus#);
+	</procedure>
+	
+	<procedure id="deleteAdquisicion" resultClass="java.lang.Boolean" parameterClass="classAdquisicionMap" >
+		SELECT * FROM spd_adquisicion(#idAdquisicion#);
+	</procedure>
+	
+</sqlMap>

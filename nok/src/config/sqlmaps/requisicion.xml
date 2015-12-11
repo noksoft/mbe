@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="requisicionMap">
+	<typeAlias alias ="classrequisicionMap" type="mx.com.nok.requisicion.model.dto.RequisicionDTO"/>
+
+			
+	<resultMap id="requisicionMap" class="classrequisicionMap">		
+		<result property="folioReq" 		column="id_maqune" />
+		<result property="empleadoSolicitante" 			column="nombre" />
+		<result property="empleadoResponsable" 		column="id_submarca" />
+		<result property="idProveedor" 		column="submarca" />	
+		<result property="folioFactura" 		column="descripcion" />
+		<result property="fechaReq" 			column="n_serie" />		
+	</resultMap>	
+	
+	
+</sqlMap>

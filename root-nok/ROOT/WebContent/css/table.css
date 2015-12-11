@@ -1,0 +1,13 @@
+.headertable { font-size:16px; color:000066; }
+table { border-collapse: collapse; border: 1px solid; 
+background: #F4F8FF; font: arial; color: #999999; border-color: #EEEEEE; border-style: solid;}
+td, th { padding: 3px 7px .2em 7px; line-height: 2em;}
+.columnHeader {color: #0000CC; font-weight: bold; text-align: left; padding-right: .5em; vertical-align: top;font-size:11px; }
+.columntitle {color: #000066; font-weight: bold; text-align: left; padding-right: .5em; vertical-align: top;font-size:11px; }
+.column {color: #0000CC;bgcolor: #EAF2FF; font-weight: normal; text-align: left; padding-right: .5em; vertical-align: top;font-size:11px; }
+th {color: #333333; font-weight:BOLD; text-align: right; padding-right: .5em; vertical-align: top;  font-size:11px;}
+thead th { background: #FFFFFF; text-align: left; }
+.odd td { background: #FFFFFF; }
+.odd th { background: #FFFFFF; }
+th + td { padding-left: .5em; }
+.data{ color:#999999; font-size:11px; }

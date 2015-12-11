@@ -1,0 +1,17 @@
+/* hide container until all is ready */
+
+.imagenAcordeon{
+   display: none;
+   float:left;
+}
+
+.tabsLeft{
+   float:left;
+}
+
+
+a {
+   FONT-SIZE:15px; 
+   COLOR: #FFFFFF; 
+   TEXT-DECORATION: none;
+}

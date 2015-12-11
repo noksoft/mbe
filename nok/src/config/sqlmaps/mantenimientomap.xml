@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="mantenimientoMap">
+	<typeAlias alias ="classDetalleManttoMap" type="mx.com.nok.mantenimiento.model.dto.DetalleManttoDTO"/>
+	<typeAlias alias ="classProgramaManttoMap" type="mx.com.nok.mantenimiento.model.dto.ProgramaManttoDTO"/>
+
+			
+	<resultMap id="detalleManttoMap" class="classDetalleManttoMap">		
+		<result property="idProgramaMtto" 		column="id_programa_mtto" />
+		<result property="idMttoDetalle" 			column="id_mtto_detalle" />
+		<result property="idEmpleado" 		column="id_empleado" />
+		<result property="reparacion" 		column="reparacion" />	
+		<result property="impedimentos" 		column="impedimentos" />
+		<result property="status" 			column="status" />
+		<result property="fechaAvance" 			column="fecha_avance" />
+	
+	</resultMap>
+	
+	
+	<resultMap id="programaManttoMap" class="classProgramaManttoMap">		
+		<result property="idPrograma" 		column="id_programa" />
+		<result property="idTfalla" 			column="id_tfalla" />
+		<result property="observaciones" 		column="observaciones" />
+		<result property="idEmpleado" 		column="id_empleado" />	
+		<result property="fechaProgramado" 		column="fecha_programado" />
+		<result property="fechaTerminado" 			column="fecha_terminado" />
+		<result property="fechaRegistro" 			column="fecha_registro" />
+	
+	</resultMap>
+	
+	
+		
+	
+<!--Detalle Mantenimiento-->	
+	
+	<procedure id="infoDetalleMantenimiento" resultMap="detalleManttoMap" parameterClass="classDetalleManttoMap" >
+		SELECT * FROM spr_progMttoDetalle(#idProgramaMtto#,#idMttoDetalle#,#idEmpleado#)
+	</procedure>	
+		
+	<procedure id="insertDetalleMantenimiento" resultMap="detalleManttoMap" parameterClass="classDetalleManttoMap" >
+		SELECT * FROM spi_progMttoDetalle(#idProgramaMtto#,#idMttoDetalle#,#idEmpleado#,#reparacion#,#impedimentos#,#status#,#fechaAvance#)
+	</procedure>		
+	<procedure id="updateDetalleMantenimiento" resultMap="detalleManttoMap" parameterClass="classDetalleManttoMap" >
+		SELECT * FROM spu_progMttoDetalle(#idProgramaMtto#,#idMttoDetalle#,#idEmpleado#,#reparacion#,#impedimentos#,#status#,#fechaAvance#)
+	</procedure>	
+	
+	
+	<procedure id="deleteDetalleMantenimiento" resultClass="java.lang.Boolean" parameterClass="classDetalleManttoMap" >
+		SELECT * FROM spd_progMttoDetalle(#idProgramaMtto#,#idMttoDetalle#,#idEmpleado#)
+	</procedure>	
+	
+	
+	
+	
+	<!-- Programa Mantenimiento-->	
+	
+	<procedure id="infoProgramaMantenimiento" resultMap="programaManttoMap" parameterClass="classProgramaManttoMap" >
+		SELECT * FROM spr_programaMtto(#idPrograma#,#idTfalla#,#idEmpleado#)
+	</procedure>	
+		
+	<procedure id="insertProgramaMantenimiento" resultMap="programaManttoMap" parameterClass="classProgramaManttoMap" >
+		SELECT * FROM spi_programaMtto(#idPrograma#,#idTfalla#,#observaciones#,#idEmpleado#,#fechaProgramado#,#fechaTerminado#,#fechaRegistro#)
+	</procedure>		
+	<procedure id="updateProgramaMantenimiento" resultMap="programaManttoMap" parameterClass="classProgramaManttoMap" >
+		SELECT * FROM spu_programaMtto(#idPrograma#,#idTfalla#,#observaciones#,#idEmpleado#,#fechaProgramado#,#fechaTerminado#,#fechaRegistro#)
+	</procedure>	
+	
+	
+	<procedure id="deleteProgramaMantenimiento" resultClass="java.lang.Boolean" parameterClass="classProgramaManttoMap" >
+		SELECT * FROM spd_programaMtto(#idPrograma#,#idTfalla#,#idEmpleado#)
+	</procedure>	
+	
+	
+	
+</sqlMap>

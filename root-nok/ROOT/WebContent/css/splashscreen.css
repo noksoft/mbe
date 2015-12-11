@@ -1,0 +1,90 @@
+.splashscreen_progress_container{
+	position:absolute;
+	bottom:0;
+	left:0;
+	background:#ddd;
+	height:16px;
+	font:1px verdana, helvetica;
+}
+.splashscreen_progress_bar{
+	background:navy;
+	height:16px;
+	font:1px verdana, helvetica;
+	background-image:url(loading.gif);
+}
+.splashscreen_console{
+	position:absolute;
+	left:0px;
+	top:250px;
+	background-color:#000;
+	font-size:0.7em;
+	color:#ccc;
+	height:100px;
+	width:400px;
+	overflow:auto;
+	display:none;
+}
+.splashscreen_toggle_console{
+	background-image: url('information.gif');
+	width:16px;
+	height:16px;
+}
+.splashscreen_console .splashscreen_console_line{
+	width:350px;
+	padding:2px;
+}
+.splashscreen_script_name{
+	margin-right:60px;
+}
+.splashscreen_package_name{
+	position:absolute;
+	bottom:25px;
+	font-size:0.7em;
+	color:#333;
+	left:5px;
+}
+.splashscreen_toggle_console{
+	position:absolute;
+	bottom:25px;
+	font-size:0.7em;
+	color:#333;
+	right:15px;
+}
+.splashscreen_overlay{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-color:#666;
+	opacity:1/*0.75;*/;
+	z-index:99
+}
+.splashscreen_error_box{
+	position:absolute;
+	top: 122px;
+	left: 139px;
+	color: #d00;
+	font-size: 11px;
+	display:none;
+}
+.splashscreen_abort{
+	font-size:15px;
+	margin-left:40px;
+	color:#d00;
+}
+.splashscreen_ok, .splashscreen_failed{
+	text-transform:uppercase;
+}
+.splashscreen_ok{
+	color: #0d0;	
+}
+.splashscreen_retry{
+	font-size: 15px;
+	margin-left: 10px;
+	color: #090;
+}
+.splashscreen_failed{
+	color: #d00;	
+} 
+

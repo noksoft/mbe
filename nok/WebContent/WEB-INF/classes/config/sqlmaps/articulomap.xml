@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="menuMap">
+	<typeAlias alias ="classMarcaMap" type="mx.com.nok.articulo.model.dto.MarcaDTO"/>
+	<typeAlias alias ="classSubmarcaMap" type="mx.com.nok.articulo.model.dto.SubmarcaDTO"/>
+	<typeAlias alias ="classArticuloMap" type="mx.com.nok.articulo.model.dto.ArticuloDTO"/>
+		
+	<resultMap id="marcaMap" class="classMarcaMap">		
+		<result property="idMarca" 		column="id_marca" />
+		<result property="marca" 		column="marca" />
+		<result property="estatus" 		column="estatus" />	
+	</resultMap>	
+	<resultMap id="submarcaMap" class="classSubmarcaMap">		
+		<result property="idMarca" 		column="id_marca" />
+		<result property="idSubmarca" 	column="id_submarca" />
+		<result property="submarca" 	column="submarca" />
+		<result property="estatus" 		column="estatus" />	
+	</resultMap>		
+	
+	<resultMap id="articuloMap" class="classArticuloMap">		
+		<result property="idArticulo" 		column="id_articulo" />		
+		<result property="descripcion" 		column="descripcion" />
+		<result property="idMarca" 			column="id_marca" />
+		<result property="marca" 			column="marca" />
+		<result property="idSubmarca" 		column="id_submarca" />	
+		<result property="nParte" 			column="n_parte" />
+		<result property="cantidad" 		column="cantidad" />
+		<result property="stockMin" 		column="stock_min" />	
+		<result property="stockMax" 		column="stock_max" />
+		<result property="costoUnitario" 	column="costo_unitario" />
+		<result property="costoTotal" 		column="costo_total" />	
+		<result property="ubicacion" 		column="ubicacion" />
+		<result property="unidad" 			column="unidad" />
+		<result property="fechaAdquisicion" column="fecha_adquisicion" />	
+		<result property="estatus" 			column="estatus" />	
+	</resultMap>	
+
+	<procedure id="infoArticulo" resultMap="articuloMap" parameterClass="classSubmarcaMap" >
+		SELECT * FROM spr_articulo(#idSubmarca#,#idArticulo#,#filterEstatusArticulo#);
+	</procedure>	
+	
+	<procedure id="updateArticulo" resultMap="articuloMap" parameterClass="classArticuloMap" >
+		SELECT * FROM spu_articulo(#idArticulo#, #descripcion# , #idSubmarca#, #nParte#, #cantidad#,
+		 #stockMin#,#stockMax#, #costoUnitario#, #costoTotal#, #ubicacion#, #unidad#, #fechaAdquisicion#,#estatus#)
+	</procedure>	
+	
+	<procedure id="deleteArticulo" resultClass="java.lang.Boolean" parameterClass="classArticuloMap" >
+		SELECT * FROM spd_articulo(#idSubmarca#,#idArticulo#)
+	</procedure>	
+		
+	<procedure id="insertArticulo" resultMap="articuloMap"  parameterClass="classArticuloMap">
+		SELECT * FROM spi_Articulo(#descripcion# , #idSubmarca#, #nParte#, #cantidad#,
+		#stockMin#,#stockMax#, #costoUnitario#, #costoTotal#, #ubicacion#, #unidad#, #fechaAdquisicion#)
+	</procedure>
+	
+	
+	<procedure id="updateEstatusArticulo" resultMap="articuloMap"  parameterClass="classArticuloMap">
+		SELECT * FROM spu_articuloEstatus(#idSubmarca#, #idArticulo# , #estatus#)
+	</procedure>
+	
+	<procedure id="buscaArticulo" resultMap="articuloMap" parameterClass="classArticuloMap" >
+		SELECT * FROM spr_buscaArticulo(#idMarca#,#idSubmarca#,#descripcion#,#filterEstatusArticulo#)
+	</procedure>
+	
+
+	<procedure id="infoMarca" resultMap="marcaMap" parameterClass="classMarcaMap" >
+		SELECT * FROM spr_marca(#idMarca#,#filterEstatusMarca#);
+	</procedure>	
+	
+	<procedure id="updateMarca" resultMap="marcaMap" parameterClass="classMarcaMap" >
+		SELECT * FROM spu_marca(#idMarca#,#marca#,#estatus#);
+	</procedure>
+		
+	<procedure id="deleteMarca" resultClass="java.lang.Boolean" parameterClass="classMarcaMap">
+		SELECT * FROM spd_marca(#idMarca#);
+	</procedure>	
+	
+	<procedure id="insertMarca" resultMap="marcaMap"  parameterClass="classMarcaMap">
+		SELECT * FROM spi_marca(#marca#);
+	</procedure>
+	
+	<procedure id="updateEstatusMarca"  resultMap="marcaMap"  parameterClass="classMarcaMap" >
+		SELECT * FROM spu_Marcaestatus(#idMarca#,#estatus#);
+	</procedure>	
+	
+	
+
+	<procedure id="infoSubmarca" resultMap="submarcaMap"  parameterClass="classMarcaMap">
+		SELECT * FROM spr_submarca(#idMarca#,#filterEstatusSubmarca#);
+	</procedure>
+
+	<procedure id="updateSubmarca" resultMap="submarcaMap"   parameterClass="classSubmarcaMap">
+		SELECT * FROM spu_submarca(#idMarca#,#idSubmarca#,#submarca#,#estatus#);
+	</procedure>
+		
+	<procedure id="deleteSubmarca" resultClass="java.lang.Boolean" parameterClass="classSubmarcaMap">
+		SELECT * FROM spd_submarca(#idMarca#,#idSubmarca#);
+	</procedure>	
+	
+	<procedure id="insertSubmarca" resultMap="submarcaMap"  parameterClass="classSubmarcaMap">
+		SELECT * FROM spi_submarca(#idMarca#,#submarca#);
+	</procedure>
+	
+	<procedure id="updateEstatusSubmarca"  resultMap="submarcaMap"  parameterClass="classSubmarcaMap" >
+		SELECT * FROM spu_Submarcaestatus(#idMarca#,#idSubmarca#,#estatus#);
+	</procedure>	
+	
+	
+	
+</sqlMap>

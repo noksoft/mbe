@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="coreMap">
+	<typeAlias alias ="classUsuarioMap" type="mx.com.nok.core.usuario.model.dto.UsuarioDTO"/>
+	<typeAlias alias ="classPerfilMap" type="mx.com.nok.core.usuario.model.dto.PerfilDTO"/>
+	<typeAlias alias ="classBitacoraMap" type="mx.com.nok.core.bitacora.model.dto.BitacoraDTO"/>
+	
+		
+	<resultMap id="usuarioMap"
+		class="classUsuarioMap">		
+		<result property="perfil" 		column="perfil" />
+		<result property="nombre" 		column="nombre" />
+		<result property="idPerfil" 	        column="id_perfil" />
+		<result property="rfcUsuario" 	        column="rfc_empleado" />
+		<result property="usuario" 		column="rfc_empleado" />
+		<result property="idUsuario" 	        column="id_usuario" />
+		<result property="pass"			column="p_acceso"/>
+		<result property="fechaAlta"	        column="fecha_alta"/>
+		<result property="idEmpleado"	        column="id_empleado"/>
+		<result property="paterno"		column="paterno"/>
+		<result property="materno"		column="materno"/>
+	</resultMap>
+	
+	
+	<resultMap id="usuarioMapII"
+		class="classUsuarioMap">	
+		<result property="usuario" 		column="rfc_empleado" />	
+		<result property="idUsuario" 	        column="id_usuario" />
+		<result property="idEmpleado" 	        column="id_empleado" />
+		<result property="nombre" 		column="nombre" />
+		<result property="paterno" 		column="paterno" />
+		<result property="materno" 		column="materno" />
+		<result property="rfcUsuario" 	        column="rfc_empleado" />
+		<result property="idPerfil" 	        column="id_perfil" />
+		<result property="perfil" 		column="perfil" />
+		<result property="pass" 		column="p_acceso" />
+		<result property="fechaAlta" 	        column="fecha_alta" />
+		<result property="status" 		column="estatus" />				
+	</resultMap>
+	
+	
+	<resultMap id="perfilMap"
+		class="classPerfilMap">		
+		<result property="idPerfil" 		column="id_perfil" />
+		<result property="descripcion" 		column="descripcion" />
+		<result property="estatus" 		column="estatus" />
+		
+		
+	</resultMap>	
+	
+		
+	<!--  Servicios de Bitacoreo del Usuario  -->
+	
+	<procedure id="insertMovimiento"  parameterClass="classBitacoraMap" >
+		SELECT * FROM spi_bitacora(#idEmpleado#,#descripcion#,#ip#)
+	</procedure>	
+		
+		
+		
+	<!-- Servicios Usuario -->	
+	<procedure id="infoUsuario" resultMap="usuarioMapII" parameterClass="classUsuarioMap" >
+		SELECT * FROM spr_usuario(#idUsuario#,#filterEstatusUsuario#)
+	</procedure>	
+		
+	<procedure id="updateUsuario" resultMap="usuarioMapII" parameterClass="classUsuarioMap" >
+		SELECT * FROM spu_usuario(#idUsuario#,#pass#, #status#)
+	</procedure>
+	
+	<procedure id="deleteUsuario" resultClass="java.lang.Boolean" parameterClass="classUsuarioMap" >
+		SELECT * FROM spd_usuario(#idUsuario#,#idEmpleado#)
+	</procedure>	
+		
+	<procedure id="insertUsuario" resultMap="usuarioMapII"  parameterClass="classUsuarioMap">
+		SELECT * FROM spi_usuario(#idEmpleado#,#idPerfil#,#pass#)
+	</procedure>
+
+	
+	<procedure id="updateEstatusUsuario" resultMap="usuarioMapII"  parameterClass="classUsuarioMap">
+		SELECT * FROM spu_usuarioEstatus(#idUsuario#,#status#)
+	</procedure>	
+	
+	
+	<!--Validación de usuario  ingreso o salida del sistema-->
+	<procedure id="log_in_out" resultClass="java.lang.Boolean"  parameterClass="classUsuarioMap" >
+		SELECT * FROM spr_util_login(#idUsuario#, #ip#,#pass#,#status#);
+	</procedure>
+	
+	
+	<!--Obtiene información basica del usuario -->
+	<procedure id="getInfoUsuario" resultMap="usuarioMap" parameterClass="classUsuarioMap" >
+		SELECT * FROM spr_infoUsuario(#usuario#,#status#);
+	</procedure>	
+		
+	<!-- Servicios Perfil del Usuario -->		
+	<procedure id="infoPerfil" resultMap="perfilMap" parameterClass="classPerfilMap" >
+		SELECT * FROM spr_Perfil(#idPerfil#,#filterEstatusPerfil#)
+	</procedure>	
+		
+	<procedure id="updatePerfil" resultMap="perfilMap" parameterClass="classPerfilMap" >
+		SELECT * FROM spu_perfil(#idPerfil#, #descripcion#, #estatus#)
+	</procedure>
+	
+	<procedure id="deletePerfil" resultClass="java.lang.Boolean" parameterClass="classPerfilMap" >
+		SELECT * FROM spd_perfil(#idPerfil#)
+	</procedure>	
+		
+	<procedure id="insertPerfil" resultMap="perfilMap"  parameterClass="classPerfilMap">
+		SELECT * FROM spi_perfil(#descripcion#)
+	</procedure>
+	
+	<procedure id="updateEstatusPerfil" resultMap="perfilMap"  parameterClass="classPerfilMap">
+		SELECT * FROM spu_perfilEstatus(#idPerfil#,#estatus#)
+	</procedure>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</sqlMap>

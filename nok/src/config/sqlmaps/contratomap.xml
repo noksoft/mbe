@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="menuMap">
+	<typeAlias alias ="classContratoMap" type="mx.com.nok.contrato.model.dto.ContratoDTO"/>
+		
+	<resultMap id="contratoMap" 			class="classContratoMap">		
+		<result property="idContrato" 			column="id_contrato" />
+		<result property="numeroContrato" 			column="numero_contrato" />
+		<result property="descripcion" 			column="descripcion" />	
+		<result property="fechaAlta"  	column="fecha_alta"/>
+		<result property="fechaInicio"    	column="fecha_inicio"/>
+		<result property="fechaFin"    	column="fecha_fin"/>
+		<result property="presupuesto"    	column="presupuesto"/>
+		<result property="idCliente"    	column="id_cliente"/>
+		<result property="estatus"    	column="estatus"/>
+		<result property="filterEstatus" column = "estatus"/>
+	</resultMap>	
+
+	<procedure id="infoContrato" resultMap="contratoMap" parameterClass="classContratoMap" >
+		SELECT * FROM spr_contrato(#idContrato#, #numeroContrato#, #filterEstatus#);
+	</procedure>	
+	
+	<procedure id="updateContrato" resultMap="contratoMap" parameterClass="classContratoMap" >
+		SELECT * FROM spu_contrato(#idContrato#, #numeroContrato# , #descripcion#, #fechaInicio#,#fechaFin#, #presupuesto#, #idCliente#, #filterEstatus#)
+	</procedure>	
+	
+	<procedure id="deleteContrato" resultClass="java.lang.Boolean" parameterClass="classContratoMap" >
+		SELECT * FROM spd_contrato(#idContrato#)
+	</procedure>	
+		
+	<procedure id="insertContrato" resultMap="contratoMap"  parameterClass="classContratoMap">
+		SELECT * FROM spi_contrato(#numeroContrato# , #descripcion#, #fechaInicio#, #fechaFin#, #presupuesto#, #idCliente#, #filterEstatus#)
+	</procedure>
+	
+	
+	<procedure id="updatefilterEstatusContrato" resultMap="contratoMap"  parameterClass="classContratoMap">
+		SELECT * FROM spu_contratofilterEstatus(#idContrato#,  #filterEstatus#)
+	</procedure>
+	
+	
+</sqlMap>

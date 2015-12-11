@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="menuMap">
+	<typeAlias alias="classSolicitud" type="mx.com.nok.solicitud.model.dto.SolicitudDTO"/>
+	
+	<resultMap id="solicitudMap" class="classSolicitud">
+		<result property="id_solicitud"     			column="id_solicitud"/>
+		<result property="nombre_solicitud"				column="nombre_solicitud"/>
+		<result property="id_falla"     				column="id_falla"/>
+		<result property="id_articulo"     				column="id_articulo"/>
+		<result property="id_prooveedor"     			column="id_prooveedor"/>
+		<result property="id_empleado_requisicion"     	column="id_empleado_requisicion"/>
+		<result property="id_empleado_adquisicion"     	column="id_empleado_adquisicion"/>
+		<result property="fecha_requisicion"     		column="fecha_requisicion"/>
+		<result property="fecha_adquisicion"     		column="fecha_adquisicion"/>
+		<result property="forma_pago"     				column="forma_pago"/>
+		<result property="cuenta_bancaria"     			column="cuenta_bancaria"/>
+		<result property="cantidad"     				column="cantidad"/>
+		<result property="costo_unidad"     			column="costo_unidad"/>
+		<result property="costo_total"     				column="costo_total"/>
+		<result property="tiempo_entrega"     			column="tiempo_entrega"/>
+		<result property="observaciones"     			column="observaciones"/>
+		<result property="estatus_proceso"     			column="estatus_proceso"/>
+		<result property="estatus"     					column="estatus"/>
+		<result property="descripcion"     				column="descripcion"/>
+		<result property="marca"     					column="marca"/>
+		<result property="submarca"     				column="submarca"/>
+		<result property="subcategoria"     			column="subcategoria"/>
+		<result property="rfc_requisicion"     			column="rfc_requisicion"/>
+		<result property="nombre_requisicion"     		column="nombre_requisicion"/>
+		<result property="paterno_requisicion"     		column="paterno_requisicion"/>
+		<result property="materno_requisicion"     		column="materno_requisicion"/>
+		<result property="rfc_adquisicion"     			column="rfc_adquisicion"/>
+		<result property="nombre_adquisicion"     		column="nombre_adquisicion"/>
+		<result property="paterno_adquisicion"     		column="paterno_adquisicion"/>
+		<result property="materno_adquisicion"     		column="materno_adquisicion"/>
+		<result property="tipo_falla"     				column="tipo_falla"/>
+		<result property="descripcion_falla"     		column="descripcion_falla"/>
+		<result property="nombreequipo"     			column="nombreequipo"/>
+		<result property="subfalla"     				column="subfalla"/>
+		<result property="prioridad"     				column="prioridad"/>
+		<result property="observaciones_falla"     		column="observaciones_falla"/>
+	</resultMap>
+	
+	<procedure id="getSolicitudes" resultMap="solicitudMap" parameterClass="classSolicitud">
+		SELECT * FROM spr_solicitud(#nombre_solicitud#, #id_solicitud#, #id_falla#, #id_articulo#, #id_empleado_requisicion#, #id_empleado_adquisicion#, #estatus_proceso#);
+	</procedure>
+	
+	<procedure id="insertSolicitud" resultMap="solicitudMap" parameterClass="classSolicitud" >
+		SELECT * FROM spi_solicitud(#nombre_solicitud#, #id_falla#, #id_articulo#, #id_prooveedor#, #id_empleado_requisicion#, #id_empleado_adquisicion#, #fecha_requisicion#, #fecha_adquisicion#, #forma_pago#, #cuenta_bancaria#, #cantidad#, #costo_unidad#, #costo_total#, #tiempo_entrega#, #observaciones#, #estatus_proceso#, #type_insert#, #estatus#);
+	</procedure>
+	
+	<procedure id="updateSolicitud" resultMap="solicitudMap" parameterClass="classSolicitud" >
+		SELECT * FROM spu_solicitud(#nombre_solicitud#, #id_solicitud#,  #id_falla#, #id_articulo#, #id_prooveedor#, #id_empleado_requisicion#, #id_empleado_adquisicion#, #fecha_requisicion#, #fecha_adquisicion#, #forma_pago#, #cuenta_bancaria#, #cantidad#, #costo_unidad#, #costo_total#, #tiempo_entrega#, #observaciones#, #estatus_proceso#, #type_insert#, #estatus#);
+	</procedure>
+	
+	<procedure id="updateSolicitudSinFalla" resultMap="solicitudMap" parameterClass="classSolicitud" >
+		SELECT * FROM spu_solicitud_without_falla(#id_solicitud#, #id_articulo#, #id_prooveedor#, #id_empleado_requisicion#, #id_empleado_adquisicion#, #fecha_requisicion#, #fecha_adquisicion#, #forma_pago#, #cuenta_bancaria#, #cantidad#, #costo_unidad#, #costo_total#, #tiempo_entrega#, #observaciones#, #estatus_proceso#, #estatus#);
+	</procedure>
+	
+	<procedure id="deleteSolicitud" resultClass="java.lang.Boolean" parameterClass="classSolicitud" >
+		SELECT * FROM spd_solicitud(#id_solicitud#);
+	</procedure>
+</sqlMap>

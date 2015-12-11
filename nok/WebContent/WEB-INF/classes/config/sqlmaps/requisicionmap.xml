@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="requisicionMap">
+	<typeAlias alias ="classRequisicionMap" type="mx.com.nok.requisicion.model.dto.RequisicionDTO"/>
+	<typeAlias alias ="classRequisicionDetalleMap" type="mx.com.nok.requisicion.model.dto.RequisicionDetalleDTO"/>
+			
+	<resultMap id="requisicionMap" class="classRequisicionMap">		
+		<result property="folioReq" 		column="folio_req" />
+		<result property="empleadoSolicitante" 			column="empleado_solicitante" />
+		<result property="empleadoResponsable" 		column="empleado_responsable" />
+		<result property="idProveedor" 		column="id_proveedor" />	
+		<result property="folioFactura" 		column="folio_factura" />
+		<result property="fechaReq" 			column="fecha_req" />		
+	</resultMap>	
+	
+	
+	<resultMap id="requisicionDetalleMap" class="classRequisicionDetalleMap">		
+		<result property="folioReq" 		column="folio_req" />
+		<result property="numArticulo" 			column="num_articulo" />
+		<result property="cantidad" 		column="cantidad" />
+		<result property="idArticulo" 		column="id_articulo" />	
+			
+	</resultMap>	
+	
+	
+	<!-- Requisicion -->	
+	<procedure id="infoRequisicion" resultMap="requisicionMap" parameterClass="classRequisicionMap" >
+		SELECT * FROM spr_requisicion(#folioReq# , #empleadoSolicitante# , #empleadoResponsable#,
+		#idProveedor#,#folioFactura#)
+	</procedure>		
+	
+	<procedure id="insertRequisicione" resultMap="requisicionMap" parameterClass="classRequisicionMap" >
+		SELECT * FROM spi_requisicion(#folioReq# , #empleadoSolicitante# , #empleadoResponsable#,
+		#idProveedor#,#folioFactura#,#fechaReq#)
+	</procedure>		
+	<procedure id="updateRequisicion" resultMap="requisicionMap" parameterClass="classRequisicionMap" >
+		SELECT * FROM spu_requisicion(#folioReq# , #empleadoSolicitante# , #empleadoResponsable#,
+		#idProveedor#,#folioFactura#,#fechaReq#)
+	</procedure>	
+		
+		
+	<procedure id="deleteRequisicion" resultClass="java.lang.Boolean" parameterClass="classRequisicionMap" >
+		SELECT * FROM spd_requisicion(#folioReq# , #empleadoSolicitante# , #empleadoResponsable#,
+		#idProveedor#,#folioFactura#)
+	</procedure>		
+		
+		
+	<!-- Requisicion Detalle -->	
+		
+		
+	<procedure id="infoRequisicionDetalle" resultMap="requisicionDetalleMap" parameterClass="classRequisicionDetalleMap" >
+		SELECT * FROM spr_reqdetalle(#folioReq#,#idArticulo#)
+	</procedure>		
+	
+	<procedure id="insertRequisicionDetalle" resultMap="requisicionDetalleMap" parameterClass="classRequisicionDetalleMap" >
+		SELECT * FROM spi_reqdetalle(#folioReq# , #numArticulo# , #cantidad# , #idArticulo#)
+	</procedure>		
+	<procedure id="updateRequisicionDetalle" resultMap="requisicionDetalleMap" parameterClass="classRequisicionDetalleMap" >
+		SELECT * FROM spu_reqdetalle(#folioReq# , #numArticulo# , #cantidad# , #idArticulo# )
+	</procedure>	
+	
+		
+	<procedure id="deleteRequisicionDetalle" resultClass="java.lang.Boolean" parameterClass="classRequisicionDetalleMap" >
+		SELECT * FROM spd_reqdetalle(#folioReq#,#idArticulo#)
+	</procedure>	
+	
+	
+	
+	
+</sqlMap>

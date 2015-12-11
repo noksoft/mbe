@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="categoriaMap">
+	<typeAlias alias ="classCategoriaMap" type="mx.com.nok.categoria.model.dto.CategoriaDTO"/>
+	<typeAlias alias ="classSubcategoriaMap" type="mx.com.nok.categoria.model.dto.SubcategoriaDTO"/>
+	<typeAlias alias="classTipoCategoria" type="mx.com.nok.categoria.model.dto.TipoCategoriaDTO"/>
+			
+	<resultMap id="categoriaMap" 			 class="classCategoriaMap">		
+		<result property="idCategoria" 			column="id_categoria" />
+		<result property="categoria" 			column="categoria" />
+		<result property="idtipocategoria" 		column="id_tipocategoria" />
+		<result property="tipocategoria" 		column="tipocategoria" />		
+		<result property="estatus" 				column="estatus" />		
+	</resultMap>
+	
+	
+	<resultMap id="subcategoriaMap" 		 class="classSubcategoriaMap">		
+		<result property="idCategoria" 			column="id_categoria" />
+		<result property="categoria" 			column="categoria" />		
+		<result property="idSubcategoria" 		column="id_subcategoria" />
+		<result property="subcategoria" 		column="subcategoria" />		
+		<result property="estatus" 				column="estatus" />		
+	</resultMap>
+	
+	<resultMap id="tipocategoriaMap"         class="classTipoCategoria">
+		<result property="id_tipocategoria" 	column="id_tipocategoria"/>
+		<result property="tipocategoria" 		column="tipocategoria"/>
+		<result property="estatus" 				column="estatus"/>
+	</resultMap>
+	
+	
+	<procedure id="infoTipocategoria" resultMap="tipocategoriaMap" parameterClass="classTipoCategoria">
+		SELECT * FROM spr_tipocategoria (#id_tipocategoria#, #estatus#)
+	</procedure>
+	
+	<procedure id="updateTipocategoria" resultMap="tipocategoriaMap" parameterClass="classTipoCategoria">
+		SELECT * FROM spu_tipocategoria (#id_tipocategoria#, #tipocategoria#, #estatus#)
+	</procedure>
+	
+	<procedure id="deleteTipocategoria" resultClass="java.lang.Boolean" parameterClass="classTipoCategoria">
+		SELECT * FROM spd_tipocategoria (#id_tipocategoria#)
+	</procedure>
+	
+	<procedure id="insertTipocategoria" resultMap="tipocategoriaMap" parameterClass="classTipoCategoria">
+		SELECT * FROM spi_tipocategoria (#tipocategoria#, #estatus#)
+	</procedure>
+		
+	<procedure id="infoSubcategoria" resultMap="subcategoriaMap" parameterClass="classSubcategoriaMap" >
+		SELECT * FROM spr_subcategoria(#idCategoria#,#idSubcategoria#,#filterEstatusSubcategoria#)
+	</procedure>
+	
+		
+	<procedure id="updateSubcategoria" resultMap="subcategoriaMap" parameterClass="classSubcategoriaMap" >
+		SELECT * FROM spu_subcategoria(#idCategoria#, #idSubcategoria# , #subcategoria#, #estatus#)
+	</procedure>
+	
+	<procedure id="deleteSubcategoria" resultClass="java.lang.Boolean" parameterClass="classSubcategoriaMap" >
+		SELECT * FROM spd_subcategoria(#idCategoria#, #idSubcategoria# )
+	</procedure>	
+		
+	<procedure id="insertSubcategoria" resultMap="subcategoriaMap"  parameterClass="classSubcategoriaMap">
+		SELECT * FROM spi_subcategoria(#idCategoria#, #subcategoria#)
+	</procedure>
+
+	
+	<procedure id="updateEstatusSubcategoria" resultMap="subcategoriaMap"  parameterClass="classSubcategoriaMap">
+		SELECT * FROM spu_subcategoriaEstatus(#idCategoria#, #idSubcategoria#,#estatus#)
+	</procedure>		
+	
+	
+	
+	
+		
+	<procedure id="infoCategoria" resultMap="categoriaMap" parameterClass="classCategoriaMap" >
+		SELECT * FROM spr_categoria(#idCategoria#,#idtipocategoria#,#filterEstatusCategoria#);
+	</procedure>
+	
+	<procedure id="updateCategoria" resultMap="categoriaMap" parameterClass="classCategoriaMap" >
+		SELECT * FROM spu_categoria(#idCategoria#, #categoria#, #idtipocategoria#, #estatus#)
+	</procedure>
+	
+	<procedure id="deleteCategoria" resultClass="java.lang.Boolean" parameterClass="classCategoriaMap" >
+		SELECT * FROM spd_categoria(#idCategoria#)
+	</procedure>	
+		
+	<procedure id="insertCategoria" resultMap="categoriaMap"  parameterClass="classCategoriaMap">
+		SELECT * FROM spi_categoria(#categoria#, #idtipocategoria#, #estatus#)
+	</procedure>
+
+	
+	<procedure id="updateEstatusCategoria" resultMap="categoriaMap"  parameterClass="classCategoriaMap">
+		SELECT * FROM spu_categoriaEstatus(#idCategoria#,#estatus#)
+	</procedure>	
+	
+	
+	
+</sqlMap>

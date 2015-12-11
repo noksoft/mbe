@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="equipoMap">
+	<typeAlias alias ="classEquipoMap" 			type="mx.com.nok.equipo.model.dto.EquipoDTO"/>
+	<typeAlias alias="classMarcaMotor" 			type="mx.com.nok.equipo.model.dto.MarcaMotorDTO"/>
+	<typeAlias alias="classDiagnostico" 		type="mx.com.nok.equipo.model.dto.DiagnosticoDTO"/>
+	<typeAlias alias="classDiagnosticoDetalle"	type="mx.com.nok.equipo.model.dto.DiagnosticoDetalle"/>
+		
+	<resultMap id="equipoMap" 	class="classEquipoMap">		
+		<result property="id_equipo" 			column="id_equipo" />
+		<result property="nombre" 			    column="nombre" />
+		<result property="id_submarca" 			column="id_submarca" />
+		<result property="submarca" 			column="submarca" />
+		<result property="descripcion" 			column="descripcion" />
+		<result property="numeroserie" 			column="numeroserie" />
+		<result property="tipoadquisicion" 		column="tipoadquisicion" />
+		<result property="fotoequipo" 			column="fotoequipo" />
+		<result property="fechaadquisicion" 	column="fechaadquisicion" />
+		<result property="estatus" 			    column="estatus" />
+		<result property="id_marcamotor" 		column="id_marcamotor" />
+		<result property="marcamotor" 			column="marcamotor" />
+		<result property="modelomotor" 			column="modelomotor" />
+		<result property="id_marca" 			column="id_marca" />
+		<result property="marca" 			    column="marca" />
+		<result property="id_subcategoria" 		column="id_subcategoria" />
+		<result property="subcategoria" 		column="subcategoria" />
+		<result property="id_categoria" 		column="id_categoria" />
+		<result property="categoria" 			column="categoria" />
+		<result property="id_tipocategoria" 	column="id_tipocategoria" />
+		<result property="tipocategoria" 		column="tipocategoria" />
+		<result property="numeroeconomico" 		column="numeroeconomico" />
+		<result property="factura" 			    column="factura" />
+		<result property="pedimiento" 			column="pedimiento" />
+		<result property="cambioaceite" 		column="cambioaceite" />
+		<result property="tipomedida" 			column="tipomedida" />
+		<result property="verificacion" 		column="verificacion" />
+		<result property="fechaverificacion" 	column="fechaverificacion" />
+		<result property="llanta" 			    column="llanta" />
+		<result property="hp" 			        column="hp" />
+		<result property="torque" 			    column="torque" />
+		<result property="peso" 			    column="peso" />
+		<result property="dimensioneslargo" 	column="dimensioneslargo" />
+		<result property="dimensionesancho" 	column="dimensionesancho" />
+		<result property="dimensionesalto" 		column="dimensionesalto" />
+		<result property="anioequipo" 			column="anioequipo" />
+		<result property="capacidad" 			column="capacidad" />
+		<result property="numeromotor" 			column="numeromotor" />
+		<result property="numerochasis" 		column="numerochasis" />
+		<result property="numerocabina" 		column="numerocabina" />
+		<result property="kw" 			        column="kw" />
+		<result property="voltaje" 			    column="voltaje" />
+		<result property="amperes" 			    column="amperes" />
+		<result property="capacidadpresion" 	column="capacidadpresion" />
+		<result property="pica" 			    column="pica" />
+		<result property="golpesminuto" 		column="golpesminuto" />
+		<result property="anioadquisicion" 		column="anioadquisicion" />
+	</resultMap>
+	
+	<resultMap id="marcaMotorMap" 	class="classMarcaMotor">
+		<result property="idMarcaMotor" 		column="id_marcamotor"/>
+		<result property="marcaMotor" 			column="marcamotor"/>
+		<result property="estatus" 				column="estatus"/>
+	</resultMap>
+	
+	<resultMap id="diagnosticoMap" class="classDiagnostico">
+		<result property="id_t_diagnostico" 		column="id_t_diagnostico"/>
+		<result property="id_equipo" 				column="id_equipo"/>
+		<result property="descripcion" 				column="descripcion"/>
+		<result property="fecha_diagnostico" 		column="fecha_diagnostico"/>
+		<result property="fecha_alta" 				column="fecha_alta"/>
+		<result property="id_empleado" 				column="id_empleado"/>
+		<result property="numeroeconomico" 			column="numeroeconomico"/>
+		<result property="rfc_empleado" 			column="rfc_empleado"/>
+		<result property="nombre_empleado" 			column="nombre_empleado"/>
+		<result property="paterno" 					column="paterno"/>
+		<result property="materno" 					column="materno"/>
+		<result property="tipo_empleado" 			column="tipo_empleado"/>
+		<result property="telefono" 				column="telefono"/>
+		<result property="celular" 					column="celular"/>
+	</resultMap>
+	
+	<resultMap id="diagnosticoDetalleMap" class="classDiagnosticoDetalle">
+		<result property="id_t_diagnostico_detalle" 		column="id_t_diagnostico_detalle"/>
+		<result property="id_t_diagnostico" 				column="id_t_diagnostico"/>
+		<result property="id_subcategoria" 					column="id_subcategoria"/>
+		<result property="comentario" 						column="comentario"/>
+		<result property="id_empleado" 						column="id_empleado"/>
+		<result property="id_equipo" 						column="id_equipo"/>
+		<result property="descripcion" 						column="descripcion"/>
+		<result property="fecha_diagnostico" 				column="fecha_diagnostico"/>
+		<result property="fecha_alta" 						column="fecha_alta"/>
+		<result property="numeroeconomico" 					column="numeroeconomico"/>
+		<result property="rfc_empleado" 					column="rfc_empleado"/>
+		<result property="nombre_empleado" 					column="nombre_empleado"/>
+		<result property="paterno" 							column="paterno"/>
+		<result property="materno" 							column="materno"/>
+		<result property="tipo_empleado" 					column="tipo_empleado"/>
+		<result property="telefono" 						column="telefono"/>
+		<result property="celular" 							column="celular"/>
+		<result property="estatus" 							column="estatus"/>
+	</resultMap>
+
+	<!--Equipo-->	
+	<procedure id="infoEquipo" resultMap="equipoMap" parameterClass="classEquipoMap" >
+		SELECT * FROM spr_equipo(#numeroeconomico#, #id_equipo#, #id_categoria#, #id_marca#, #id_submarca#, #id_subcategoria#, #filterEstatusEquipo#)
+	</procedure>
+	
+	<procedure id="insertEquipoWhioutMarcaMotor" resultMap="equipoMap" parameterClass="classEquipoMap">
+		SELECT * FROM spi_equipo_without_marcamotor(
+					        #id_equipo#,
+		   					#nombre#,
+							#id_submarca#,
+							#descripcion#,
+							#numeroserie#,
+							#tipoadquisicion#,
+							#fotoequipo#,
+							#fechaadquisicion#,
+							#id_marca#,
+							#id_subcategoria#,
+						    #numeroeconomico#,
+							#factura#,
+							#pedimiento#,
+							#cambioaceite#,
+							#tipomedida#,
+							#verificacion#,
+							#fechaverificacion#,
+							#llanta#,
+							#hp#,
+							#torque#,
+							#peso#,
+							#dimensioneslargo#,
+							#dimensionesancho#,
+							#dimensionesalto#,
+							#anioequipo#,
+							#capacidad#,
+							#numeromotor#,
+							#numerochasis#,
+							#numerocabina#,
+							#kw#,
+							#voltaje#,
+							#amperes#,
+							#capacidadpresion#,
+							#pica#,
+							#golpesminuto#,
+							#anioadquisicion#,
+						    #modelomotor#,
+							#estatus#)
+	</procedure>
+
+	<procedure id="insertEquipo" resultMap="equipoMap" parameterClass="classEquipoMap" >
+		 SELECT * FROM spi_Equipo(
+					        #id_equipo#,
+		   					#nombre#,
+							#id_submarca#,
+							#descripcion#,
+							#numeroserie#,
+							#tipoadquisicion#,
+							#fotoequipo#,
+							#fechaadquisicion#,
+							#id_marcamotor#,
+							#id_marca#,
+							#id_subcategoria#,
+						    #numeroeconomico#,
+							#factura#,
+							#pedimiento#,
+							#cambioaceite#,
+							#tipomedida#,
+							#verificacion#,
+							#fechaverificacion#,
+							#llanta#,
+							#hp#,
+							#torque#,
+							#peso#,
+							#dimensioneslargo#,
+							#dimensionesancho#,
+							#dimensionesalto#,
+							#anioequipo#,
+							#capacidad#,
+							#numeromotor#,
+							#numerochasis#,
+							#numerocabina#,
+							#kw#,
+							#voltaje#,
+							#amperes#,
+							#capacidadpresion#,
+							#pica#,
+							#golpesminuto#,
+							#anioadquisicion#,
+						    #modelomotor#,
+							#estatus#)
+</procedure>
+	<procedure id="updateEquipoWhioutMarcamotor" resultMap="equipoMap" parameterClass="classEquipoMap">
+		SELECT * FROM spu_equipo_whitout_marcamotor(
+					#id_equipo#,
+		   					#nombre#,
+							#id_submarca#,
+							#descripcion#,
+							#numeroserie#,
+							#tipoadquisicion#,
+							#fotoequipo#,
+							#fechaadquisicion#,
+							#id_marca#,
+							#id_subcategoria#,
+						    #numeroeconomico#,
+							#factura#,
+							#pedimiento#,
+							#cambioaceite#,
+							#tipomedida#,
+							#verificacion#,
+							#fechaverificacion#,
+							#llanta#,
+							#hp#,
+							#torque#,
+							#peso#,
+							#dimensioneslargo#,
+							#dimensionesancho#,
+							#dimensionesalto#,
+							#anioequipo#,
+							#capacidad#,
+							#numeromotor#,
+							#numerochasis#,
+							#numerocabina#,
+							#kw#,
+							#voltaje#,
+							#amperes#,
+							#capacidadpresion#,
+							#pica#,
+							#golpesminuto#,
+							#anioadquisicion#,
+						    #modelomotor#,
+							#estatus#)
+	</procedure>
+	
+<procedure id="updateEquipo" resultMap="equipoMap" parameterClass="classEquipoMap" >
+	SELECT * FROM spu_Equipo(
+					#id_equipo#,
+		   					#nombre#,
+							#id_submarca#,
+							#descripcion#,
+							#numeroserie#,
+							#tipoadquisicion#,
+							#fotoequipo#,
+							#fechaadquisicion#,
+							#id_marcamotor#,
+							#id_marca#,
+							#id_subcategoria#,
+						    #numeroeconomico#,
+							#factura#,
+							#pedimiento#,
+							#cambioaceite#,
+							#tipomedida#,
+							#verificacion#,
+							#fechaverificacion#,
+							#llanta#,
+							#hp#,
+							#torque#,
+							#peso#,
+							#dimensioneslargo#,
+							#dimensionesancho#,
+							#dimensionesalto#,
+							#anioequipo#,
+							#capacidad#,
+							#numeromotor#,
+							#numerochasis#,
+							#numerocabina#,
+							#kw#,
+							#voltaje#,
+							#amperes#,
+							#capacidadpresion#,
+							#pica#,
+							#golpesminuto#,
+							#anioadquisicion#,
+						    #modelomotor#,
+							#estatus#)
+	</procedure>
+	
+	
+	<procedure id="updateEstatusEquipo" resultMap="equipoMap" parameterClass="classEquipoMap">
+		<!-- SELECT * FROM spu_EquipoEstatus(#idEquipo#,#idMarca#,#idSubmarca#,#estatus#)-->
+	</procedure>
+	
+	
+	<procedure id="deleteEquipo" resultClass="java.lang.Boolean" parameterClass="classEquipoMap" >
+		<!-- SELECT * FROM spd_Equipo(#idEquipo#,#idMarca#,#idSubmarca#) -->
+		SELECT * FROM spd_Equipo(#id_equipo#)
+	</procedure>	
+	
+	<!-- Sección para obtener las marcas de motor -->
+	<procedure id="infoMarcaMotor" resultMap="marcaMotorMap" parameterClass="classMarcaMotor">
+		SELECT * FROM spr_marcamotor(#idMarcaMotor#, #marcaMotor#, #filterEstatusMarcaMotor#)
+	</procedure>
+	
+	<procedure id="insertMarcamotor" resultMap="marcaMotorMap" parameterClass="classMarcaMotor">
+		Select * FROM spi_marcamotor(#marcaMotor#, #estatus#)
+	</procedure>
+	
+	<procedure id="updateMarcamotor" resultMap="marcaMotorMap" parameterClass="classMarcaMotor">
+		Select * FROM spu_marcamotor(#idMarcaMotor#, #marcaMotor#, #estatus#)
+	</procedure>
+	
+	<procedure id="deleteMarcamotor" resultClass="java.lang.Boolean" parameterClass="classMarcaMotor" >
+		SELECT * FROM spd_marcamotor(#idMarcaMotor#)
+	</procedure>
+	
+	<!-- DIAGNOSTICO -->
+	<procedure id="getDiagnostico" resultMap="diagnosticoMap" parameterClass="classDiagnostico">
+		SELECT * FROM spr_diagnostico(#id_t_diagnostico#, #id_equipo#, #id_empleado#)
+	</procedure>
+	
+	<procedure id="insertDiagnostico" resultMap="diagnosticoMap" parameterClass="classDiagnostico">
+		SELECT * FROM spi_diagnostico(#id_equipo#, #descripcion#, #fecha_diagnostico#, #fecha_alta#, #id_empleado#)	
+	</procedure>
+	
+	<procedure id="updateDiagnostico" resultMap="diagnosticoMap" parameterClass="classDiagnostico">
+		SELECT * FROM spu_diagnostico(#id_t_diagnostico#, #id_equipo#, #descripcion#, #fecha_diagnostico#, #fecha_alta#, #id_empleado#)
+	</procedure>
+	
+	<procedure id="deleteDiagnostico" resultClass="java.lang.Boolean" parameterClass="classDiagnostico">
+		SELECT * FROM spd_diagnostico(#id_t_diagnostico#)
+	</procedure>
+	
+	<!-- DIAGNOSTICO DETALLE -->
+	<procedure id="getDiagnosticoDetalle" resultMap="diagnosticoDetalleMap" parameterClass="classDiagnosticoDetalle">
+		SELECT * FROM spr_diagnostico_detalle(#id_t_diagnostico_detalle#, #id_t_diagnostico#, #id_equipo#, #id_empleado#)
+	</procedure>
+	
+	<procedure id="insertDiagnosticoDetalle" resultMap="diagnosticoDetalleMap" parameterClass="classDiagnosticoDetalle">
+		SELECT * FROM spi_diagnostico_detalle(#id_t_diagnostico#, #id_subcategoria#, #estatus#, #comentario#, #id_empleado#)
+	</procedure>
+	
+	<procedure id="updateDiagnosticoDetalle" resultMap="diagnosticoDetalleMap" parameterClass="classDiagnosticoDetalle">
+		SELECT * FROM spu_diagnostico_detalle(#id_t_diagnostico_detalle#, #id_t_diagnostico#, #id_subcategoria#, #estatus#, #comentario#, #id_empleado#)
+	</procedure>
+	
+	<procedure id="deleteDiagnosticoDetalle" resultClass="java.lang.Boolean" parameterClass="classDiagnosticoDetalle">
+		SELECT * FROM spd_diagnostico_detalle(#id_t_diagnostico_detalle#)
+	</procedure>
+	
+</sqlMap>

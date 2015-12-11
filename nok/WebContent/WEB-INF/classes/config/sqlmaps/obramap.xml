@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="obraMap">
+	<typeAlias alias ="classObraMap" type="mx.com.nok.obra.model.dto.ObraDTO"/>
+	<typeAlias alias ="classObraRecursoMaquneMap" type="mx.com.nok.obra.model.dto.ObraRecursoMaquneDTO"/>
+			
+			
+			
+			
+	<resultMap id="obraRecursoMaquneMap" class="classObraRecursoMaquneMap">		
+		<result property="idObra" 		column="id_obra" />
+		<result property="idMaqune" 			column="id_maqune" />	
+		<result property="fechaAsignacion" 		column="fecha_asignacion" />	
+		
+	</resultMap>	
+			
+	<resultMap id="obraMap" class="classObraMap">		
+		<result property="idObra" 		column="id_obra" />
+		<result property="claveObra" 			column="clave_obra" />	
+		<result property="nombre" 		column="nombre" />	
+		<result property="lat" 		column="lat" />
+		<result property="lng" 			column="lng" />
+		<result property="idEmpleado" 			column="id_empleado" />
+		<result property="presupuestoEstimado" 			column="presupuesto_estimado" />
+		<result property="contrato" 		column="contrato" />
+		<result property="status" 			column="status" />
+		<result property="fechaInicio" 			column="fecha_inicio" />
+		<result property="fechaTermina" 			column="fecha_termina" />
+	</resultMap>
+	
+		
+	<!-- Recurso Obra Maqune -->	
+	<procedure id="infoObraRecursoMaqune" resultMap="obraRecursoMaquneMap" parameterClass="classObraRecursoMaquneMap" >
+		SELECT * FROM spr_obrarecursoMaqune(#idObra#,#idMaqune#)
+	</procedure>		
+	
+	<procedure id="insertObraRecursoMaqune" resultMap="obraRecursoMaquneMap" parameterClass="classObraRecursoMaquneMap" >
+		SELECT * FROM spi_obrarecursoMaqune(#idObra# , #fechaAsignacion#, #idMaqune#)
+	</procedure>		
+	<procedure id="updateObraRecursoMaqune" resultMap="obraRecursoMaquneMap" parameterClass="classObraRecursoMaquneMap" >
+		SELECT * FROM spu_obrarecursoMaqune(#idObra# , #fechaAsignacion# , #idMaqune#)
+	</procedure>	
+	
+		
+	<procedure id="deleteObraRecursoMaqune" resultClass="java.lang.Boolean" parameterClass="classObraRecursoMaquneMap" >
+		SELECT * FROM spd_obrarecursoMaqune(#idObra#,#idMaqune#)
+	</procedure>		
+		
+		
+	<!-- Obra -->	
+		
+		
+	<procedure id="infoObra" resultMap="obraMap" parameterClass="classObraMap" >
+		SELECT * FROM spr_Obra(#idObra#,#idEmpleado#)
+	</procedure>		
+	
+	<procedure id="insertObra" resultMap="obraMap" parameterClass="classObraMap" >
+		SELECT * FROM spi_Obra(#claveObra# , #nombre# , #lat# , #lng# , #idEmpleado# , #presupuestoEstimado# , #contrato# , #status# , #fechaInicio# , #fechaTermina# )
+	</procedure>		
+	<procedure id="updateObra" resultMap="obraMap" parameterClass="classObraMap" >
+		SELECT * FROM spu_Obra(#idObra# , #claveObra# , #nombre# , #lat# , #lng# , #idEmpleado# , #presupuestoEstimado# , #contrato# , #status# , #fechaInicio# , #fechaTermina# )
+	</procedure>	
+	
+		
+	<procedure id="deleteObra" resultClass="java.lang.Boolean" parameterClass="classObraMap" >
+		SELECT * FROM spd_Obra(#idObra#,#idEmpleado#)
+	</procedure>	
+	
+	
+	
+	
+</sqlMap>

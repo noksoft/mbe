@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="empleado" extends="struts-default" namespace="/empleado">        
+	<action name="empleado" method="empleadoTest" class="empleadoAction">		
+		<result name="error">/jsp/amerror.jsp</result>
+		<result name="success">/jsp/nokempleado.jsp</result>
+	</action>
+    </package>
+    <!-- requisicionsolicitud -->
+    <package name="requisicionsolicitud" extends="struts-default" namespace="/requisicionsolicitud">        
+	<action name="requisicionsolicitud" method="requisicionSolicitudValidUser" class="empleadoAction">		
+		<result name="error">/jsp/amerror.jsp</result>
+		<result name="success">/jsp/nokrequisicionsolicitud.jsp</result>
+	</action>
+    </package>
+</struts>

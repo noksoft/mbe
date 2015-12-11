@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="articulo" extends="struts-default" namespace="/articulo">        
+	<action name="articulo" method="articuloTest" class="articuloAction">		
+		<result name="error">/jsp/amerror.jsp</result>
+		<result name="success">/jsp/nokarticulo.jsp</result>
+		<result name="session">/jsp/amerrorsession.jsp</result>
+	</action>
+
+    </package>
+</struts>

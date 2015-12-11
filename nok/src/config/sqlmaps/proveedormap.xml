@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="proveedorMap">
+	<typeAlias alias ="classProveedorMap" type="mx.com.nok.proveedor.model.dto.ProveedorDTO"/>
+
+			
+	<resultMap id="proveedorMap" class="classProveedorMap">		
+		<result property="idProveedor"		column="id_proveedor" />
+		<result property="rfcProveedor"		column="rfc_proveedor" />
+		<result property="razonSocial"		column="razon_social" />
+		<result property="nombreContacto"	column="nombre_contacto" />
+		<result property="telefonoEmpresa"	column="telefono_empresa" />
+		<result property="celularEmpleado"	column="celular_empleado" />
+		<result property="www" 				column= "www" />
+		<result property="correo"			column="correo" />
+		<result property="idLocalidad"		column="id_localidad" />
+		<result property="localidad"		column="localidad" />
+		<result property="idMunicipio"		column="id_municipio" />
+		<result property="municipio"		column="municipio" />
+		<result property="idEntidad"		column= "id_entidad" />
+		<result property="entidad"			column="entidad" />
+		<result property="nombreComercial"	column="nombre_comercial" />
+		<result property="estatus"			column="estatus" />			
+	</resultMap>
+		
+	<procedure id="infoProveedor" resultMap="proveedorMap" parameterClass="classProveedorMap" >
+		SELECT * FROM spr_proveedor(#idProveedor#,#rfcProveedor#,#filterEstatusProveedor#)
+	</procedure>
+	
+	<procedure id="updateProveedor" resultMap="proveedorMap" parameterClass="classProveedorMap" >
+		SELECT * FROM spu_proveedor(#idProveedor#,#rfcProveedor#, #razonSocial#, #nombreContacto#, #telefonoEmpresa#,
+		#celularEmpleado#, #www#, #correo#, #idLocalidad#, #idMunicipio#, #idEntidad#, #nombreComercial#,#estatus#)
+	</procedure>
+	
+	<procedure id="deleteProveedor" resultClass="java.lang.Boolean" parameterClass="classProveedorMap" >
+		SELECT * FROM spd_proveedor(#idProveedor#,#rfcProveedor#)
+	</procedure>	
+		
+	<procedure id="insertProveedor" resultMap="proveedorMap"  parameterClass="classProveedorMap">
+		SELECT * FROM spi_proveedor(#rfcProveedor#, #razonSocial#, #nombreContacto#, #telefonoEmpresa#,
+		#celularEmpleado#, #www#, #correo#, #idLocalidad#, #idMunicipio#, #idEntidad#, #nombreComercial#)
+  </procedure>
+	
+	<procedure id="updateEstatusProveedor" resultMap="proveedorMap"  parameterClass="classProveedorMap">
+		SELECT * FROM spu_proveedorEstatus(#idProveedor#,#rfcProveedor#,#estatus#)
+	</procedure>	
+	
+	
+	
+</sqlMap>

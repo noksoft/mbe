@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="permisosusuario" extends="struts-default" namespace="/permisosusuario">        
+		<!-- action name="permisosusuario" method="permisosusuarioValidUser" class="permisosusuarioAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/nokpermisosusuario.jsp</result>
+		</action-->
+    </package>
+    
+    <package name="perfilesusuario" extends="struts-default" namespace="/perfilesusuario">        
+		<!-- action name="perfilesusuario" method="perfilesusuarioValidUser" class="perfilesusuarioAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/nokperfilesusuario.jsp</result>
+		</action-->
+    </package>
+</struts>
+

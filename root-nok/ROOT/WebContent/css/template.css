@@ -1,0 +1,279 @@
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #ffffff; HEIGHT:100%
+}
+IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+#AppTitleContainer {
+	MARGIN: 10px auto 0px; WIDTH: 99%;
+}
+#AppTitleContainer_ {
+	MARGIN: 10px auto 0px; WIDTH: 100%; left: 25px
+}
+
+.appTitle {
+	PADDING-RIGHT: 0px; MARGIN-TOP: 1px; PADDING-LEFT: 350px; BACKGROUND: #ffffff; FLOAT: left; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.searchArea {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: right; PADDING-BOTTOM: 7px; MARGIN-RIGHT: 3px; PADDING-TOP: 0px
+}
+#topNav {
+	CLEAR: both; MARGIN: 0px auto; WIDTH: 100%
+}
+#topNav_ {
+	CLEAR: both; MARGIN: 0px auto; WIDTH: 100%
+}
+
+#mainContentAreaContainer {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px auto; WIDTH: 100%; PADDING-TOP: 0px
+}
+#footerArea {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 4px auto; WIDTH: 100%; PADDING-TOP: 0px
+}
+#footerArea_ {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 20px auto; WIDTH: 100%; PADDING-TOP: 70px;
+}
+#footerArea_App {
+	BORDER-TOP: #666666 1px solid; MARGIN: auto; WIDTH: 90%;
+}
+.footerAreaLinks {
+	PADDING-RIGHT: 1px; BORDER-TOP: #d6d6d6 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 0px; MARGIN: 0px 3px; PADDING-TOP: 3px; BORDER-BOTTOM: #d6d6d6 1px solid; HEIGHT: 21px
+}
+.footerLinksUl {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.footerLinksUl LI {
+	DISPLAY:block; PADDING-LEFT: 30px
+}
+.footerLinks {
+	FONT-WEIGHT: bolder; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 9px; FLOAT: right; PADDING-BOTTOM: 0px; WIDTH: 60%; COLOR: #666666; PADDING-TOP: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-ALIGN: right
+}
+.footerLinks A {
+	COLOR: #666666; TEXT-DECORATION: none
+}
+.footerLinks A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.footerTxt {
+	FONT-WEIGHT: bolder; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 10px; FLOAT: left; PADDING-BOTTOM: 0px; WIDTH: 30%; COLOR: #666666; PADDING-TOP: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-ALIGN: left
+}
+#disclaimer {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 1em; BACKGROUND: url(/images/citigoldfooter.jpg) #ffffff no-repeat 1px 8px; PADDING-BOTTOM: 0px; COLOR: #666666; PADDING-TOP: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-ALIGN: right
+}
+#disclaimer A {
+	COLOR: #c0c0c0; TEXT-DECORATION: underline
+}
+#disclaimer A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+#mainnav {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 0.8em; BACKGROUND: #ffffff; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 100%; LINE-HEIGHT: normal; PADDING-TOP: 0px; FONT-FAMILY: Arial
+}
+#mainnav UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+#mainnav LI {
+	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+#mainnav A {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; FONT-WEIGHT: bold; FLOAT: left; PADDING-BOTTOM: 7px; MARGIN: 0px; COLOR: #000000; PADDING-TOP: 10px; TEXT-DECORATION: none
+}
+#mainnav A SPAN {
+	FLOAT: none
+}
+#mainnav A:hover {
+	COLOR: #666666; TEXT-DECORATION: none
+}
+#mainnav A SPAN {
+	FLOAT: none
+}
+#mainnav A:hover SPAN {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+#mainnav #activeNoSub A:hover SPAN {
+	COLOR: #000066; TEXT-DECORATION: none
+}
+.subnav A {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 0px; COLOR: #333333; PADDING-TOP: 0px; TEXT-DECORATION: none
+}
+.subnav A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.subnavOn {
+	FONT-WEIGHT: bold; COLOR: #ffffff; FONT-FAMILY: Arial
+}
+.subnavOn A {
+	FONT-WEIGHT: bold; COLOR: #333333; TEXT-DECORATION: none
+}
+.subnavOn A:hover {
+	FONT-WEIGHT: bold; COLOR: #333333; TEXT-DECORATION: none
+}
+.subnavOn A:link {
+	FONT-WEIGHT: bold; COLOR: #333333; TEXT-DECORATION: none
+}
+.topLeft_NavContainer {
+	BACKGROUND: url(/images/topleft_hdr.gif) no-repeat 0px 0px; FLOAT: left; WIDTH: 11px; HEIGHT: 64px
+}
+.topCenter_NavContainer {
+	BACKGROUND: url(/images/topcenter_hdr.gif) repeat-x 0px 0px; MARGIN: 0px 0px 0px 0x; PADDING-TOP: 2px
+}
+.topRight_NavContainer {
+	BACKGROUND: url(/images/topright_hdr.gif) no-repeat 0px 0px; FLOAT: right; WIDTH: 12px; HEIGHT: 64px
+}
+
+.topLeft_NavContainer_ {
+	BACKGROUND: url(/images/topleft_hdr.gif) no-repeat 0px 0px; FLOAT: left; WIDTH: 11px; HEIGHT: 60px
+}
+.topLeft_NavContainerChico_ {
+	BACKGROUND: url(/images/topleft_hdr.gif) no-repeat 0px 0px; FLOAT: left; WIDTH: 11px; HEIGHT: 32px
+}
+.topCenter_NavContainer_ {
+	BACKGROUND: url(/images/topcenter_hdr.gif) repeat-x 0px 0px; MARGIN: 0px 0px 0px 0x; PADDING-TOP: 2px
+}
+.topRight_NavContainer_ {
+	BACKGROUND: url(/images/topright_hdr.gif) no-repeat 0px 0px; FLOAT: right; WIDTH: 12px; HEIGHT: 60px
+}
+.topRight_NavContainerChico_ {
+	BACKGROUND: url(/images/topright_hdr.gif) no-repeat 0px 0px; FLOAT: right; WIDTH: 12px; HEIGHT: 32px
+}
+.middleContainer {
+	CLEAR: both; BACKGROUND: url(/images/btmcenter_hdr.gif) repeat-x left bottom
+}
+.middleLeft_MainNavContainer {
+	BACKGROUND: url(/images/navleft_hdr_new.gif) no-repeat left bottom; FLOAT: left; WIDTH: 11px; HEIGHT: 45px
+}
+.middleRight_MainNavContainer {
+	BACKGROUND: url(/images/navrt_hdr_new.gif) no-repeat right bottom; FLOAT: right; WIDTH: 12px; HEIGHT: 45px
+}
+.middleCenter_MainNavContainer {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 2px; PADDING-BOTTOM: 0px; MARGIN: 0px 12px 0px 11px; PADDING-TOP: 0px; HEIGHT: 45px
+}
+
+.middleLeft_MainNavContainer_ {
+BACKGROUND: url(/images/navleft_hdr_new.gif) no-repeat left bottom; FLOAT: left; WIDTH: 11px; HEIGHT: 6px
+}
+.middleRight_MainNavContainer_ {
+BACKGROUND: url(/images/navrt_hdr_new.gif) no-repeat right bottom; FLOAT: right; WIDTH: 12px; HEIGHT: 6px
+}
+.middleCenter_MainNavContainer_ {
+PADDING-RIGHT: 0px; PADDING-LEFT: 2px; PADDING-BOTTOM: 0px; MARGIN: 0px 12px 0px 11px; PADDING-TOP: 0px; HEIGHT: 6px
+}
+
+.bottomOuter_MainNavContainer {
+	CLEAR: both
+}
+.bottomLeft_NavContainer {
+	BACKGROUND: url(/images/btmleft_hdr.gif) no-repeat 0px 0px; FLOAT: left; MARGIN: 0px; WIDTH: 11px
+}
+.bottomRight_NavContainer {
+	BACKGROUND: url(/images/btmright_hdr.gif) no-repeat 0px 0px; FLOAT: right; MARGIN: 0px; WIDTH: 12px
+}
+.bottomCenter_NavContainer {
+	BACKGROUND: url(/images/btmcenter_hdr.gif) repeat-x 0px 0px
+}
+.bottomOuter_SubNavContainer {
+	CLEAR: both; MARGIN-TOP: -10px
+}
+.bottomLeft_SubNavContainer {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(/images/btmleft_subnav.gif) no-repeat 0px 0px; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 11px; PADDING-TOP: 20px
+}
+.bottomRight_SubNavContainer {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(/images/btmright_subnav.gif) no-repeat 0px 0px; FLOAT: right; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 12px; PADDING-TOP: 20px
+}
+.WelcomeText {
+	MARGIN-TOP: 10px; FONT-SIZE: 11px; FLOAT: left; WIDTH: 49%; COLOR: #666666; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 1px; TEXT-ALIGN: right
+}
+.ServiciosVA {
+	FONT-SIZE: 12px; FLOAT: left; COLOR: #666666; FONT-FAMILY: Arial, Helvetica, sans-serif; float:right; margin-top: 5px; padding-bottom:10px;
+}
+
+.WelcomeText A {
+	COLOR: #000066; TEXT-DECORATION: underline
+}
+.WelcomeText A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.clearfloat {
+	CLEAR: both; FONT-SIZE: 1px; LINE-HEIGHT: 0px; HEIGHT: 0px
+}
+#query {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; BACKGROUND-ATTACHMENT: scroll; FLOAT: left; BACKGROUND-IMAGE: none; PADDING-BOTTOM: 0px; MARGIN: -2px 0px -1px; FONT: 12px arial,sans-serif,verdana; WIDTH: 138px; COLOR: #666666; BORDER-TOP-STYLE: none; PADDING-TOP: 5px; BACKGROUND-REPEAT: repeat; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 22px; BACKGROUND-COLOR: transparent; BORDER-BOTTOM-STYLE: none; background-x-position: 0%; background-y-position: 0%
+}
+#SignOnDiv {
+	PADDING-RIGHT: 0px; MARGIN-TOP: -32px; PADDING-LEFT: 0px; FLOAT: right; PADDING-BOTTOM: 0px; WIDTH: 200px; MARGIN-RIGHT: -5px; PADDING-TOP: 0px; HEIGHT: 25px
+}
+#SignOn {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 200px; PADDING-TOP: 0px
+}
+#SignOn UL {
+	MARGIN: 0px
+}
+#SignOn LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 5px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+#SignOnOpen {
+	Z-INDEX: 20000; MARGIN: 0px; WIDTH: 200px; POSITION: absolute! important
+}
+#SignOnOpen UL {
+	MARGIN: 0px
+}
+#SignOnOpen LI {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+#OpenClose .SignInList LI {
+	MARGIN-LEFT: 10px
+}
+#OpenClose .LinkList LI {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; PADDING-BOTTOM: 7px; MARGIN-LEFT: 10px; COLOR: #666666; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+#OpenClose .LinkList LI A {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND-IMAGE: none; PADDING-BOTTOM: 0px; COLOR: #ff0000; PADDING-TOP: 0px; TEXT-DECORATION: none
+}
+#OpenClose .LinkList LI A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+#OpenClose .LinkList {
+	MARGIN-TOP: 15px
+}
+.Expanded {
+	DISPLAY: none
+}
+BR.clearRight {
+	CLEAR: right
+}
+BR.clearLeft {
+	CLEAR: left
+}
+BR.clearBoth {
+	CLEAR: both
+}
+#FontSwitch {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 0px; FLOAT: right; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; TEXT-ALIGN: right
+}
+#FontSwitch .divider {
+	BACKGROUND: url(/images/font_divider.gif) no-repeat 1px 2px; WIDTH: 8px
+}
+.clearMenu {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; MARGIN-BOTTOM: 20px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+#noscript {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 0.8em; PADDING-BOTTOM: 10px; MARGIN: 0px auto; WIDTH: 100%; PADDING-TOP: 10px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+#noscript IMG {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 0px; PADDING-BOTTOM: 30px; PADDING-TOP: 0px
+}
+.flashcontent {
+	HEIGHT:80%; WIDTH="100%";
+}
+.flashcontentEfvo {
+	HEIGHT:75%; WIDTH="100%";
+}
+.headerGenerico {
+	HEIGHT:8%; PADDING-LEFT:-0px; Z-INDEX:300; WIDTH="100%";
+}
+.footerGenerico {
+	HEIGHT:5%; WIDTH="100%";
+}
+.tabsContent {
+	width:100%; overflow:hidden; height: 100%
+}

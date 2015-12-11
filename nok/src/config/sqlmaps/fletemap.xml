@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="fleteMap">
+	<typeAlias alias ="classFleteMap" type="mx.com.nok.flete.model.dto.FleteDTO"/>
+
+			
+	<resultMap id="fleteMap" class="classFleteMap">		
+		<result property="idFlete" 		column="id_flete" />
+		<result property="origen" 			column="origen" />
+		<result property="origenLat" 		column="origen_lat" />
+		<result property="origenLng" 		column="origen_lng" />	
+		<result property="destino" 		column="destino" />
+		<result property="destinoLat" 			column="destino_lat" />
+		<result property="destinoLng" 			column="destino_lng" />
+		<result property="idEmpleadoOperador" 			column="id_empleado_operador" />
+		<result property="carga" 		column="carga" />
+		<result property="fechaSalida" 			column="fecha_salida" />
+		<result property="fechaLlegada" 			column="fecha_llegada" />
+		<result property="status" 			column="status" />
+		<result property="observaciones" 			column="observaciones" />
+		<result property="idMaqune" 			column="id_maqune" />
+					
+	</resultMap>	
+	
+		<procedure id="infoFlete" resultMap="fleteMap" parameterClass="classFleteMap" >
+		SELECT * FROM spr_flete(#idFlete#,#idEmpleadoOperador#,#idMaqune#)		
+		</procedure>
+	
+		<procedure id="insertFlete" resultMap="fleteMap"  parameterClass="classFleteMap">
+		SELECT * FROM spi_flete(#origen#,#origenLat#,#origenLng#,#destino#,
+		#destinoLat#,#destinoLng#,#idEmpleadoOperador#,	#carga#,#fechaSalida#,
+		#fechaLlegada#,#status#,#observaciones#,#idMaqune#)		
+		</procedure>   
+	
+	<procedure id="updateFlete" resultMap="fleteMap" parameterClass="classFleteMap" >
+		SELECT * FROM spu_flete(#idFlete#,#origen#,#origenLat#,#origenLng#,#destino#,#destinoLat#,#destinoLng#,#idEmpleadoOperador#,
+		#carga#,#fechaSalida#,#fechaLlegada#,#status#,#observaciones#,#idMaqune#)		
+	</procedure>
+		
+	<procedure id="deleteFlete" resultClass="java.lang.Boolean" parameterClass="classFleteMap" >
+		SELECT * FROM spd_flete(#idFlete#,#idEmpleadoOperador#,#idMaqune#)
+	</procedure>	
+		
+	
+		
+	
+	
+</sqlMap>

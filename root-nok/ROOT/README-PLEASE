@@ -1,0 +1,22 @@
+Para que la aplicación pueda deployarse en Tomcat se debera de hacer los siquientes pasos:
+
+Dentro del build path Agregar los siguientes Links sources con el nombre que les indique su Lider de proyecto,
+así mismo, activar el check que dice  "Allow output folder for souce folders" y indicar a cada link source 
+que el output folder sera el "WebContent"
+
+
+1.- Agregar el link source con la ruta AcciMarket\iplanet\webserver  del proyecto MAVEN
+2.- Seleccionar el source folder de \ROOT\meta-Context del proyecto ROOT
+3.- Aplicar los cambios y cerrar pantalla build path
+4.- Entrar al build path 
+5.- Seleccionar el link source del punto 1 y excluir los archivos *.swf *.swz 
+6.- Aplicar los cambios y cerrar pantalla build path
+	
+Nota: En caso de que marque un error en la pantalla del build path se deberan configurar los output folders a los valores por default
+aplicar los cambios cerrar la pantalla build path. Despues volver abrirla y poner como output folder la carpeta "WebContent" aplicar los cambios y 
+cerrar pantalla build path; lo anterior solo para los link sources mencionados anteriormente. 
+
+	
+Recuerde que los archivos fisicamente no estan dentro del workspace asi que lo que modifique borre o agregue afectara 
+a la carpeta donde se encuentran ubicados.
+ 

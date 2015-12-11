@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="tipoempleadoMap">
+	<typeAlias alias="classTipoEmpleado" type="mx.com.nok.empleado.model.dto.TipoEmpleadoDTO"/>
+	
+	<resultMap id="tipoEmpleadoMap" class="classTipoEmpleado">
+		<result property="idTipoEmpleado" 	column="id_tipo_empleado"/>
+		<result property="tipoEmpleado" 	column="tipo_empleado"/>
+		<result property="estatus" 			column="estatus"/>
+	</resultMap>
+	
+	<procedure id="getTipoEmpleados" resultMap="tipoEmpleadoMap" parameterClass="classTipoEmpleado" >
+		SELECT * FROM spr_tipoempleado(#idTipoEmpleado#,#filterEstatusTipoEmpleado#)
+	</procedure>
+	
+	<procedure id="updateTipoEmpleado" resultMap="tipoEmpleadoMap" parameterClass="classTipoEmpleado" >
+		SELECT * FROM spu_tipoempleado(#idTipoEmpleado#,#tipoEmpleado#, #estatus#)
+	</procedure>
+	
+	<procedure id="deleteTipoEmpleado" resultClass="java.lang.Boolean" parameterClass="classTipoEmpleado" >
+		SELECT * FROM spd_tipoempleado(#idTipoEmpleado#)
+	</procedure>	
+		
+	<procedure id="insertTipoEmpleado" resultMap="tipoEmpleadoMap"  parameterClass="classTipoEmpleado">
+		SELECT * FROM spi_tipoempleado(#idTipoEmpleado#, #estatus#)
+  </procedure>
+	
+	<procedure id="updateEstatusTipoEmpleado" resultMap="tipoEmpleadoMap"  parameterClass="classTipoEmpleado">
+		SELECT * FROM spu_tipoempleadoestatus(#idTipoEmpleado#,#estatus#)
+	</procedure>
+	
+</sqlMap>

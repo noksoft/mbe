@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="menuMap">
+	<typeAlias alias ="classMenuMap" type="mx.com.nok.menu.model.dto.MenuDTO"/>
+
+			
+	<resultMap id="menuMap" class="classMenuMap">		
+		<result property="idMenu" 		column="id_menu" />
+		<result property="menu" 		column="menu" />
+		<result property="nombreCortoMenu" 		column="nombre_corto" />	
+		<result property="estatus" 		column="estatus" />		
+	</resultMap>	
+	<procedure id="infoMenu" resultMap="menuMap" parameterClass="classMenuMap" >
+		SELECT * FROM spr_menu(#idMenu#,#filterEstatusMenu#);
+	</procedure>
+	
+	<procedure id="updateMenu" resultMap="menuMap" parameterClass="classMenuMap" >
+		SELECT * FROM spu_menu(#idMenu#, #menu# , #nombreCortoMenu#, #estatus#)
+	</procedure>
+	
+	<procedure id="deleteMenu" resultClass="java.lang.Boolean" parameterClass="classMenuMap" >
+		SELECT * FROM spd_menu(#idMenu#)
+	</procedure>	
+		
+	<procedure id="insertMenu" resultMap="menuMap"  parameterClass="classMenuMap">
+		SELECT * FROM spi_menu(#menu#,#nombreCortoMenu#)
+	</procedure>
+
+	
+	<procedure id="updateEstatusMenu" resultMap="menuMap"  parameterClass="classMenuMap">
+		SELECT * FROM spu_menuEstatus(#idMenu#,#estatus#)
+	</procedure>	
+	
+	
+	
+</sqlMap>

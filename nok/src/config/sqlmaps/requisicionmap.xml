@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="requisicionMap">
+	<typeAlias alias ="classRequisicionMap" type="mx.com.nok.requisicion.model.dto.RequisicionDTO"/>
+	<typeAlias alias ="classRequisicionDetalleMap" type="mx.com.nok.requisicion.model.dto.RequisicionDetalleDTO"/>
+			
+	<resultMap id="requisicionMap" class="classRequisicionMap">		
+		<result property="folioReq" 					column="folio_req" />
+		<result property="idEmpleadoRequisicion" 		column="id_empleado_requisicion"/>
+		<result property="idEmpleadoAdquisicion" 		column="id_empleado_adquisicion" />
+		<result property="idFalla"						column="id_falla"/>
+		<result property="observacionRequisicion"		column="observacion_requisicion"/>
+		<result property="observacionAdquisicion"		column="observacion_adquisicion"/>
+		<result property="estatusProceso"				column="estatus_proceso"/>
+		<result property="fechaRequisicion" 			column="fecha_requisicion" />
+		<result property="fechaAdquisicion"				column="fecha_adquisicion"/>
+		<result property="rfcRequisicion"				column="rfc_requisicion"/>
+		<result property="nombreRequisicion"			column="nombre_requisicion"/>
+		<result property="paternoRequisicion"			column="paterno_requisicion"/>
+		<result property="maternoRequisicion" 			column="materno_requisicion" />
+		<result property="rfcAdquisicion"				column="rfc_adquisicion"/>
+		<result property="nombreAdquisicion"			column="nombre_adquisicion"/>
+		<result property="paternoAdquisicion"			column="paterno_adquisicion"/>
+		<result property="maternoAdquisicion" 			column="materno_adquisicion" />	
+		<result property="tipoFalla" 					column="tipo_falla" />
+		<result property="descripcion"					column="descripcion"/>
+		<result property="nombreEquipo"					column="nombreequipo"/>
+		<result property="subfalla" 					column="subfalla" />	
+		<result property="prioridad" 					column="prioridad" />
+	</resultMap>	
+	
+	
+	<resultMap id="requisicionDetalleMap" class="classRequisicionDetalleMap">       
+        <result property="idRequisicionDetalle"         column="id_requisicion_detalle" />
+        <result property="idRequisicion"          		column="id_requisicion" />
+        <result property="idArticulo"         			column="id_articulo" />
+        <result property="descripcionArticulo"			column="descripcion_articulo"/>
+        <result property="cantidadRequerida"       		column="cantidad_requerida" /> 
+        <result property="cantidadAdquirida"       		column="cantidad_adquirida" /> 
+        <result property="costoUnidad"       			column="costo_unidad" /> 
+        <result property="cosTototal"       			column="costo_total" />
+        <result property="estatus"       				column="estatus" />
+        <result property="estatusRequisicionDetalle" column="estatus_requisicion_detalle"/>
+    </resultMap>	
+	
+	
+	<!-- Requisicion -->	
+	<procedure id="infoRequisicion" resultMap="requisicionMap" parameterClass="classRequisicionMap" >
+		SELECT * FROM spr_requisicion(#folioReq#, #idEmpleadoRequisicion#, #idEmpleadoAdquisicion#, #estatusProceso#, #idFalla#)
+	</procedure>		
+	
+	<procedure id="insertRequisicion" resultMap="requisicionMap" parameterClass="classRequisicionMap" >
+		SELECT * FROM spi_requisicion(#idEmpleadoRequisicion#,
+		#idFalla#,#observacionRequisicion#, #estatusProceso#, #fechaRequisicion#)
+	</procedure>
+	<procedure id="insertRequisicionSinFalla" resultMap="requisicionMap" parameterClass="classRequisicionMap">
+		SELECT * FROM spi_requisicion_without_falla(#idEmpleadoRequisicion#,#observacionRequisicion#, #estatusProceso#, #fechaRequisicion#)
+	</procedure>	
+	<procedure id="updateRequisicion" resultMap="requisicionMap" parameterClass="classRequisicionMap" >
+		SELECT * FROM spu_requisicion(#folioReq# , #idEmpleadoRequisicion#,
+		#idFalla#,#observacionRequisicion#, #estatusProceso#, #fechaRequisicion#)
+	</procedure>	
+	<procedure id="updateRequisicionSinFalla">
+		SELECT * FROM spu_requisicion_without_falla(#folioReq# , #idEmpleadoRequisicion#,#observacionRequisicion#, #estatusProceso#, #fechaRequisicion#)
+	</procedure>
+	<procedure id="deleteRequisicion" resultClass="java.lang.Boolean" parameterClass="classRequisicionMap" >
+		SELECT * FROM spd_requisicion(#folioReq#)
+	</procedure>		
+		
+		
+	<!-- Requisicion Detalle -->
+
+	<procedure id="infoRequisicionDetalle" resultMap="requisicionDetalleMap" parameterClass="classRequisicionDetalleMap" >
+		SELECT * FROM spr_requisicion_detalle(#idRequisicionDetalle#, #idRequisicion#, #idArticulo#, #estatusRequisicionDetalle#)
+	</procedure>
+	<procedure id="insertRequisicionDetalle" resultMap="requisicionDetalleMap" parameterClass="classRequisicionDetalleMap" >
+		SELECT * FROM spi_requisicion_detalle(#idRequisicion#, #idArticulo#, #cantidadRequerida#, #cantidadAdquirida#, #costoUnidad#, #cosTototal#, #estatusRequisicionDetalle#, #estatus#)
+	</procedure>		
+	<procedure id="updateRequisicionDetalle" resultMap="requisicionDetalleMap" parameterClass="classRequisicionDetalleMap" >
+		SELECT * FROM spu_requisicion_detalle(#idRequisicionDetalle#, #idRequisicion#, #idArticulo#, #cantidadRequerida#, #cantidadAdquirida#, #costoUnidad#, #cosTototal#, #estatusRequisicionDetalle#, #estatus#)
+	</procedure>	
+	
+	<procedure id="deleteRequisicionDetalle" resultClass="java.lang.Boolean" parameterClass="classRequisicionDetalleMap" >
+		SELECT * FROM spd_requisicion_detalle(#idRequisicionDetalle#)
+	</procedure>	
+	
+	
+	
+</sqlMap>

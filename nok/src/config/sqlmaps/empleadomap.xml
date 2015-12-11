@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="empleadoMap">
+
+	<typeAlias alias="classEmpleadoMap" type="mx.com.nok.empleado.model.dto.EmpleadoDTO" />
+	<typeAlias alias="classTipoEmpleadoMap"
+		type="mx.com.nok.empleado.model.dto.TipoEmpleadoDTO" />
+	<typeAlias alias="classHabilidadMap" type="mx.com.nok.empleado.model.dto.HabilidadDTO" />
+
+
+	<resultMap id="empleadoMap" class="classEmpleadoMap">
+		<result property="idEmpleado" column="id_empleado" />
+		<result property="rfcEmpleado" column="rfc_empleado" />
+		<result property="nombre" column="nombre" />
+		<result property="paterno" column="paterno" />
+		<result property="materno" column="materno" />
+		<result property="telefono" column="telefono" />
+		<result property="celular" column="celular" />
+		<result property="idLocalidad" column="id_localidad" />
+		<result property="localidad" column="localidad" />
+		<result property="idMunicipio" column="id_municipio" />
+		<result property="municipio" column="municipio" />
+		<result property="idEntidad" column="id_entidad" />
+		<result property="entidad" column="entidad" />
+		<result property="cp" column="cp" />
+		<result property="numInterior" column="num_interior" />
+		<result property="numExterior" column="num_exterior" />
+		<result property="idTipoEmpleado" column="id_tipo_empleado" />
+		<result property="tipoEmpleado" column="tipo_empleado" />
+		<result property="fechaAlta" column="fecha_alta" />
+		<result property="domicilio" column="domicilio" />
+		<result property="colonia" column="colonia" />
+		<result property="estatus" column="estatus" />
+		<result property="esusuario" column="is_user_system"/>
+		<result property="password" column="p_acceso" />
+		<result property="idPerfil" column="id_perfil" />
+	</resultMap>
+
+
+	<resultMap id="tipoEmpleadoMap" class="classTipoEmpleadoMap">
+		<result property="idTipoEmpleado" column="id_tipo_empleado" />
+		<result property="tipoEmpleado" column="tipo_empleado" />
+		<result property="estatus" column="estatus" />
+	</resultMap>
+
+	<resultMap class="classHabilidadMap" id="habilidadMap">
+		<result property="idHabilidad" column="id_habilidad" />
+		<result property="habilidad" column="habilidad" />
+		<result property="idEmpleado" column="id_empleado" />
+		<result property="descripcion" column="descripcion" />
+		<result property="status" column="status" />
+	</resultMap>
+
+	<procedure id="infoHabilidad" resultMap="habilidadMap" parameterClass="classHabilidadMap">
+		select * from spr_habilidad(#idHabilidad#,#idEmpleado#,#filterEstatusFalla#);
+	</procedure>
+	
+	<procedure id="insertHabilidad" resultMap="habilidadMap" parameterClass="classHabilidadMap">
+		select * from spi_habilidad(#habilidad#, #idEmpleado#, #descripcion#, 'true');
+	</procedure>
+	
+	<procedure id="updateHabilidad" resultMap="habilidadMap" parameterClass="classHabilidadMap">
+		select * from spu_habilidad(#habilidad#, #idEmpleado#, #descripcion#,#idHabilidad#,'true');
+	</procedure>
+	
+	<procedure id="deleteHabilidad" resultMap="habilidadMap" parameterClass="classHabilidadMap">
+		select * from spd_habilidad(#idHabilidad#);
+	</procedure>
+	
+	<procedure id="updateEstatusHabilidad" resultMap="habilidadMap" parameterClass="classHabilidadMap">
+		select * from sp_habilidad_estatus(#idHabilidad#,#status#);
+	</procedure>
+
+
+
+	<!-- procedure id="insertTipoEmpleado" resultMap="tipoEmpleadoMap"
+		parameterClass="classTipoEmpleadoMap">
+		SELECT * FROM spi_tipoEmpleado(#tipoEmpleado#)
+	</procedure>
+
+	<procedure id="infoTipoEmpleado" resultMap="tipoEmpleadoMap"
+		parameterClass="classTipoEmpleadoMap">
+		SELECT * FROM
+		spr_tipoEmpleado(#idTipoEmpleado#,#filterEstatusTipoEmpleado#)
+	</procedure-->
+
+	<!-- rocedure id="deleteTipoEmpleado" resultClass="java.lang.Boolean"
+		parameterClass="classTipoEmpleadoMap">
+		SELECT * FROM
+		spd_tipoEmpleado(#idTipoEmpleado#)
+	</procedure>
+	<procedure id="updateEstatusTipoEmpleado" resultMap="tipoEmpleadoMap"
+		parameterClass="classTipoEmpleadoMap">
+		SELECT * FROM
+		spu_tipoEmpleadoEstatus(#idTipoEmpleado#,#estatus#)
+	</procedure-->
+
+	<!-- procedure id="updateTipoEmpleado" resultMap="tipoEmpleadoMap"
+		parameterClass="classTipoEmpleadoMap">
+		SELECT * FROM
+		spu_tipoEmpleado(#idTipoEmpleado#,#tipoEmpleado#,#estatus#)
+	</procedure-->
+
+
+
+
+	<procedure id="insertEmpleado" resultMap="empleadoMap"
+		parameterClass="classEmpleadoMap">
+		SELECT * FROM spi_Empleado(#rfcEmpleado#,#nombre#,
+		#paterno#, #materno#, #telefono#, #celular#,
+		#idLocalidad#,
+		#idMunicipio#, #idEntidad#, #cp#, #numInterior#, #numExterior#,
+		#idTipoEmpleado#,
+		#fechaAlta#, #domicilio#, #colonia#, #estatus#, #esusuario#, #password#, #idPerfil#)
+	</procedure>
+
+	<procedure id="infoEmpleado" resultMap="empleadoMap"
+		parameterClass="classEmpleadoMap">
+		SELECT * FROM
+		spr_Empleado(#idEmpleado#,#rfcEmpleado#,#filterEstatusEmpleado#)
+	</procedure>
+
+	<procedure id="deleteEmpleado" resultClass="java.lang.Boolean"
+		parameterClass="classEmpleadoMap">
+		SELECT * FROM
+		spd_empleado(#idEmpleado#,#rfcEmpleado#)
+	</procedure>
+	<procedure id="updateEstatusEmpleado" resultMap="empleadoMap"
+		parameterClass="classEmpleadoMap">
+		SELECT * FROM
+		spu_empleadoEstatus(#idEmpleado#,#rfcEmpleado#,#estatus#)
+	</procedure>
+
+	<procedure id="updateEmpleado" resultMap="empleadoMap"
+		parameterClass="classEmpleadoMap">
+		SELECT * FROM
+		spu_Empleado(#idEmpleado#,#rfcEmpleado#,#nombre#, #paterno#,
+		#materno#, #telefono#, #celular#,
+		#idLocalidad#, #idMunicipio#,
+		#idEntidad#, #cp#, #numInterior#, #numExterior#, #idTipoEmpleado#,
+		#fechaAlta#, #domicilio#, #colonia#, #estatus#, #esusuario#, #password#, #idPerfil#)
+	</procedure>
+
+	
+
+
+</sqlMap>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+                       "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>	
+	<bean id="dataSource"	class="org.springframework.jndi.JndiObjectFactoryBean"	singleton="true">
+		<property name="jndiName" value="java:/comp/env/PoolNok"/>
+	</bean>
+	
+	<bean id="sqlMap" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation" value="WEB-INF/SqlMapConfig.xml"/>
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="bitacoraproperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" value="classpath:config/properties/bitacora.properties"/>
+	</bean>
+	
+</beans>

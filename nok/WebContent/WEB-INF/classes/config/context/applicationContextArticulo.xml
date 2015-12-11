@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+    	
+    	
+    	<!-- DAO -->
+	<bean id="articuloDAO" class="mx.com.nok.articulo.dao.ibatis.ArticuloDAOImpl">	
+            <property name="sqlMapClient" ref="sqlMap"/>
+	</bean>
+	<!-- Business -->
+    <bean id="articuloBusiness" class="mx.com.nok.articulo.model.business.ArticuloBusiness">
+		<property name="articuloDAO" ref="articuloDAO"/>
+	</bean>
+	<!-- Action -->
+    <bean id="articuloAction" class="mx.com.nok.articulo.action.ArticuloAction">
+		<property name="articuloService" ref="articuloBusiness"/>
+		
+    </bean>
+	
+</beans>	

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig> 
+  <sqlMap resource="config/sqlmaps/coremap.xml"/>
+  <sqlMap resource="config/sqlmaps/portletmap.xml"/>
+  <sqlMap resource="config/sqlmaps/articulomap.xml"/>
+  <sqlMap resource="config/sqlmaps/empleadomap.xml"/>
+  <sqlMap resource="config/sqlmaps/componentemap.xml"/>
+  <sqlMap resource="config/sqlmaps/menumap.xml"/>
+  <sqlMap resource="config/sqlmaps/fallamap.xml"/>
+  <sqlMap resource="config/sqlmaps/proveedormap.xml"/>
+  <sqlMap resource="config/sqlmaps/maqunemap.xml"/>
+  <sqlMap resource="config/sqlmaps/equipomap.xml"/>
+  <sqlMap resource="config/sqlmaps/obramap.xml"/>
+  <sqlMap resource="config/sqlmaps/fletemap.xml"/>
+  <sqlMap resource="config/sqlmaps/requisicionmap.xml"/>
+  <sqlMap resource="config/sqlmaps/salidamap.xml"/>
+  <sqlMap resource="config/sqlmaps/notificacionmap.xml"/>
+  <sqlMap resource="config/sqlmaps/mantenimientomap.xml"/>
+  <sqlMap resource="config/sqlmaps/direccionmap.xml"/>
+  <sqlMap resource="config/sqlmaps/categoriamap.xml"/>  
+  <sqlMap resource="config/sqlmaps/resguardomap.xml"/> 
+  <sqlMap resource="config/sqlmaps/tipoempleadomap.xml"/>
+  <sqlMap resource="config/sqlmaps/clientemap.xml"/>
+  <sqlMap resource="config/sqlmaps/contratomap.xml"/>
+  <sqlMap resource="config/sqlmaps/adquisicionmap.xml"/>
+  <sqlMap resource="config/sqlmaps/fallaEquipomap.xml"/>
+  <sqlMap resource="config/sqlmaps/solicitudmap.xml"/>
+</sqlMapConfig>

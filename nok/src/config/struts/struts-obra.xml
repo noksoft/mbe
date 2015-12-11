@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="obra" extends="struts-default" namespace="/obra">        
+	<action name="obra" method="obraTest" class="obraAction">		
+		<result name="error">/jsp/amerror.jsp</result>
+		<result name="success">/jsp/nokobra.jsp</result>
+	</action>
+
+    </package>
+    <package name="obraasignacion" extends="struts-default" namespace="/obraasignacion">        
+	<action name="obraasignacion" method="obraTest" class="obraAction">		
+		<result name="error">/jsp/amerror.jsp</result>
+		<result name="success">/jsp/nokobraasignacion.jsp</result>
+	</action>
+
+    </package>
+</struts>
+

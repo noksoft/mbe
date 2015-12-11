@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="salidaMap">
+	<typeAlias alias ="classSalidaAlmacenMap" type="mx.com.nok.salida.model.dto.SalidaAlmacenDTO"/>
+
+			
+	<resultMap id="salidaAlmacenMap" class="classSalidaAlmacenMap">		
+		<result property="folioSalida" 		column="folio_salida" />
+		<result property="idArticulo" 			column="id_articulo" />
+		<result property="idPrograma" 		column="id_programa" />
+		<result property="fechaSalida" 		column="fecha_salida" />	
+		<result property="cantidad" 		column="cantidad" />
+		<result property="idEmpleadoSolicitante" 		column="id_empleado_solicitante" />	
+	</resultMap> 
+	 
+	 <procedure id="infoSalidaAlmacen" resultMap="salidaAlmacenMap" parameterClass="classSalidaAlmacenMap" >
+		SELECT * FROM spr_salidaalmacen(#folioSalida# , #idArticulo# , #idPrograma# ,#idEmpleadoSolicitante# )
+	</procedure>		
+	
+	<procedure id="insertSalidaAlmacen" resultMap="salidaAlmacenMap" parameterClass="classSalidaAlmacenMap" >
+		SELECT * FROM spi_salidaalmacen(#folioSalida# , #idArticulo# , #idPrograma# , #fechaSalida#,#cantidad#,#idEmpleadoSolicitante# )
+	</procedure>		
+	<procedure id="updateSalidaAlmacen" resultMap="salidaAlmacenMap" parameterClass="classSalidaAlmacenMap" >
+		SELECT * FROM spu_salidaalmacen(#folioSalida# , #idArticulo# , #idPrograma# , #fechaSalida#,#cantidad#,#idEmpleadoSolicitante# )
+	</procedure>	
+	
+		
+	<procedure id="deleteSalidaAlmacen" resultClass="java.lang.Boolean" parameterClass="classSalidaAlmacenMap" >
+		SELECT * FROM spd_salidaalmacen(#folioSalida# , #idArticulo# , #idPrograma# ,#idEmpleadoSolicitante# )
+	</procedure>	
+	 
+</sqlMap>

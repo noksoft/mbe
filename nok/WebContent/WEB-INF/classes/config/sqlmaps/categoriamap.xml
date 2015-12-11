@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="categoriaMap">
+	<typeAlias alias ="classCategoriaMap" type="mx.com.nok.categoria.model.dto.CategoriaDTO"/>
+	<typeAlias alias ="classSubcategoriaMap" type="mx.com.nok.categoria.model.dto.SubcategoriaDTO"/>
+
+			
+	<resultMap id="categoriaMap" class="classCategoriaMap">		
+		<result property="idCategoria" 		column="id_categoria" />
+		<result property="descripcion" 		column="descripcion" />		
+		<result property="estatus" 		column="estatus" />		
+	</resultMap>
+	
+	
+	<resultMap id="subcategoriaMap" 		class="classSubcategoriaMap">		
+		<result property="idSubCategoria" 			column="id_subcategoria" />
+		<result property="subCategoria" 			column="subcategoria" />		
+		<result property="idCategoria" 				column="id_categoria" />
+		<result property="categoria" 				column="categoria" />		
+		<result property="estatus" 					column="estatus" />		
+	</resultMap>
+	
+	
+		
+	<procedure id="infoSubcategoria" resultMap="subcategoriaMap" parameterClass="classSubcategoriaMap" >
+		SELECT * FROM spr_subcategoria(#idCategoria#,#idSubCategoria#,#estatus#)
+	</procedure>
+	
+		
+	<procedure id="updateSubcategoria" resultMap="subcategoriaMap" parameterClass="classSubcategoriaMap" >
+		SELECT * FROM spu_subcategoria(#idCategoria#, #idSubCategoria# , #subCategoria#, #estatus#)
+	</procedure>
+	
+	<procedure id="deleteSubcategoria" resultClass="java.lang.Boolean" parameterClass="classSubcategoriaMap" >
+		SELECT * FROM spd_subcategoria(#idCategoria#, #idSubCategoria# )
+	</procedure>	
+		
+	<procedure id="insertSubcategoria" resultMap="subcategoriaMap"  parameterClass="classSubcategoriaMap">
+		SELECT * FROM spi_subcategoria(#idCategoria#, #subCategoria#)
+	</procedure>
+
+	
+	<procedure id="updateEstatusSubcategoria" resultMap="subcategoriaMap"  parameterClass="classSubcategoriaMap">
+		SELECT * FROM spu_subcategoriaEstatus(#idCategoria#, #idSubCategoria#,#estatus#)
+	</procedure>		
+	
+	
+	
+	
+		
+	<procedure id="infoCategoria" resultMap="categoriaMap" parameterClass="classCategoriaMap" >
+		SELECT * FROM spr_categoria(#idCategoria#,#filterEstatusCategoria#);
+	</procedure>
+	
+	<procedure id="updateCategoria" resultMap="categoriaMap" parameterClass="classCategoriaMap" >
+		SELECT * FROM spu_categoria(#idCategoria#, #categoria# ,  #estatus#)
+	</procedure>
+	
+	<procedure id="deleteCategoria" resultClass="java.lang.Boolean" parameterClass="classCategoriaMap" >
+		SELECT * FROM spd_categoria(#idCategoria#)
+	</procedure>	
+		
+	<procedure id="insertCategoria" resultMap="categoriaMap"  parameterClass="classCategoriaMap">
+		SELECT * FROM spi_categoria(#categoria#)
+	</procedure>
+
+	
+	<procedure id="updateEstatusCategoria" resultMap="categoriaMap"  parameterClass="classCategoriaMap">
+		SELECT * FROM spu_categoriaEstatus(#idCategoria#,#estatus#)
+	</procedure>	
+	
+	
+	
+</sqlMap>

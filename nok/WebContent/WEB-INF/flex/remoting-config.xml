@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="remoting-service"
+    class="flex.messaging.services.RemotingService">
+
+    <adapters>
+        <adapter-definition id="java-object" class="flex.messaging.services.remoting.adapters.JavaAdapter" default="true"/>
+    </adapters>
+
+    <default-channels>
+        <channel ref="my-amf"/>
+    </default-channels>    
+    
+    
+	<destination id="loginBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <scope>session</scope>
+	        <source>loginBusiness</source>    
+	    </properties>
+	</destination>
+	
+	
+	<destination id="portletBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>portletBusiness</source>    
+	    </properties>
+	</destination>
+	        
+	        
+	 
+	<destination id="articuloBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>articuloBusiness</source>    
+	    </properties>
+	</destination>  
+	
+	
+	
+	<destination id="menuBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>menuBusiness</source>    
+	    </properties>
+	</destination>   
+	
+	
+	
+	<destination id="componenteBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>componenteBusiness</source>    
+	    </properties>
+	</destination>     
+	
+	
+	<destination id="empleadoBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>empleadoBusiness</source>    
+	    </properties>
+	</destination>     
+	
+	<destination id="proveedorBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>proveedorBusiness</source>    
+	    </properties>
+	</destination>     
+	
+	
+	<destination id="fallaBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>fallaBusiness</source>    
+	    </properties>
+	</destination> 
+	
+	<destination id="fallaEquipoBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>fallaEquipoBusiness</source>    
+	    </properties>
+	</destination> 
+	
+	
+	<destination id="fleteBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>fleteBusiness</source>    
+	    </properties>
+	</destination> 
+	
+	<destination id="mantenimientoBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>mantenimientoBusiness</source>    
+	    </properties>
+	</destination> 
+	
+	
+	<destination id="maquneBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>maquneBusiness</source>    
+	    </properties>
+	</destination> 
+	
+	<destination id="equipoBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <source>equipoBusiness</source>    
+	    </properties>
+	</destination>
+	
+	<destination id="notificacionBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>notificacionBusiness</source>    
+	    </properties>
+	</destination> 
+	
+	
+	<destination id="obraBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>obraBusiness</source>    
+	    </properties>
+	</destination> 
+	
+	
+	
+	<destination id="requisicionBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>requisicionBusiness</source>    
+	    </properties>
+	</destination> 
+	
+	
+	<destination id="salidaBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>salidaBusiness</source>    
+	    </properties>
+	</destination> 
+	
+	
+	
+	<destination id="direccionBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>direccionBusiness</source>    
+	    </properties>
+	</destination> 
+	
+	
+	
+	<destination id="categoriaBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>categoriaBusiness</source>    
+	    </properties>
+	</destination> 
+	
+	
+	<destination id="resguardoBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>resguardoBusiness</source>    
+	    </properties>
+	</destination> 
+	
+	<destination id="tipoempeladoBusiness">    
+	    <properties>           
+	        <factory>spring</factory>
+	        <!-- nombre del bean al que se quiere acceder -->
+	        <source>tipoEmpleadoBusiness</source>    
+	    </properties>
+	</destination> 
+	
+	<destination id="clienteBusiness">
+		<properties>
+			<factory>spring</factory>
+			<source>clienteBusiness</source>
+		</properties>
+	</destination>
+	
+	<destination id="contratoBusiness">
+		<properties>
+			<factory>spring</factory>
+			<source>contratoBusiness</source>
+		</properties>
+	</destination>
+	
+	<destination id="adquisicionBusiness">
+		<properties>
+			<factory>spring</factory>
+			<source>adquisicionBusiness</source>
+		</properties>
+	</destination>
+
+	<destination id="solicitudBussiness">
+		<properties>
+			<factory>spring</factory>
+			<source>solicitudBussiness</source>
+		</properties>
+	</destination>
+        
+  </service>

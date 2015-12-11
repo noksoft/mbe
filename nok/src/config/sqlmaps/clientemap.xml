@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="clienteMap">
+	<typeAlias alias ="classClienteMap" type="mx.com.nok.cliente.model.dto.ClienteDTO"/>
+			
+	<resultMap id="clienteResultMap" 			 class="classClienteMap">	
+		<result property="idCliente" 				column="id_cliente"/>
+		<result property="rfc" 						column="rfc" />
+    	<result property="razonSocial" 				column="razon_social" />
+     	<result property="direccion" 				column="direccion" />
+     	<result property="cp" 						column="cp" />
+    	<result property="idMunicipio" 				column="id_municipio" />
+    	<result property="municipio" 				column="municipio" />
+     	<result property="idEntidad" 				column="id_entidad" />
+     	<result property="entidad" 					column="entidad" />
+     	<result property="idLocalidad" 				column="id_localidad" />
+     	<result property="localidad" 				column="localidad" />
+     	<result property="telefono" 				column="telefono" />
+     	<result property="correo" 					column="correo" />
+     	<result property="www" 						column="www" />
+     	<result property="contactoNombre" 			column="contacto_nombre" />
+     	<result property="fechaAlta" 				column="fecha_alta" />
+     	<result property="estatus" 					column="estatus" />
+	</resultMap>
+	
+	<procedure id="infoCliente" resultMap="clienteResultMap" parameterClass="classClienteMap">
+		SELECT * FROM spr_cliente (#idCliente#, #filterEstatus#)
+	</procedure>
+	
+	<procedure id="updateCliente" resultMap="clienteResultMap" parameterClass="classClienteMap">
+		SELECT * FROM spu_cliente (#idCliente#, #rfc#, #razonSocial#, #direccion#, #cp#, #idMunicipio#, #idEntidad#, #idLocalidad#, #telefono#, #correo#, #www#, #contactoNombre#, #fechaAlta#, #estatus#)
+	</procedure>
+	
+	<procedure id="deleteCliente" resultClass="java.lang.Boolean" parameterClass="classClienteMap">
+		SELECT * FROM spd_cliente (#idCliente#)
+	</procedure>
+	
+	<procedure id="insertCliente" resultMap="clienteResultMap" parameterClass="classClienteMap">
+		SELECT * FROM spi_cliente (#rfc#, #razonSocial#, #direccion#, #cp#, #idMunicipio#, #idEntidad#, #idLocalidad#, #telefono#, #correo#, #www#, #contactoNombre#, #fechaAlta#, #estatus#)
+	</procedure>
+		
+</sqlMap>

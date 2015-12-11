@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="maquneMap">
+	<typeAlias alias ="classMaquneMap" type="mx.com.nok.maqune.model.dto.MaquneDTO"/>
+	<typeAlias alias ="classMaquneChkListMap" type="mx.com.nok.maqune.model.dto.MaquneChkListDTO"/>
+	<typeAlias alias ="classMaquneEmpleadoMap" type="mx.com.nok.maqune.model.dto.MaquneEmpleadoDTO"/>
+	<typeAlias alias ="classMaquneRentaMap" type="mx.com.nok.maqune.model.dto.MaquneRentaDTO"/>
+
+	<resultMap id="maquneRentaMap" class="classMaquneRentaMap">		
+		<result property="folioRenta" 			column="folio_renta" />
+		<result property="idProveedor" 			column="id_proveedor" />
+		<result property="costoRenta" 			column="costo_renta" />
+		<result property="sueldoOperador" 		column="sueldo_operador" />	
+		<result property="status" 				column="status" />
+		<result property="fechaRenta" 			column="fecha_renta" />
+		<result property="fechaRegreso" 		column="fecha_regreso" />
+		<result property="idMaqune" 			column="id_maqune" />	
+	</resultMap>
+
+			
+	<resultMap id="maquneChkListMap" class="classMaquneChkListMap">		
+		<result property="idMaqune" 			column="id_maqune" />
+		<result property="tCirculacion" 		column="t_circulacion" />
+		<result property="verificacion" 		column="verificacion" />
+		<result property="factura" 				column="factura" />	
+		<result property="tenencia" 			column="tenencia" />
+		<result property="tituloPedimentos" 	column="titulo_pedimentos" />
+		<result property="permisoTrailer" 		column="permiso_trailer" />
+		<result property="cambioAceite" 		column="cambio_aceite" />
+		<result property="combustible" 			column="combustible" />
+		<result property="tipoMedida" 			column="tipo_medida" />		
+		<result property="fechaVerificacion" 	column="fecha_verificacion" />
+		<result property="fechaTenencia" 		column="fecha_tenencia" />		
+	</resultMap>	
+	
+	
+	<resultMap id="maquneEmpleadoMap" class="classMaquneEmpleadoMap">		
+		<result property="idEmpleado" 			column="id_empleado" />
+		<result property="fechaAlta" 			column="fecha_alta" />
+		<result property="idMaqune" 			column="id_maqune" />	
+	</resultMap>			
+			
+			
+	<resultMap id="maquneMap" class="classMaquneMap">		
+		<result property="idMaqune" 			column="id_maqune" />
+		<result property="nombre" 				column="nombre" />
+		<result property="idMarcamotor" 		column="id_marcamotor" />
+		<result property="marcamotor" 			column="marcamotor" />
+		<result property="idModelomotor" 		column="id_modelomotor" />
+		<result property="modelomotor" 			column="modelomotor" />
+		<result property="idMarca" 				column="id_marca" />
+		<result property="marca" 				column="marca" />
+		<result property="idSubmarca" 			column="id_submarca" />
+		<result property="submarca" 			column="submarca" />
+		<result property="idSubcategoria" 		column="id_subcategoria" />
+		<result property="subcategoria" 		column="subcategoria" />
+		<result property="idCategoria" 			column="id_categoria" />
+		<result property="categoria" 			column="categoria" />
+		<result property="uso" 					column="uso" />
+		<result property="numeroeconomico" 		column="numeroeconomico" />
+		<result property="descripcion" 			column="descripcion" />
+		<result property="factura" 				column="factura" />
+		<result property="pedimiento" 			column="pedimiento" />
+		<result property="permisofederal" 		column="permisofederal" />
+		<result property="cambioaceite" 		column="cambioaceite" />
+		<result property="combustible" 			column="combustible" />
+		<result property="tipomedida" 			column="tipomedida" />
+		<result property="verificacion" 		column="verificacion" />
+		<result property="fechaverificacion" 	column="fechaverificacion" />
+		<result property="tipoverificacion" 	column="tipoverificacion" />
+		<result property="tenencia" 			column="tenencia" />
+		<result property="fechatenencia" 		column="fechatenencia" />
+		<result property="tiporodaje" 			column="tiporodaje" />
+		<result property="numerollantas" 		column="numerollantas" />
+		<result property="tipollanta" 			column="tipollanta" />
+		<result property="rin" 					column="rin" />
+		<result property="numeroserie" 			column="numeroserie" />
+		<result property="hp" 					column="hp" />
+		<result property="torque" 				column="torque" />
+		<result property="peso" 				column="peso" />
+		<result property="dimensioneslargo" 	column="dimensioneslargo" />
+		<result property="dimensionesancho" 	column="dimensionesancho" />
+		<result property="dimensionesalto" 		column="dimensionesalto" />
+		<result property="dimaditamientolargo" 	column="dimaditamientolargo" />
+		<result property="dimaditamientoancho" 	column="dimaditamientoancho" />
+		<result property="dimaditamientoalto" 	column="dimaditamientoalto" />
+		<result property="anioequipo" 			column="anioequipo" />
+		<result property="capacidadcarga" 		column="capacidadcarga" />
+		<result property="numeroejes" 			column="numeroejes" />
+		<result property="numeromotor" 			column="numeromotor" />
+		<result property="numerochasis" 		column="numerochasis" />
+		<result property="numerocabina" 		column="numerocabina" />
+		<result property="kw" 					column="kw" />
+		<result property="voltaje" 				column="voltaje" />
+		<result property="amperes" 				column="amperes" />
+		<result property="capacidadpresion" 	column="capacidadpresion" />
+		<result property="tipomotor" 			column="tipomotor" />
+		<result property="cilindros" 			column="cilindros" />
+		<result property="sizemotor" 			column="sizemotor" />
+		<result property="pica" 				column="pica" />
+		<result property="golpesminuto" 		column="golpesminuto" />
+		<result property="tipoadquisicion" 		column="tipoadquisicion" />
+		<result property="fechaadquisicion" 	column="fechaadquisicion" />
+		<result property="anioadquisicion" 		column="anioadquisicion" />
+		<result property="foto" 				column="foto" />
+		<result property="estatus" 				column="estatus" />
+	</resultMap>
+	
+	
+
+<!--Maqune Renta-->
+	
+	
+	<procedure id="infoMaquneRenta" resultMap="maquneRentaMap" parameterClass="classMaquneRentaMap" >
+		SELECT * FROM spr_MaquneRenta(#folioRenta#,#idProveedor#,#idMaqune#)
+	</procedure>	
+		
+	<procedure id="insertMaquneRenta" resultMap="maquneRentaMap" parameterClass="classMaquneRentaMap" >
+		SELECT * FROM spi_MaquneRenta(#folioRenta#,#idProveedor#,#costoRenta#,#sueldoOperador#,#status#,#fechaRenta#,#fechaRegreso#,#idMaqune#)
+	</procedure>		
+	<procedure id="updateMaquneRenta" resultMap="maquneRentaMap" parameterClass="classMaquneRentaMap" >
+		SELECT * FROM spu_MaquneRenta(#folioRenta#,#idProveedor#,#costoRenta#,#sueldoOperador#,#status#,#fechaRenta#,#fechaRegreso#,#idMaqune#)
+	</procedure>
+	
+	<procedure id="deleteMaquneRenta" resultClass="java.lang.Boolean" parameterClass="classMaquneRentaMap" >
+		SELECT * FROM spd_MaquneRenta(#folioRenta#,#idProveedor#,#idMaqune#)
+	</procedure>	
+	
+
+
+
+
+<!--Maqune Empleado-->	
+	
+	<procedure id="infoMaquneEmpleado" resultMap="maquneEmpleadoMap" parameterClass="classMaquneEmpleadoMap" >
+		SELECT * FROM spr_MaquneEmpleado(#idEmpleado#,#idMaqune#)
+	</procedure>	
+	
+	
+	<procedure id="insertMaquneEmpleado" resultMap="maquneEmpleadoMap" parameterClass="classMaquneEmpleadoMap" >
+		SELECT * FROM spi_MaquneEmpleado(#idEmpleado#,#fechaAlta#,#idMaqune#)
+	</procedure>		
+	<procedure id="updateMaquneEmpleado" resultMap="maquneEmpleadoMap" parameterClass="classMaquneEmpleadoMap" >
+		SELECT * FROM spu_MaquneEmpleado(#idEmpleado#,#fechaAlta#,#idMaqune#)
+	</procedure>	
+	
+	
+	<procedure id="deleteMaquneEmpleado" resultClass="java.lang.Boolean" parameterClass="classMaquneEmpleadoMap" >
+		SELECT * FROM spd_MaquneEmpleado(#idEmpleado#,#idMaqune#)
+	</procedure>
+
+
+	<!--Maqune ChkList-->	
+	
+	
+	<procedure id="infoMaquneChkList" resultMap="maquneChkListMap" parameterClass="classMaquneChkListMap" >
+		SELECT * FROM spr_MaqChkList(#idMaqune#)
+	</procedure>	
+	
+	
+	<procedure id="insertMaquneChkList" resultMap="maquneChkListMap" parameterClass="classMaquneChkListMap" >
+		SELECT * FROM spi_MaqChkList(#idMaqune#,#tCirculacion#,#verificacion#,#factura#,#tenencia#,
+		#tituloPedimentos#,#permisoTrailer#,#cambioAceite#,#combustible#,#tipoMedida#,
+		#fechaVerificacion#,#fechaTenencia#)
+	</procedure>		
+	<procedure id="updateMaquneChkList" resultMap="maquneChkListMap" parameterClass="classMaquneChkListMap" >
+		SELECT * FROM spu_MaqChkList(#idMaqune#,#tCirculacion#,#verificacion#,#factura#,#tenencia#,
+		#tituloPedimentos#,#permisoTrailer#,#cambioAceite#,#combustible#,#tipoMedida#,
+		#fechaVerificacion#,#fechaTenencia#)
+	</procedure>	
+		
+	<procedure id="deleteMaquneChkList" resultClass="java.lang.Boolean" parameterClass="classMaquneChkListMap" >
+		SELECT * FROM spd_MaqChkList(#idMaqune#)
+	</procedure>	
+	
+
+
+	<!--Maqune-->	
+	<procedure id="infoMaqune" resultMap="maquneMap" parameterClass="classMaquneMap" >
+		SELECT * FROM spr_Maqune(#idMaqune#,#filterEstatusMaqune#)
+	</procedure>	
+	
+	<!--Version Anterior 
+	<procedure id="insertMaqune" resultMap="maquneMap" parameterClass="classMaquneMap" >
+		SELECT * FROM spi_Maqune(#idMaqune#, #nombre#,#idSubmarca#,#descripcion#,#nSerie#, #tipoAdq#,#foto#, #fechaAdq#)
+	</procedure>		
+	<procedure id="updateMaqune" resultMap="maquneMap" parameterClass="classMaquneMap" >
+		SELECT * FROM spu_Maqune(#idMaqune#, #nombre#,#idSubmarca#,#descripcion#,#nSerie#, #tipoAdq#,#foto#, #fechaAdq#)
+	</procedure>	
+	
+	-->
+	
+	<procedure id="insertMaqune" resultMap="maquneMap" parameterClass="classMaquneMap" >
+		 SELECT * FROM spi_Maqune(
+					#idMaqune#,
+					#nombre#,
+					#idSubmarca#,
+					#numeroserie#,
+					#tipoadquisicion#,
+					#foto#,
+					#fechaadquisicion#,
+					#idMarcamotor#,
+					#idModelomotor#,
+					#idMarca#,
+					#idSubcategoria#,
+					#uso#,
+					#numeroeconomico#,
+					#descripcion#,
+					#factura#,
+					#pedimiento#,
+					#permisofederal#,
+					#cambioaceite#,
+					#combustible#,
+					#tipomedida#,
+					#verificacion#,
+					#fechaverificacion#,
+					#tipoverificacion#,
+					#tenencia#,
+					#fechatenencia#,
+					#tiporodaje#,
+					#numerollantas#,
+					#tipollanta#,
+					#rin#,
+					#hp#,
+					#torque#,
+					#peso#,
+					#dimensioneslargo#,
+					#dimensionesancho#,
+					#dimensionesalto#,
+					#dimaditamientolargo#,
+					#dimaditamientoancho#,
+					#dimaditamientoalto#,
+					#anioequipo#,
+					#capacidadcarga#,
+					#numeroejes#,
+					#numeromotor#,
+					#numerochasis#,
+					#numerocabina#,
+					#kw#,
+					#voltaje#,
+					#amperes#,
+					#capacidadpresion#,
+					#tipomotor#,
+					#cilindros#,
+					#sizemotor#,
+					#pica#,
+					#golpesminuto#,
+					#anioadquisicion#			
+				) 		 
+</procedure>
+	
+<procedure id="updateMaqune" resultMap="maquneMap" parameterClass="classMaquneMap" >
+	SELECT * FROM spu_Maqune(
+				#idMaqune#, 
+				#nombre#, 
+				#idMarcamotor#, 
+				#idModelomotor#, 
+				#idMarca#, 
+				#idSubmarca#, 
+				#idSubcategoria#, 
+				#uso#, 
+				#numeroeconomico#, 
+				#descripcion#, 
+				#factura#, 
+				#pedimiento#, 
+				#permisofederal#, 
+				#cambioaceite#, 
+				#combustible#, 
+				#tipomedida#, 
+				#verificacion#, 
+				#fechaverificacion#, 
+				#tipoverificacion#, 
+				#tenencia#, 
+				#fechatenencia#, 
+				#tiporodaje#, 
+				#numerollantas#, 
+				#tipollanta#, 
+				#rin#, 
+				#numeroserie#, 
+				#hp#, 
+				#torque#, 
+				#peso#, 
+				#dimensioneslargo#, 
+				#dimensionesancho#, 
+				#dimensionesalto#, 
+				#dimaditamientolargo#, 
+				#dimaditamientoancho#, 
+				#dimaditamientoalto#, 
+				#anioequipo#, 
+				#capacidadcarga#, 
+				#numeroejes#, 
+				#numeromotor#, 
+				#numerochasis#, 
+				#numerocabina#, 
+				#kw#, 
+				#voltaje#, 
+				#amperes#, 
+				#capacidadpresion#, 
+				#tipomotor#, 
+				#cilindros#, 
+				#sizemotor#, 
+				#pica#, 
+				#golpesminuto#, 
+				#tipoadquisicion#, 
+				#fechaadquisicion#, 
+				#anioadquisicion#, 
+				#foto#	
+		)
+	</procedure>
+	
+	
+	<procedure id="updateEstatusMaqune" resultMap="maquneMap" parameterClass="classMaquneMap">
+		SELECT * FROM spu_MaquneEstatus(#idMaqune#,#idMarca#,#idSubmarca#,#estatus#)
+	</procedure>
+	
+	
+	<procedure id="deleteMaqune" resultClass="java.lang.Boolean" parameterClass="classMaquneMap" >
+		SELECT * FROM spd_Maqune(#idMaqune#,#idMarca#,#idSubmarca#)
+	</procedure>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</sqlMap>

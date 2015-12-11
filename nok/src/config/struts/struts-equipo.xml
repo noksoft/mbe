@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="equipo" extends="struts-default" namespace="/equipo">        
+	<action name="equipo" method="equipoTest" class="equipoAction">		
+		<result name="error">/jsp/amerror.jsp</result>
+		<result name="success">/jsp/nokequipo.jsp</result>
+	</action>
+
+    </package>
+    
+    <!-- diagnosticoequipo -->
+    <package name="diagnostico" extends="struts-default" namespace="/diagnostico">        
+	<action name="diagnostico" method="equipoTest" class="equipoAction">		
+		<result name="error">/jsp/amerror.jsp</result>
+		<result name="success">/jsp/nokdiagnosticoequipo.jsp</result>
+	</action>
+
+    </package>
+</struts>

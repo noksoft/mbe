@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="stockalmacen" extends="struts-default" namespace="/stockalmacen">        
+		<!-- action name="stockalmacen" method="stockalmacenValidUser" class="stockalmacenAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/nokstockalmacen.jsp</result>
+		</action-->
+    </package>
+    
+    <package name="salidaalmacen" extends="struts-default" namespace="/salidaalmacen">        
+		<!-- action name="salidaalmacen" method="salidaalmacenValidUser" class="salidaalmacenAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/noksalidaalmacen.jsp</result>
+		</action-->
+    </package>
+
+    <package name="reportemensualalmacen" extends="struts-default" namespace="/reportemensualalmacen">        
+		<!-- action name="reportemensualalmacen" method="reportemensualalmacenValidUser" class="reportemensualalmacenAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/nokreportemensualalmacen.jsp</result>
+		</action-->
+    </package>
+    
+    <package name="reporteobraalmacen" extends="struts-default" namespace="/reporteobraalmacen">        
+		<!-- action name="reporteobraalmacen" method="reporteobraalmacenValidUser" class="reporteobraalmacenAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/nokreporteobraalmacen.jsp</result>
+		</action-->
+    </package>
+    
+    <package name="reportemaquinaalmacen" extends="struts-default" namespace="/reportemaquinaalmacen">        
+		<!-- action name="reportemaquinaalmacen" method="reportemaquinaalmacenValidUser" class="reportemaquinaalmacenAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/nokreportemaquinaalmacen.jsp</result>
+		</action-->
+    </package>
+    
+    <package name="reportesemanalmaquinaria" extends="struts-default" namespace="/reportesemanalmaquinaria">        
+		<!-- action name="reportesemanalmaquinaria" method="reportesemanalmaquinariaValidUser" class="reportesemanalmaquinariaAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/nokreportesemanalmaquinaria.jsp</result>
+		</action-->
+    </package>
+    
+    <package name="reportefallasobra" extends="struts-default" namespace="/reportefallasobra">        
+		<!-- action name="reportefallasobra" method="reportefallasobraValidUser" class="reportefallasobraAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/nokreportefallasobra.jsp</result>
+		</action-->
+    </package>
+    
+    <package name="reportereparacionobra" extends="struts-default" namespace="/reportereparacionobra">        
+		<!-- action name="reportereparacionobra" method="reportefallasobraValidUser" class="reportereparacionobraAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/nokreportereparacionobra.jsp</result>
+		</action-->
+    </package>
+    
+    <package name="reportesemanalactividades" extends="struts-default" namespace="/reportesemanalactividades">        
+		<!-- action name="reportesemanalactividades" method="reportefallasobraValidUser" class="reportesemanalactividadesAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/nokreportesemanalactividades.jsp</result>
+		</action-->
+    </package>
+    
+    <package name="reportecostoreparacion" extends="struts-default" namespace="/reportecostoreparacion">        
+		<!-- action name="reportecostoreparacion" method="reportecostoreparacionValidUser" class="reportecostoreparacionAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/nokreportecostoreparacion.jsp</result>
+		</action-->
+    </package>
+    
+    <package name="reporteestadocuentaservicio" extends="struts-default" namespace="/reporteestadocuentaservicio">        
+		<!-- action name="reporteestadocuentaservicio" method="reporteestadocuentaservicioValidUser" class="reporteestadocuentaservicioAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/nokreportereporteestadocuentaservicio.jsp</result>
+		</action-->
+    </package>
+    
+    <package name="reporteinformatrabajo" extends="struts-default" namespace="/reporteinformatrabajo">        
+		<!-- action name="reporteinformatrabajo" method="reporteinformatrabajoValidUser" class="reporteinformatrabajoAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/nokreporteinformatrabajo.jsp</result>
+		</action-->
+    </package>
+</struts>
