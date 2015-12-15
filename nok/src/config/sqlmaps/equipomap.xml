@@ -308,7 +308,7 @@
 	</procedure>
 	
 	<procedure id="insertDiagnostico" resultMap="diagnosticoMap" parameterClass="classDiagnostico">
-		SELECT * FROM spi_diagnostico(#id_equipo#, #descripcion#, #fecha_diagnostico#, #fecha_alta#, #id_empleado#)	
+		SELECT * FROM spi_diagnostico(#id_equipo#, #descripcion#, #fecha_diagnostico#, #fecha_alta#, #id_empleado#, #type#)	
 	</procedure>
 	
 	<procedure id="updateDiagnostico" resultMap="diagnosticoMap" parameterClass="classDiagnostico">

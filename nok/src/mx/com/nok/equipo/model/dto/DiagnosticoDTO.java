@@ -25,6 +25,7 @@ public class DiagnosticoDTO implements Serializable {
 	private String telefono;
 	private String celular;
 	private String estatus;
+	private String type;
 	
 	private List<DiagnosticoDetalle> detalle;
 	
@@ -132,6 +133,12 @@ public class DiagnosticoDTO implements Serializable {
 	}
 	public void setEstatus(String estatus) {
 		this.estatus = estatus;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 }
