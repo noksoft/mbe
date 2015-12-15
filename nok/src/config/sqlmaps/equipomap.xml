@@ -77,6 +77,7 @@
 		<result property="tipo_empleado" 			column="tipo_empleado"/>
 		<result property="telefono" 				column="telefono"/>
 		<result property="celular" 					column="celular"/>
+		<result property="estatus"					column="estatus"/>
 	</resultMap>
 	
 	<resultMap id="diagnosticoDetalleMap" class="classDiagnosticoDetalle">
@@ -308,11 +309,11 @@
 	</procedure>
 	
 	<procedure id="insertDiagnostico" resultMap="diagnosticoMap" parameterClass="classDiagnostico">
-		SELECT * FROM spi_diagnostico(#id_equipo#, #descripcion#, #fecha_diagnostico#, #fecha_alta#, #id_empleado#, #type#)	
+		SELECT * FROM spi_diagnostico(#id_equipo#, #descripcion#, #fecha_diagnostico#, #fecha_alta#, #id_empleado#, #estatus#, #type#)	
 	</procedure>
 	
 	<procedure id="updateDiagnostico" resultMap="diagnosticoMap" parameterClass="classDiagnostico">
-		SELECT * FROM spu_diagnostico(#id_t_diagnostico#, #id_equipo#, #descripcion#, #fecha_diagnostico#, #fecha_alta#, #id_empleado#)
+		SELECT * FROM spu_diagnostico(#id_t_diagnostico#, #id_equipo#, #descripcion#, #fecha_diagnostico#, #fecha_alta#, #id_empleado#, #estatus#, #type#)
 	</procedure>
 	
 	<procedure id="deleteDiagnostico" resultClass="java.lang.Boolean" parameterClass="classDiagnostico">

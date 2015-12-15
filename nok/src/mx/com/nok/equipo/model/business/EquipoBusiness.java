@@ -155,6 +155,9 @@ public class EquipoBusiness implements  Serializable, EquipoService, Diagnositic
 	@Override
 	public DiagnosticoDTO insertDiagnostico(DiagnosticoDTO dto) {
 		try{
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-dd");
+			String date = sdf.format(new Date()); 
+			dto.setFecha_alta(date);
 			updateTypeDiagnosticoDTO(dto);
 			return diagnosticoDAO.insertDiagnostico(dto);
 		}catch(Exception e){
@@ -163,10 +166,18 @@ public class EquipoBusiness implements  Serializable, EquipoService, Diagnositic
 		}
 	}
 
+	@Override
+	public DiagnosticoDTO updateDiagnostico(DiagnosticoDTO dto) {
+		try{
+			updateTypeDiagnosticoDTO(dto);
+			return diagnosticoDAO.updateDiagnostico(dto);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	private void updateTypeDiagnosticoDTO(DiagnosticoDTO dto){
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-dd");
-		String date = sdf.format(new Date()); 
-		dto.setFecha_alta(date);
 		if(dto.getId_empleado() != null && dto.getId_equipo() != null
 				&& dto.getId_empleado() != "" && dto.getId_equipo() != ""){
 			dto.setType("empleado_equipo");
@@ -177,16 +188,6 @@ public class EquipoBusiness implements  Serializable, EquipoService, Diagnositic
 		}
 		
 		
-	}
-
-	@Override
-	public DiagnosticoDTO updateDiagnostico(DiagnosticoDTO dto) {
-		try{
-			return diagnosticoDAO.updateDiagnostico(dto);
-		}catch(Exception e){
-			e.printStackTrace();
-			return null;
-		}
 	}
 
 
