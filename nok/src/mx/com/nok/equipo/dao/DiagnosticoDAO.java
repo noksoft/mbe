@@ -8,7 +8,7 @@ import mx.com.nok.equipo.model.dto.DiagnosticoDetalle;
 public interface DiagnosticoDAO {
 	
 	//DIAGNOSTICO
-	public List<DiagnosticoDTO> getDiagnosticos(DiagnosticoDTO dto)throws Exception;
+	public List<DiagnosticoDTO> findDiagnosticos(DiagnosticoDTO dto)throws Exception;
 	public DiagnosticoDTO insertDiagnostico(DiagnosticoDTO dto)throws Exception;
 	public DiagnosticoDTO updateDiagnostico(DiagnosticoDTO dto)throws Exception;
 	public boolean deleteDiagnostico(DiagnosticoDTO dto)throws Exception;

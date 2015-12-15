@@ -138,4 +138,14 @@ public class DiagnosticoDetalle implements Serializable {
 	public void setEstatus(String estatus) {
 		this.estatus = estatus;
 	}
+	@Override
+	public String toString() {
+		return "DiagnosticoDetalle [id_t_diagnostico_detalle=" + id_t_diagnostico_detalle + ", id_t_diagnostico="
+				+ id_t_diagnostico + ", id_subcategoria=" + id_subcategoria + ", comentario=" + comentario
+				+ ", id_empleado=" + id_empleado + ", id_equipo=" + id_equipo + ", descripcion=" + descripcion
+				+ ", fecha_diagnostico=" + fecha_diagnostico + ", fecha_alta=" + fecha_alta + ", numeroeconomico="
+				+ numeroeconomico + ", rfc_empleado=" + rfc_empleado + ", nombre_empleado=" + nombre_empleado
+				+ ", paterno=" + paterno + ", materno=" + materno + ", tipo_empleado=" + tipo_empleado + ", telefono="
+				+ telefono + ", celular=" + celular + ", estatus=" + estatus + "]";
+	}
 }

@@ -1,7 +1,9 @@
 package mx.com.nok.equipo.dao.ibatis;
 
 import java.util.List;
+
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
+
 import mx.com.nok.equipo.dao.DiagnosticoDAO;
 import mx.com.nok.equipo.model.dto.DiagnosticoDTO;
 import mx.com.nok.equipo.model.dto.DiagnosticoDetalle;
@@ -10,8 +12,12 @@ public class DiagnosticoDAOImpl extends SqlMapClientDaoSupport implements Diagno
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<DiagnosticoDTO> getDiagnosticos(DiagnosticoDTO dto) throws Exception {
-		return this.getSqlMapClientTemplate().queryForList("getDiagnostico", dto);
+	public List<DiagnosticoDTO> findDiagnosticos(DiagnosticoDTO dto) throws Exception {
+		System.out.println("Start getDiagnosticos");
+		System.out.println(dto);
+		List<DiagnosticoDTO> list = this.getSqlMapClientTemplate().queryForList("getDiagnostico", dto);
+		System.out.println("list: " + list);
+		return list;
 	}
 
 	@Override
@@ -32,6 +38,7 @@ public class DiagnosticoDAOImpl extends SqlMapClientDaoSupport implements Diagno
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<DiagnosticoDetalle> getDiagnosticoDetalle(DiagnosticoDetalle dto) throws Exception {
+		System.out.println("dto: " + dto);
 		return this.getSqlMapClientTemplate().queryForList("getDiagnosticoDetalle", dto);
 	}
 
