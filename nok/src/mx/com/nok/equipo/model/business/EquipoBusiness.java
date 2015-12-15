@@ -1,7 +1,9 @@
 package mx.com.nok.equipo.model.business;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import mx.com.nok.equipo.dao.DiagnosticoDAO;
@@ -153,6 +155,9 @@ public class EquipoBusiness implements  Serializable, EquipoService, Diagnositic
 	@Override
 	public DiagnosticoDTO insertDiagnostico(DiagnosticoDTO dto) {
 		try{
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
+			String date = sdf.format(new Date()); 
+			dto.setFecha_alta(date);
 			return diagnosticoDAO.insertDiagnostico(dto);
 		}catch(Exception e){
 			e.printStackTrace();
