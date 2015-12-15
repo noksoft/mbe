@@ -24,6 +24,7 @@ public class DiagnosticoDTO implements Serializable {
 	private String tipo_empleado;
 	private String telefono;
 	private String celular;
+	private String estatus;
 	
 	private List<DiagnosticoDetalle> detalle;
 	
@@ -125,6 +126,12 @@ public class DiagnosticoDTO implements Serializable {
 				+ rfc_empleado + ", nombre_empleado=" + nombre_empleado + ", paterno=" + paterno + ", materno="
 				+ materno + ", tipo_empleado=" + tipo_empleado + ", telefono=" + telefono + ", celular=" + celular
 				+ ", detalle=" + detalle + "]";
+	}
+	public String getEstatus() {
+		return estatus;
+	}
+	public void setEstatus(String estatus) {
+		this.estatus = estatus;
 	}
 	
 }
