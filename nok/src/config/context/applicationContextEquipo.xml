@@ -10,14 +10,19 @@
     	
     	<!-- DAO -->
 	<bean id="equipoDAO" class="mx.com.nok.equipo.dao.ibatis.EquipoDAOImpl">	
-            <property name="sqlMapClient" ref="sqlMap"/>
+    	<property name="sqlMapClient" ref="sqlMap"/>
 	</bean>
+	<bean id="diagnosticoDAO" class="mx.com.nok.equipo.dao.ibatis.DiagnosticoDAOImpl">
+    	<property name="sqlMapClient" ref="sqlMap"/>
+    </bean>
 	<!-- Business -->
     <bean id="equipoBusiness" class="mx.com.nok.equipo.model.business.EquipoBusiness">
 		<property name="equipoDAO" ref="equipoDAO"/>
+		<property name="diagnosticoDAO" ref="diagnosticoDAO"></property>
 	</bean>
 	<!-- Action -->
     <bean id="equipoAction" class="mx.com.nok.equipo.action.EquipoAction">
 		<property name="equipoService" ref="equipoBusiness"/>
     </bean>
+    
 </beans>

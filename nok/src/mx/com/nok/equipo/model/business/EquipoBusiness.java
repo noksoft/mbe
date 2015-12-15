@@ -187,17 +187,13 @@ public class EquipoBusiness implements  Serializable, EquipoService, Diagnositic
 	public List<DiagnosticoDTO> getDiagnosticos(DiagnosticoDTO dto) {
 		List<DiagnosticoDTO> list = null;
 		try{
-			System.out.println("Start getDiagnosticos Bussiness");
-			System.out.println("dto: " + dto);
 			list = diagnosticoDAO.findDiagnosticos(dto);
-			System.out.println("list: " + list);
 			for (DiagnosticoDTO diagnosticoDTO : list){
 				List<DiagnosticoDetalle> listDiagnosticoDetalle = new ArrayList<>();
 				DiagnosticoDetalle detalleDTO = new DiagnosticoDetalle();
 				if(diagnosticoDTO.getId_t_diagnostico() != null 
 						&& diagnosticoDTO.getId_t_diagnostico() != ""){
 					detalleDTO.setId_t_diagnostico(diagnosticoDTO.getId_t_diagnostico());
-					System.out.println("detalleDTO: " + detalleDTO);
 					listDiagnosticoDetalle = getDiagnosticoDetalle(detalleDTO);
 					diagnosticoDTO.setDetalle(listDiagnosticoDetalle);					
 				}
@@ -245,12 +241,9 @@ public class EquipoBusiness implements  Serializable, EquipoService, Diagnositic
 
 	@Override
 	public List<DiagnosticoDetalle> getDiagnosticoDetalle(DiagnosticoDetalle dto) {
-		System.out.println("dto: " + dto);
 		List<DiagnosticoDetalle> list = new ArrayList<>();
 		try{
-			System.out.println("Before call getDiagnosticoDetalle");
 			list = diagnosticoDAO.getDiagnosticoDetalle(dto);
-			System.out.println("list: " + list);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

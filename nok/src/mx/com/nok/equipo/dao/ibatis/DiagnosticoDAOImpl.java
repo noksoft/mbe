@@ -13,10 +13,7 @@ public class DiagnosticoDAOImpl extends SqlMapClientDaoSupport implements Diagno
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<DiagnosticoDTO> findDiagnosticos(DiagnosticoDTO dto) throws Exception {
-		System.out.println("Start getDiagnosticos");
-		System.out.println(dto);
 		List<DiagnosticoDTO> list = this.getSqlMapClientTemplate().queryForList("getDiagnostico", dto);
-		System.out.println("list: " + list);
 		return list;
 	}
 
@@ -38,7 +35,6 @@ public class DiagnosticoDAOImpl extends SqlMapClientDaoSupport implements Diagno
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<DiagnosticoDetalle> getDiagnosticoDetalle(DiagnosticoDetalle dto) throws Exception {
-		System.out.println("dto: " + dto);
 		return this.getSqlMapClientTemplate().queryForList("getDiagnosticoDetalle", dto);
 	}
 
