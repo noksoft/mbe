@@ -29,6 +29,8 @@ public class DiagnosticoDetalle implements Serializable {
 	private String telefono;
 	private String celular;
 	private String estatus;
+	private String categoria;
+	private String subcategoria;
 	
 	public String getId_t_diagnostico_detalle() {
 		return id_t_diagnostico_detalle;
@@ -138,14 +140,17 @@ public class DiagnosticoDetalle implements Serializable {
 	public void setEstatus(String estatus) {
 		this.estatus = estatus;
 	}
-	@Override
-	public String toString() {
-		return "DiagnosticoDetalle [id_t_diagnostico_detalle=" + id_t_diagnostico_detalle + ", id_t_diagnostico="
-				+ id_t_diagnostico + ", id_subcategoria=" + id_subcategoria + ", comentario=" + comentario
-				+ ", id_empleado=" + id_empleado + ", id_equipo=" + id_equipo + ", descripcion=" + descripcion
-				+ ", fecha_diagnostico=" + fecha_diagnostico + ", fecha_alta=" + fecha_alta + ", numeroeconomico="
-				+ numeroeconomico + ", rfc_empleado=" + rfc_empleado + ", nombre_empleado=" + nombre_empleado
-				+ ", paterno=" + paterno + ", materno=" + materno + ", tipo_empleado=" + tipo_empleado + ", telefono="
-				+ telefono + ", celular=" + celular + ", estatus=" + estatus + "]";
+	
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+	public String getSubcategoria() {
+		return subcategoria;
+	}
+	public void setSubcategoria(String subcategoria) {
+		this.subcategoria = subcategoria;
 	}
 }
