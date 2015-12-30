@@ -142,6 +142,7 @@ public class LoginBusiness implements LoginService{
 			dtoTmp.setStatus(false); //asignamos al dto Temporal el status de falso para que aplique el deslogueo
 			
 			try {
+				System.out.println("Into logOut");
 				 flg=loginDAO.logUsr(dtoTmp);
 				if (flg){
 					FlexContext.getHttpRequest().getSession().invalidate();//Matamos la session 

@@ -13,6 +13,8 @@ public class LoginDAOImpl extends SqlMapClientDaoSupport implements LoginDAO {
 	
 
 	public Boolean logUsr(UsuarioDTO dto) {		
+		System.out.println(dto);
+		System.out.println("");
 		return (Boolean)this.getSqlMapClientTemplate().queryForObject("log_in_out", dto);
 	}
 	public UsuarioDTO getInfoUsuario(UsuarioDTO dto) {		
