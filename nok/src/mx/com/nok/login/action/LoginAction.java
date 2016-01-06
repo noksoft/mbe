@@ -43,28 +43,21 @@ public class LoginAction extends ActionSupport implements ServletRequestAware, S
 			System.out.println(servletRequest.getParameter("password"));
 			
     		 UsuarioDTO usrdto= new UsuarioDTO();
-    		 usrdto.setUsuario(servletRequest.getParameter("usuario"));
+    		 usrdto.setRfcUsuario(servletRequest.getParameter("usuario"));
     		 usrdto.setPass(servletRequest.getParameter("password"));
     		 
     		 
-    		 log.debug("Entrando a validar logueo del usuario : "+usrdto.getUsuario());      		 
-    		 usrdto.setIp("102.148.10.01");
+    		 log.debug("Entrando a validar logueo del usuario : "+usrdto.getRfcUsuario());      		 
     		 usrdto.setStatus(true);
-
-    		 // usrdto.setPass("admin");    		
-    		 // usrdto.setUsuario("ZAOC810304NM0");
     		     		     		 
-    		 usrdto=(UsuarioDTO)loginService.logIn(usrdto);
+    		 usrdto = (UsuarioDTO)loginService.logIn(usrdto);
     		 
     		 servletRequest.getSession().setAttribute("usrNok", usrdto);
-    		 
-    		
-    		 //usrdto=usrdto.datosBasicos();
 
     		 if(usrdto.getIdUsuario() != null && usrdto.getIdUsuario() != ""){
     			return SUCCESS;	
     		}else{
-    			return SUCCESS;
+    			return ERROR;
     		}
     					
 		} catch(Exception e) {

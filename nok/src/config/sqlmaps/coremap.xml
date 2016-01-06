@@ -8,34 +8,35 @@
 		
 	<resultMap id="usuarioMap"
 		class="classUsuarioMap">		
-		<result property="perfil" 		column="perfil" />
-		<result property="nombre" 		column="nombre" />
-		<result property="idPerfil" 	        column="id_perfil" />
-		<result property="rfcUsuario" 	        column="rfc_empleado" />
-		<result property="usuario" 		column="rfc_empleado" />
-		<result property="idUsuario" 	        column="id_usuario" />
-		<result property="pass"			column="p_acceso"/>
+		<result property="nombre" 				column="nombre" />
+		<result property="rfcUsuario" 	        column="rfc_empleado"/>
+		<result property="pass"					column="p_acceso"/>
 		<result property="fechaAlta"	        column="fecha_alta"/>
+		<result property="status"				column="status"/>
+		<result property="idPerfil" 	        column="id_perfil"/>
+		<result property="perfil" 				column="perfil" />
+		<result property="idUsuario" 	        column="id_usuario" />
 		<result property="idEmpleado"	        column="id_empleado"/>
-		<result property="paterno"		column="paterno"/>
-		<result property="materno"		column="materno"/>
+		<result property="usuario" 				column="rfc_empleado" />
+		<result property="paterno"				column="paterno"/>
+		<result property="materno"				column="materno"/>
 	</resultMap>
 	
 	
 	<resultMap id="usuarioMapII"
 		class="classUsuarioMap">	
-		<result property="usuario" 		column="rfc_empleado" />	
+		<result property="usuario" 				column="rfc_empleado" />	
 		<result property="idUsuario" 	        column="id_usuario" />
 		<result property="idEmpleado" 	        column="id_empleado" />
-		<result property="nombre" 		column="nombre" />
-		<result property="paterno" 		column="paterno" />
-		<result property="materno" 		column="materno" />
+		<result property="nombre" 				column="nombre" />
+		<result property="paterno" 				column="paterno" />
+		<result property="materno" 				column="materno" />
 		<result property="rfcUsuario" 	        column="rfc_empleado" />
 		<result property="idPerfil" 	        column="id_perfil" />
-		<result property="perfil" 		column="perfil" />
-		<result property="pass" 		column="p_acceso" />
+		<result property="perfil" 				column="perfil" />
+		<result property="pass" 				column="p_acceso" />
 		<result property="fechaAlta" 	        column="fecha_alta" />
-		<result property="status" 		column="estatus" />				
+		<result property="status" 				column="estatus" />				
 	</resultMap>
 	
 	
@@ -43,7 +44,7 @@
 		class="classPerfilMap">		
 		<result property="idPerfil" 		column="id_perfil" />
 		<result property="descripcion" 		column="descripcion" />
-		<result property="estatus" 		column="estatus" />
+		<result property="estatus" 			column="estatus" />
 		
 		
 	</resultMap>	
@@ -52,48 +53,48 @@
 	<!--  Servicios de Bitacoreo del Usuario  -->
 	
 	<procedure id="insertMovimiento"  parameterClass="classBitacoraMap" >
-		SELECT * FROM spi_bitacora(#idEmpleado#,#descripcion#,#ip#)
+		SELECT * FROM spi_bitacora(#idEmpleado#, #descripcion#, #ip#)
 	</procedure>	
 		
 		
 		
 	<!-- Servicios Usuario -->	
 	<procedure id="infoUsuario" resultMap="usuarioMapII" parameterClass="classUsuarioMap" >
-		SELECT * FROM spr_usuario(#idUsuario#,#filterEstatusUsuario#)
+		SELECT * FROM spr_usuario(#idUsuario#, #filterEstatusUsuario#)
 	</procedure>	
 		
 	<procedure id="updateUsuario" resultMap="usuarioMapII" parameterClass="classUsuarioMap" >
-		SELECT * FROM spu_usuario(#idUsuario#,#pass#, #status#)
+		SELECT * FROM spu_usuario(#idUsuario#, #pass#, #status#)
 	</procedure>
 	
 	<procedure id="deleteUsuario" resultClass="java.lang.Boolean" parameterClass="classUsuarioMap" >
-		SELECT * FROM spd_usuario(#idUsuario#,#idEmpleado#)
+		SELECT * FROM spd_usuario(#idUsuario#, #idEmpleado#)
 	</procedure>	
 		
 	<procedure id="insertUsuario" resultMap="usuarioMapII"  parameterClass="classUsuarioMap">
-		SELECT * FROM spi_usuario(#idEmpleado#,#idPerfil#,#pass#)
+		SELECT * FROM spi_usuario(#idEmpleado#, #idPerfil#, #pass#)
 	</procedure>
 
 	
 	<procedure id="updateEstatusUsuario" resultMap="usuarioMapII"  parameterClass="classUsuarioMap">
-		SELECT * FROM spu_usuarioEstatus(#idUsuario#,#status#)
+		SELECT * FROM spu_usuarioEstatus(#idUsuario#, #status#)
 	</procedure>	
 	
 	
 	<!--Validación de usuario  ingreso o salida del sistema-->
 	<procedure id="log_in_out" resultClass="java.lang.Boolean"  parameterClass="classUsuarioMap" >
-		SELECT * FROM spr_util_login(#idUsuario#, #ip#,#pass#,#status#);
+		SELECT * FROM spr_util_login(#rfcUsuario#, #pass#, #status#);
 	</procedure>
 	
 	
 	<!--Obtiene información basica del usuario -->
 	<procedure id="getInfoUsuario" resultMap="usuarioMap" parameterClass="classUsuarioMap" >
-		SELECT * FROM spr_infoUsuario(#usuario#,#status#);
+		SELECT * FROM spr_infoUsuario(#rfcUsuario#, #status#);
 	</procedure>	
 		
 	<!-- Servicios Perfil del Usuario -->		
 	<procedure id="infoPerfil" resultMap="perfilMap" parameterClass="classPerfilMap" >
-		SELECT * FROM spr_Perfil(#idPerfil#,#filterEstatusPerfil#)
+		SELECT * FROM spr_Perfil(#idPerfil#, #filterEstatusPerfil#)
 	</procedure>	
 		
 	<procedure id="updatePerfil" resultMap="perfilMap" parameterClass="classPerfilMap" >

@@ -54,11 +54,13 @@ public String toString(){
 		this.fechaMovimiento = fechaMovimiento;
 	}
 
-
 	public String getIp() {
-		return ip;
+		if(ip != null){
+			return ip;
+		}else{
+			return "0.0.0.0";
+		}
 	}
-
 
 	public void setIp(String ip) {
 		this.ip = ip;

@@ -11,6 +11,7 @@
 	pageEncoding="ISO-8859-1"%>
 	<%@page import="java.util.Properties" %>
 	<%@page import="javax.servlet.http.HttpServletRequest" %>
+	<%@page import="mx.com.nok.core.usuario.model.dto.UsuarioDTO"%>
 <%
 
 	Properties props = new Properties();
@@ -21,29 +22,21 @@
 			"no-cache,no-store,must-revalidate");
 	response.addHeader("Cache-Control", "pre-check=0,post-check=0");
 	response.setDateHeader("Expires", 0);
-
-	Object user = request.getSession(false).getAttribute("usuario");
-	Object user2 = request.getSession(true).getAttribute("usuario");
-	Object user3 = request.getSession(false).getAttribute("usrNok");
 	
-	System.out.println("user: " + user);
-	System.out.println("user2: " + user2);
-	System.out.println("user3: " + user3);
+	UsuarioDTO usrdto = (UsuarioDTO) request.getSession().getAttribute("usrNok");
 	
-	
-	//servletRequest.getParameter("usrNok");
-	//servletRequest.getParameter("usuario");
-	/*if (request.getSession(false) != null){
+	String rfcUser = "";
+	if (request.getSession(false) != null){
 		props = (Properties)request.getSession(false).getAttribute("propsURL");
 		if(props == null)
 			props = new Properties();
-		AMClsUsuarioSesionDTO usuario = (AMClsUsuarioSesionDTO) request.getSession(false).getAttribute("usuariodto");
+		UsuarioDTO usuario = (UsuarioDTO) request.getSession(false).getAttribute("usrNok");
 		if(usuario != null){
-			user = usuario.getUsuario();
+			rfcUser = usuario.getRfcUsuario();
 		}else{
-			user = "";
+			rfcUser = "";
 		}
-	}*/
+	}
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,7 +92,7 @@ body{
   </head>
   
 <body>
-<input type="hidden" id="user" value="<%=user%>"/>
+<input type="hidden" id="user" value="<%=rfcUser%>"/>
  <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -127,9 +120,26 @@ body{
              <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Obras <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/obra/obra.action?titpant=index.datogral','','obra',1024,900,1,1);">Alta de Obras </a></li>
-				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/obraasignacion/obraasignacion.action?titpant=index.datogral','Asignacion Obras','obraasignacion',1024,900,1,1);">Asignación de recursos a la obra </a></li>
-				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/categoria/categoria.action?titpant=index.datogral','Categorias','categorias',1024,900,1,1);">Bitácora</a></li>
+              <%
+              	if(usrdto.getIdPerfil() instanceof String){
+              		System.out.println();
+              	}
+              	System.out.println("usrdto.getIdPerfil().getClass().getName(): " + usrdto.getIdPerfil().getClass().getName());
+              	System.out.println("usrdto.getIdPerfil().getClass().getSimpleName(): " + usrdto.getIdPerfil().getClass().getSimpleName());
+              	System.out.println("usrdto.getIdPerfil(): " + usrdto.getIdPerfil());
+              	System.out.println("usrdto.getIdPerfil().length(): " + usrdto.getIdPerfil().length());
+              	System.out.println("usrdto.getIdPerfil().equals('1'): " + usrdto.getIdPerfil().equals('1'));
+              	int value = Integer.parseInt(usrdto.getIdPerfil());
+              	System.out.println("value == 1 " + (value == 1));
+              	if(value == 1){%>
+					<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/categoria/categoria.action?titpant=index.datogral','Categorias','categorias',1024,900,1,1);">Bitácora</a></li>
+              	<%}else{%>
+              		<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/obra/obra.action?titpant=index.datogral','','obra',1024,900,1,1);">Alta de Obras </a></li>
+					<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/obraasignacion/obraasignacion.action?titpant=index.datogral','Asignacion Obras','obraasignacion',1024,900,1,1);">Asignación de recursos a la obra </a></li>
+					<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/categoria/categoria.action?titpant=index.datogral','Categorias','categorias',1024,900,1,1);">Bitácora</a></li>              		
+              	<%}
+              %>
+				
               </ul>
             </li>
             
@@ -190,7 +200,6 @@ body{
               </ul>
             </li>
             
-            
              <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administracion<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -208,21 +217,12 @@ body{
       </div>
     </nav>
     
-    
-
-
-
-
-
-
  <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/nok/jsp/bootstrap/js/jquery.min.js"></script>
     <script src="/nok/jsp/bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    
-    
 </body>
 </html>
 

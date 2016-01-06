@@ -5,12 +5,9 @@
 
 <struts>
     <package name="login" extends="struts-default" namespace="/login">        
-	<action name="loginTest" method="loginTest" class="loginAction">		
-		<result name="error">/jsp/noklogin.jsp</result>
-		<result name="success">/jsp/nokmenu.jsp</result>
-	</action>	
-
-
-
+		<action name="loginTest" method="loginTest" class="loginAction">		
+			<result name="error">/jsp/noklogin.jsp</result>
+			<result name="success">/jsp/nokmenu.jsp</result>
+		</action>	
     </package>
 </struts>

@@ -1,21 +1,15 @@
 package mx.com.nok.login.model.business;
 
-import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
 
 import flex.messaging.FlexContext;
-import flex.messaging.endpoints.Endpoint;
-import flex.messaging.endpoints.rtmp.RTMPFlexSession;
 import mx.com.nok.core.usuario.model.dto.PerfilDTO;
 import mx.com.nok.core.usuario.model.dto.UsuarioDTO;
 import mx.com.nok.login.dao.LoginDAO;
 import mx.com.nok.login.model.service.LoginService;
-
-import org.apache.log4j.Logger;
 
 public class LoginBusiness implements LoginService{
 	
@@ -28,63 +22,22 @@ public class LoginBusiness implements LoginService{
 	
 	public UsuarioDTO logIn(UsuarioDTO dtoTmp) {
 		
-		log.debug(":::: Validando Usuario");	
-		
-		System.out.println(dtoTmp);
-		
-		UsuarioDTO usuarioNok = loginDAO.getInfoUsuario(dtoTmp);
-		
-		String ip="";
-		
+		log.debug(":::: Validando Usuario");
+		UsuarioDTO usuarioNok = null;
 		try {
-		
-			ip=FlexContext.getHttpRequest().getRemoteAddr();
-			
-		} catch (Exception e) {
-			ip="0.0.0.0";
-		}
-		
-		
-		usuarioNok.setIp(ip);			
-		//UsuarioDTO dto = new UsuarioDTO();
-		
-		try {
-			usuarioNok.setStatus(true);
-			
-			
-			
-			boolean flag=loginDAO.logUsr(usuarioNok);
-			System.out.println(flag);
-			if(flag){
-				
-				
-				log.debug(":::: Acceso permitido usuario valido");
-				//dto=loginDAO.getInfoUsuario(dtoTmp);				
-				//dto.setIp(ip); 		//asignamos ip 
-				//dto.setStatus(flag);	//asignamos el status a true como usuario valido
-				//dto.setPass(dtoTmp.getPass());
-				
-				/*try {
-					FlexContext.getHttpRequest().getSession().
-					setAttribute("usrNok",dto);
-				} catch (Exception e) {
-					e.printStackTrace();
-					dto.setErrorLogin(e.getCause().getMessage());
-				}
-			*/
+		boolean flag=loginDAO.logUsr(dtoTmp);
+		if(flag){	
+			usuarioNok = loginDAO.getInfoUsuario(dtoTmp);
+			log.debug(":::: Acceso permitido usuario valido");
 			return usuarioNok;
-				
 			}				
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.debug("Ocurrio un error al momento de loguear al " +
-					"usuario : "+ usuarioNok.getUsuario());
-			usuarioNok.setErrorLogin(e.getCause().getMessage());
+					"usuario : "+ dtoTmp.getUsuario());
+			dtoTmp.setErrorLogin(e.getCause().getMessage());
 		}
-		
-		return usuarioNok;
-		
-		
+		return dtoTmp;		
 	}
 	
 	/**
