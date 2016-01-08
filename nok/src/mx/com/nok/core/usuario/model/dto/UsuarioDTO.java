@@ -31,9 +31,6 @@ public class UsuarioDTO implements Serializable{
 	
 	
 	public UsuarioDTO datosBasicos (){
-		
-		
-		
 		 this.status = null;
 		 this.idPerfil = null;	
 		/// this.perfil = null;		
@@ -42,7 +39,6 @@ public class UsuarioDTO implements Serializable{
 		 //this.ip = null;
 		 this.pass = null;
 		 //this.nombre = null;	
-		
 		 this.idUsuario = null;
 		 this.idEmpleado = null;
 		 this.materno = null;

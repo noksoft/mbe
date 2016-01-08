@@ -28,30 +28,7 @@ public interface DireccionService {
 	public List<?> catMunicipio(MunicipioDTO dto);
 	public MunicipioDTO insertMunicipio(MunicipioDTO dto);
 	public MunicipioDTO updateMunicipio(MunicipioDTO dto);
-	public boolean deleteMunicipio(MunicipioDTO dto);
-	
-	
-	
-	
-	//Servicios Entidad
-	public List<?> catEntidadAopSession(EntidadDTO dto);
-	public EntidadDTO insertEntidadAopSession(EntidadDTO dto);
-	public EntidadDTO updateEntidadAopSession(EntidadDTO dto);
-	public boolean deleteEntidadAopSession(EntidadDTO dto);	
-	
-	//Servicios Localidad
-	public List<?> catLocalidadAopSession(LocalidadDTO dto);
-	public LocalidadDTO insertLocalidadAopSession(LocalidadDTO dto);
-	public LocalidadDTO updateLocalidadAopSession(LocalidadDTO dto);
-	public boolean deleteLocalidadAopSession(LocalidadDTO dto);	
-	
-	
-	//Servicios Municipio
-	public List<?> catMunicipioAopSession(MunicipioDTO dto);
-	public MunicipioDTO insertMunicipioAopSession(MunicipioDTO dto);
-	public MunicipioDTO updateMunicipioAopSession(MunicipioDTO dto);
-	public boolean deleteMunicipioAopSession(MunicipioDTO dto);
-		
+	public boolean deleteMunicipio(MunicipioDTO dto);		
 	
 
 }

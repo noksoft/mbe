@@ -68,7 +68,7 @@
 	</procedure>
 	
 	<procedure id="deleteUsuario" resultClass="java.lang.Boolean" parameterClass="classUsuarioMap" >
-		SELECT * FROM spd_usuario(#idUsuario#, #idEmpleado#)
+		SELECT * FROM spd_usuario(#idUsuario#)
 	</procedure>	
 		
 	<procedure id="insertUsuario" resultMap="usuarioMapII"  parameterClass="classUsuarioMap">
