@@ -2,12 +2,16 @@ package mx.com.nok.empleado.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import mx.com.nok.core.usuario.model.dto.UsuarioDTO;
 import mx.com.nok.empleado.model.service.EmpleadoService;
 import mx.com.nok.portlet.action.PortletAction;
 import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import com.opensymphony.xwork2.ActionSupport;
+
+import flex.messaging.FlexContext;
 
 public class EmpleadoAction extends ActionSupport implements ServletRequestAware, ServletResponseAware{
 	
@@ -16,12 +20,19 @@ public class EmpleadoAction extends ActionSupport implements ServletRequestAware
     private HttpServletRequest servletRequest;
     private HttpServletResponse servletResponse;
     private EmpleadoService empleadoService;
+    private UsuarioDTO dto = null;
     
     
-    
-    public String empleadoTest()
+    public String validLogin()
     {
     	try {  		
+    		//dto = new UsuarioDTO ();
+    		//dto=(UsuarioDTO)FlexContext.getHttpRequest().getSession().getAttribute("usrNok");
+    		//if(dto != null){
+    		//	return SUCCESS;
+    		//}else{
+    		//	return ERROR;
+    		//}
     		return SUCCESS;
 			
 		} catch (Exception e) {

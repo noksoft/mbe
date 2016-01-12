@@ -38,10 +38,6 @@ public class LoginAction extends ActionSupport implements ServletRequestAware, S
 		
 		try {
 			
-			System.out.println(servletRequest);
-			System.out.println(servletRequest.getParameter("usuario"));
-			System.out.println(servletRequest.getParameter("password"));
-			
     		 UsuarioDTO usrdto= new UsuarioDTO();
     		 usrdto.setRfcUsuario(servletRequest.getParameter("usuario"));
     		 usrdto.setPass(servletRequest.getParameter("password"));

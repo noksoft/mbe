@@ -5,10 +5,10 @@
 
 <struts>
     <package name="permisosusuario" extends="struts-default" namespace="/permisosusuario">        
-		<!-- action name="permisosusuario" method="permisosusuarioValidUser" class="permisosusuarioAction">		
+		<action name="permisosusuario" method="validLogin" class="empleadoAction">		
 			<result name="error">/jsp/amerror.jsp</result>
-			<result name="success">/jsp/nokpermisosusuario.jsp</result>
-		</action-->
+			<result name="success">/jsp/nokusuario.jsp</result>
+		</action>
     </package>
     
     <package name="perfilesusuario" extends="struts-default" namespace="/perfilesusuario">        

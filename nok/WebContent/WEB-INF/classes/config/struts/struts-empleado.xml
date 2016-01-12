@@ -5,7 +5,7 @@
 
 <struts>
     <package name="empleado" extends="struts-default" namespace="/empleado">        
-	<action name="empleadoTest" method="empleadoTest" class="empleadoAction">		
+	<action name="empleadoTest" method="validLogin" class="empleadoAction">		
 		<result name="error">/jsp/amerror.jsp</result>
 		<result name="success">/jsp/exito.jsp</result>
 	</action>	

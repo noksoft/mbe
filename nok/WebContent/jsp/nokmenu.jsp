@@ -16,6 +16,8 @@
 
 	Properties props = new Properties();
 
+	int value = 0;
+
 	HttpServletRequest servletRequest;
 	response.addHeader("Pragma", "no-cache");
 	response.setHeader("Cache-Control",
@@ -121,21 +123,13 @@ body{
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Obras <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
               <%
-              	if(usrdto.getIdPerfil() instanceof String){
-              		System.out.println();
-              	}
-              	System.out.println("usrdto.getIdPerfil().getClass().getName(): " + usrdto.getIdPerfil().getClass().getName());
-              	System.out.println("usrdto.getIdPerfil().getClass().getSimpleName(): " + usrdto.getIdPerfil().getClass().getSimpleName());
-              	System.out.println("usrdto.getIdPerfil(): " + usrdto.getIdPerfil());
-              	System.out.println("usrdto.getIdPerfil().length(): " + usrdto.getIdPerfil().length());
-              	System.out.println("usrdto.getIdPerfil().equals('1'): " + usrdto.getIdPerfil().equals('1'));
-              	int value = Integer.parseInt(usrdto.getIdPerfil());
-              	System.out.println("value == 1 " + (value == 1));
+              	value = Integer.parseInt(usrdto.getIdPerfil());
+              	System.out.println("Before");
               	if(value == 1){%>
+					<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/obra/obra.action?titpant=index.datogral','','obra',1024,900,1,1);">Alta de Obras </a></li>
+					<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/obraasignacion/obraasignacion.action?titpant=index.datogral','Asignacion Obras','obraasignacion',1024,900,1,1);">Asignación de recursos a la obra </a></li>
 					<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/categoria/categoria.action?titpant=index.datogral','Categorias','categorias',1024,900,1,1);">Bitácora</a></li>
               	<%}else{%>
-              		<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/obra/obra.action?titpant=index.datogral','','obra',1024,900,1,1);">Alta de Obras </a></li>
-					<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/obraasignacion/obraasignacion.action?titpant=index.datogral','Asignacion Obras','obraasignacion',1024,900,1,1);">Asignación de recursos a la obra </a></li>
 					<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/categoria/categoria.action?titpant=index.datogral','Categorias','categorias',1024,900,1,1);">Bitácora</a></li>              		
               	<%}
               %>
@@ -203,7 +197,11 @@ body{
              <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administracion<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/permisosusuario/permisosusuario.action?titpant=index.datogral','','permisosusuario',1024,900,1,1);">Permisos de usuario</a></li>
+              	<%
+              	value = Integer.parseInt(usrdto.getIdPerfil());
+              	if(value == 1){%>
+              		<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/permisosusuario/permisosusuario.action?titpant=index.datogral','','permisosusuario',1024,900,1,1);">Administracion de Usuarios</a></li>
+              	<%}%>
                 <li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/perfilesusuario/perfilesusuario.action?titpant=index.datogral','','perfilesusuario',1024,900,1,1);">Perfiles de usuario</a></li>
 				
               </ul>
