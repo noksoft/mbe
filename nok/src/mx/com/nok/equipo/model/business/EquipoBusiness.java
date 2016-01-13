@@ -213,8 +213,12 @@ public class EquipoBusiness implements  Serializable, EquipoService, Diagnositic
 				if(diagnosticoDTO.getId_t_diagnostico() != null 
 						&& diagnosticoDTO.getId_t_diagnostico() != ""){
 					detalleDTO.setId_t_diagnostico(diagnosticoDTO.getId_t_diagnostico());
+					detalleDTO.setId_t_diagnostico_detalle(new String());
+					detalleDTO.setId_equipo(new String());
+					detalleDTO.setId_empleado(new String());
 					listDiagnosticoDetalle = getDiagnosticoDetalle(detalleDTO);
-					diagnosticoDTO.setDetalle(listDiagnosticoDetalle);					
+					diagnosticoDTO.setDetalle(listDiagnosticoDetalle);
+					
 				}
 				
 			}
