@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<!-- Solicitud Taller -->
+    <package name="solicitudTaller" extends="struts-default" namespace="/solicitudTaller">        
+		<action name="solicitudTaller" method="solicitudValidUser" class="solicitudAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/noksolicitudtaller.jsp</result>
+		</action>
+    </package>
+       
+    <!-- Solicitud Almacen -->
+    <package name="solicitudAlmacen" extends="struts-default" namespace="/solicitudAlmacen">        
+		<action name="solicitudAlmacen" method="solicitudValidUser" class="solicitudAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/noksolicitudalmacen.jsp</result>
+		</action>
+    </package>
+    
+    <!-- Solicitud Oficina -->
+    <package name="solicitudOficina" extends="struts-default" namespace="/solicitudOficina">        
+		<action name="solicitudOficina" method="solicitudValidUser" class="solicitudAction">		
+			<result name="error">/jsp/amerror.jsp</result>
+			<result name="success">/jsp/noksolicitudoficina.jsp</result>
+		</action>
+    </package>
+</struts>

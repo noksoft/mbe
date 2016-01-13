@@ -32,4 +32,5 @@
 	<include file="config/struts/struts-equipo.xml"/>
 	<include file="config/struts/struts-reportes.xml"/>
 	<include file="config/struts/struts-administracion.xml"/>
+	<include file="config/struts/struts-solicitud.xml"/>
 </struts>

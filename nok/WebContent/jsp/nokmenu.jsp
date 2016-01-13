@@ -143,7 +143,7 @@ body{
                 <li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/falla/falla.action?titpant=index.datogral','','falla',1024,900,1,1);">Alta de fallas </a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/categoria/categoria.action?titpant=index.datogral','Categorias','categorias',1024,900,1,1);">Asignacion de recursos a la reparación</a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/categoria/categoria.action?titpant=index.datogral','Categorias','categorias',1024,900,1,1);">Seguimiento de reparación</a></li>
-				 <li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/falla/falla.action?titpant=index.datogral','','falla',1024,900,1,1);">Solicitud de refacciones y adicionales </a></li>
+				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/solicitudTaller/solicitudTaller.action?titpant=index.datogral','','solicitudTaller',1024,900,1,1);">Solicitud de refacciones y adicionales </a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/equipo/equipo.action?titpant=index.datogral','Equipo','equipo',1024,900,1,1);">Equipos</a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/diagnostico/diagnostico.action?titpant=index.datogral','Diagnostico','diagnostico',1024,900,1,1);">Diagnostico de Equipo</a></li>
               </ul>
@@ -152,7 +152,7 @@ body{
              <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Almacen<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/solicitud/solicitudA.action?titpant=index.datogral','Solicitudes','solicitud',1024,900,1,1);">Solicitudes</a></li>
+				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/solicitudAlmacen/solicitudAlmacen.action?titpant=index.datogral','solicitudAlmacen','solicitudAlmacen',1024,900,1,1);">Solicitudes</a></li>
                 <li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/adquisicion/adquisicion.action?titpant=index.datogral','','Adquisicion',1024,900,1,1);">Adquisiciones</a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/asignacionrecursotaller/asignacionrecursotaller.action?titpant=index.datogral','','asignacionrecursotaller',1024,900,1,1);">Asignación de Recursos </a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/articulo/articulo.action?titpant=index.datogral','Articulos','articulos',1024,900,1,1);">Productos</a></li>
@@ -165,7 +165,7 @@ body{
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Oficina<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/empleado/empleado.action?titpant=index.datogral','','empleado',1024,900,1,1);">Empleados </a></li>
-				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/requisicionsolicitud/requisicionsolicitud.action?titpant=index.datogral','RequisicionSolicitud','requisicionsolicitud',1024,900,1,1);">Requisiciones - Solicitudes</a></li>
+				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/solicitudOficina/solicitudOficina.action?titpant=index.datogral','solicitudOficina','solicitudOficina',1024,900,1,1);">Solicitudes</a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/cliente/cliente.action?titpant=index.datogral','Clientes','cliente',1024,900,1,1);">Clientes </a></li>
               </ul>
             </li>
