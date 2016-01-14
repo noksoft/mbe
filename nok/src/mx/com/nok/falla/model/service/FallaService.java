@@ -22,18 +22,4 @@ public interface FallaService {
 	public boolean deleteSubfalla(SubfallaDTO dto);
 	public SubfallaDTO updateEstatusSubfalla(SubfallaDTO dto);	
 	
-	
-	public List<?> catFallaAopSession(FallaDTO dto);
-	public FallaDTO insertFallaAopSession(FallaDTO dto);
-	public FallaDTO updateFallaAopSession(FallaDTO dto);
-	public boolean deleteFallaAopSession(FallaDTO dto);
-	public FallaDTO updateEstatusFallaAopSession(FallaDTO dto);	
-	
-
-	public List<?> catSubfallaAopSession(SubfallaDTO dto);
-	public SubfallaDTO insertSubfallaAopSession(SubfallaDTO dto);
-	public SubfallaDTO updateSubfallaAopSession(SubfallaDTO dto);
-	public boolean deleteSubfallaAopSession(SubfallaDTO dto);
-	public SubfallaDTO updateEstatusSubfallaAopSession(SubfallaDTO dto);	
-
 }

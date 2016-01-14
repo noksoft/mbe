@@ -53,10 +53,7 @@ public class SolicitudBussinessImpl implements ISolicitudBussiness, Serializable
 	@Override
 	public void updateSolicitudes(List<SolicitudDTO> list){
 		try{
-			System.out.println("Start updateSolicitudes");
 			for (SolicitudDTO solicitud : list){
-				System.out.println("solicitud.getEstatus_proceso(): " + solicitud.getEstatus_proceso());
-				System.out.println("Proceso updateSolicitudes.");
 				switch(solicitud.getEstatus_proceso()){
 					case "Compra":
 							System.out.println(solicitud.getId_articulo());
@@ -69,7 +66,6 @@ public class SolicitudBussinessImpl implements ISolicitudBussiness, Serializable
 								
 								articuloDao.updateCantidadArticulo(articulo);
 								solicitudDAO.updateSolicitud(solicitud);
-								System.out.println("End updateSolicitudes");
 							}
 						break;
 					case "Adquicion":
@@ -77,7 +73,6 @@ public class SolicitudBussinessImpl implements ISolicitudBussiness, Serializable
 					default:
 						break;
 				}
-				//solicitudDAO.updateSolicitud(solicitud);
 			}
 		}catch(Exception e){
 			e.printStackTrace();
