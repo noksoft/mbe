@@ -29,15 +29,15 @@
 	<div id="flashcontent" align="center" width="100%" style="padding-left:-0px; z-index:300;" >
 			<script language="Javascript">
                                 // <![CDATA[
-											var so = new FlashObject("/flash/AsignacionRecursosTaller.swf", "v8", "100%", "100%", "8");
+											var so = new FlashObject("/flash/AsignacionObra.swf", "v8", "100%", "100%", "8");
 											so.addVariable("lang", "en");
 											so.addVariable("enforce", "0");
-											so.addParam("movie", "/flash/AsignacionRecursosTaller.swf");
+											so.addParam("movie", "/flash/AsignacionObra.swf");
 											so.addParam("quality", "high");
 											so.addParam("bgcolor", "#FFFFFF");
 											so.addParam("wmode", "transparent");
 											so.addParam("align","bottom");
-											so.addParam("FlashVars","AsignacionRecursosTaller");
+											so.addParam("FlashVars","AsignacionObra");
 											so.addParam("allowScriptAccess","Never");
 											so.addParam("allowNetworking","All");
 											so.write("flashcontent");

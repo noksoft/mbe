@@ -34,6 +34,7 @@
 			/WEB-INF/classes/config/context/applicationContextFallaEquipo.xml
 			/WEB-INF/classes/config/context/applicationContextTablero.xml
 			/WEB-INF/classes/config/context/applicationContextSolicitud.xml
+			/WEB-INF/classes/config/context/applicationContextAdquisicion.xml
 	       </param-value>
 	</context-param>
 	<context-param>

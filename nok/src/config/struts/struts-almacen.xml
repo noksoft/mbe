@@ -20,12 +20,12 @@
 
     </package>
     <!--  asignacionrecursotaller -->
-    <package name="asignacionrecursotaller" extends="struts-default" namespace="/asignacionrecursotaller">        
+    <!-- package name="asignacionrecursotaller" extends="struts-default" namespace="/asignacionrecursotaller">        
 	<action name="asignacionrecursotaller" method="asignacionrecursotallerValidUser" class="adquisicionAction">		
 		<result name="error">/jsp/amerror.jsp</result>
 		<result name="success">/jsp/nokasignacionrecursotaller.jsp</result>
 	</action>
-    </package>
+    </package-->
     
     <!-- 	Solicitudes 	-->
     <package name="solicitudes" extends="struts-default" namespace="/solicitud">

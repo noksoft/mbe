@@ -6,10 +6,9 @@ import java.util.List;
 
 import mx.com.nok.adquisicion.dao.IAdquisicionDAO;
 import mx.com.nok.adquisicion.model.dto.AdquisicionDTO;
-import mx.com.nok.adquisicion.model.service.IAdquisicionBusiness;
+import mx.com.nok.adquisicion.model.service.AdquisicionService;
 
-public class AdquisicionBusinessImpl implements IAdquisicionBusiness,
-		Serializable {
+public class AdquisicionBusinessImpl implements AdquisicionService,Serializable {
 
 	private static final long serialVersionUID = 1002039199188245643L;
 

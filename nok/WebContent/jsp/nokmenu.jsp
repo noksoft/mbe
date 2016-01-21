@@ -125,7 +125,7 @@ body{
               <%
               	value = Integer.parseInt(usrdto.getIdPerfil());
               	System.out.println("Before");
-              	if(value == 1){%>
+              	if(value == 2){%>
 					<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/obra/obra.action?titpant=index.datogral','','obra',1024,900,1,1);">Alta de Obras </a></li>
 					<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/obraasignacion/obraasignacion.action?titpant=index.datogral','Asignacion Obras','obraasignacion',1024,900,1,1);">Asignación de recursos a la obra </a></li>
 					<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/categoria/categoria.action?titpant=index.datogral','Categorias','categorias',1024,900,1,1);">Bitácora</a></li>
@@ -141,7 +141,6 @@ body{
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Taller <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/falla/falla.action?titpant=index.datogral','','falla',1024,900,1,1);">Alta de fallas </a></li>
-				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/categoria/categoria.action?titpant=index.datogral','Categorias','categorias',1024,900,1,1);">Asignacion de recursos a la reparación</a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/categoria/categoria.action?titpant=index.datogral','Categorias','categorias',1024,900,1,1);">Seguimiento de reparación</a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/solicitudTaller/solicitudTaller.action?titpant=index.datogral','','solicitudTaller',1024,900,1,1);">Solicitud de refacciones y adicionales </a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/equipo/equipo.action?titpant=index.datogral','Equipo','equipo',1024,900,1,1);">Equipos</a></li>
@@ -153,8 +152,7 @@ body{
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Almacen<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/solicitudAlmacen/solicitudAlmacen.action?titpant=index.datogral','solicitudAlmacen','solicitudAlmacen',1024,900,1,1);">Solicitudes</a></li>
-                <li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/adquisicion/adquisicion.action?titpant=index.datogral','','Adquisicion',1024,900,1,1);">Adquisiciones</a></li>
-				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/asignacionrecursotaller/asignacionrecursotaller.action?titpant=index.datogral','','asignacionrecursotaller',1024,900,1,1);">Asignación de Recursos </a></li>
+				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/asignacionrecursoobra/asignacionrecursoobra.action?titpant=index.datogral','','asignacionrecursoobra',1024,900,1,1);">Asignación de Recursos</a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/articulo/articulo.action?titpant=index.datogral','Articulos','articulos',1024,900,1,1);">Productos</a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/proveedor/proveedor.action?titpant=index.datogral','','proveedor',1024,900,1,1);">Proveedores </a></li>
 

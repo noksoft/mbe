@@ -26,4 +26,5 @@
 	<include file="config/struts/struts-resguardo.xml"/>
 	<include file="config/struts/struts-equipo.xml"/>
 	<include file="config/struts/struts-fallaEquipo.xml"/>
+	<include file="config/struts/struts-asignacionrecursos.xml"/>
 </struts>

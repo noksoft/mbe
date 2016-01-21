@@ -4,7 +4,7 @@ import java.util.List;
 
 import mx.com.nok.adquisicion.model.dto.AdquisicionDTO;
 
-public interface IAdquisicionBusiness {
+public interface AdquisicionService {
 	
 	public List<AdquisicionDTO> getAdquisiciones(AdquisicionDTO adquisicion);
 	public AdquisicionDTO insertAdquisicion(AdquisicionDTO adquisicion);

@@ -19,7 +19,7 @@
 	</bean>
 	<!-- Action -->
     <bean id="adquisicionAction" class="mx.com.nok.adquisicion.action.AdquisicionAction">
-		<property name="adquisicionBusiness" ref="adquisicionBusiness"/>
+		<property name="adquisicionService" ref="adquisicionBusiness"/>
 		
     </bean>
 	
