@@ -29,12 +29,15 @@
 		<result property="descripcionobra" 		column="descripcionobra"/>
 		<result property="falla" 				column="falla"/>
 		<result property="subfalla" 			column="subfalla"/>
+		<result property="fechaInicio"			column="fecha_inicio"/>
+		<result property="fechaFin"				column="fecha_fin"/>
+		<result property="estatusProceso"		column="estatus_proceso"/>
 	</resultMap>
 
 
 	<!--Equipo-->	
 	<procedure id="getFallaEquipo" resultMap="fallaEquipoMap" parameterClass="classFallaEquipoMap" >
-		SELECT * FROM spr_fallaequipo(#id_tfallas#, #numeroeconomico#, #id_equipo#, #id_empleado#, #id_obra#, #id_subfalla#)
+		SELECT * FROM spr_fallaequipo(#id_tfallas#, #numeroeconomico#, #id_equipo#, #id_empleado#, #id_obra#, #id_subfalla#, #estatusProceso#)
 	</procedure>	
 
 	<procedure id="insertFallaEquipo" resultMap="fallaEquipoMap" parameterClass="classFallaEquipoMap" >
@@ -49,11 +52,31 @@
 					#id_equipo#,
 					#id_obra#,
 					#estatus#) 		 
-</procedure>
+	</procedure>
 	
-<procedure id="updateFallaEquipo" resultMap="fallaEquipoMap" parameterClass="classFallaEquipoMap" >
-	SELECT * FROM spu_fallaequipo(
-					#id_tfallas#,
+	<procedure id="updateFallaEquipo" resultMap="fallaEquipoMap" parameterClass="classFallaEquipoMap" >
+		SELECT * FROM spu_fallaequipo(
+						#id_tfallas#,
+						#tipo_falla#,
+						#id_empleado#,
+						#id_subfalla#,
+						#descripcion#,
+						#prioridad#,
+						#observaciones#,
+						#fecha_registro#,					
+						#id_equipo#,
+						#id_obra#,
+						#estatus#)
+	</procedure>
+	
+	
+	<procedure id="deleteFallaEquipo" resultClass="java.lang.Boolean" parameterClass="classFallaEquipoMap" >
+		SELECT * FROM spd_fallaequipo(#id_tfallas#)
+	</procedure>
+	
+	<!-- Insertar, actualizar y eliminar fallaEquipo con fechaInicio, fechaFin y estatusProceso -->
+	<procedure id="insertFallaEquipoComplement" resultMap="fallaEquipoMap" parameterClass="classFallaEquipoMap" >
+		 SELECT * FROM spi_fallaequipocomplement(
 					#tipo_falla#,
 					#id_empleado#,
 					#id_subfalla#,
@@ -63,12 +86,28 @@
 					#fecha_registro#,					
 					#id_equipo#,
 					#id_obra#,
-					#estatus#)
+					#fechaInicio#,
+					#fechaFin#,
+					#estatusProceso#,
+					#estatus#) 		 
 	</procedure>
 	
-	
-	<procedure id="deleteFallaEquipo" resultClass="java.lang.Boolean" parameterClass="classFallaEquipoMap" >
-		SELECT * FROM spd_fallaequipo(#id_tfallas#)
-	</procedure>	
+	<procedure id="updateFallaEquipoComplement" resultMap="fallaEquipoMap" parameterClass="classFallaEquipoMap" >
+		SELECT * FROM spu_fallaequipocomplement(
+						#id_tfallas#,
+						#tipo_falla#,
+						#id_empleado#,
+						#id_subfalla#,
+						#descripcion#,
+						#prioridad#,
+						#observaciones#,
+						#fecha_registro#,					
+						#id_equipo#,
+						#id_obra#,
+						#fechaInicio#,
+						#fechaFin#,
+						#estatusProceso#,
+						#estatus#)
+	</procedure>
 	
 </sqlMap>

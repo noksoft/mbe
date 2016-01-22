@@ -10,5 +10,8 @@ public interface FallaEquipoDAO {
 	public FallaEquipoDTO insertFallaEquipo(FallaEquipoDTO dto)throws Exception;
 	public FallaEquipoDTO updateFallaEquipo(FallaEquipoDTO dto)throws Exception;
 	public boolean deleteFallaEquipo(FallaEquipoDTO dto)throws Exception;
+	
+	public FallaEquipoDTO insertFallaEquipoComplement(FallaEquipoDTO dto)throws Exception;
+	public FallaEquipoDTO updateFallaEquipoComplement(FallaEquipoDTO dto)throws Exception;
 
 }

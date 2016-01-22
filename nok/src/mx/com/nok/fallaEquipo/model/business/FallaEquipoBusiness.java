@@ -54,6 +54,26 @@ public class FallaEquipoBusiness implements Serializable, FallaEquipoService {
 		}
 	}
 
+	@Override
+	public FallaEquipoDTO insertFallaEquipoComplement(FallaEquipoDTO dto) {
+		try{
+			return fallaEquipoDAO.insertFallaEquipoComplement(dto);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public FallaEquipoDTO updateFallaEquipoComplement(FallaEquipoDTO dto) {
+		try{
+			return fallaEquipoDAO.updateFallaEquipoComplement(dto);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public FallaEquipoDAO getFallaEquipoDAO() {
 		return fallaEquipoDAO;
 	}

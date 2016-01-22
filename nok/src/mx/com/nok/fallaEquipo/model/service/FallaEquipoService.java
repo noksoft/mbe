@@ -11,4 +11,6 @@ public interface FallaEquipoService {
 	public FallaEquipoDTO updateFallaEquipo(FallaEquipoDTO dto);
 	public boolean deleteFallaEquipo(FallaEquipoDTO dto);
 
+	public FallaEquipoDTO insertFallaEquipoComplement(FallaEquipoDTO dto);
+	public FallaEquipoDTO updateFallaEquipoComplement(FallaEquipoDTO dto);
 }

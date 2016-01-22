@@ -1,7 +1,6 @@
 package mx.com.nok.fallaEquipo.model.dto;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class FallaEquipoDTO implements Serializable {
 
@@ -19,7 +18,6 @@ public class FallaEquipoDTO implements Serializable {
 	private String fecha_registro;
 	private String id_equipo;
 	private String id_obra;
-	
 	private String nombreequipo;
     private String descripcionequipo;
     private String tipoadquisicion;
@@ -34,17 +32,10 @@ public class FallaEquipoDTO implements Serializable {
     private String descripcionobra;
     private String falla;
     private String subfalla;
+    private String fechaInicio;
+    private String fechaFin;
+    private String estatusProceso;
 	
-	@Override
-	public String toString() {
-		return "FallaEquipoDTO [id_tfallas=" + id_tfallas + ", tipo_falla="
-				+ tipo_falla + ", id_empleado=" + id_empleado
-				+ ", id_subfalla=" + id_subfalla + ", descripcion="
-				+ descripcion + ", prioridad=" + prioridad + ", observaciones="
-				+ observaciones + ", estatus=" + estatus + ", fecha_registro="
-				+ fecha_registro + ", id_equipo=" + id_equipo + ", id_obra="
-				+ id_obra + "]";
-	}
 	
 	public String getId_tfallas() {
 		return id_tfallas;
@@ -223,6 +214,37 @@ public class FallaEquipoDTO implements Serializable {
 
 	public void setSubfalla(String subfalla) {
 		this.subfalla = subfalla;
+	}
+	public String getFechaInicio() {
+		return fechaInicio;
+	}
+	public void setFechaInicio(String fechaInicio) {
+		this.fechaInicio = fechaInicio;
+	}
+	public String getFechaFin() {
+		return fechaFin;
+	}
+	public void setFechaFin(String fechaFin) {
+		this.fechaFin = fechaFin;
+	}
+	public String getEstatusProceso() {
+		return estatusProceso;
+	}
+	public void setEstatusProceso(String estatusProceso) {
+		this.estatusProceso = estatusProceso;
+	}
+	@Override
+	public String toString() {
+		return "FallaEquipoDTO [id_tfallas=" + id_tfallas + ", tipo_falla=" + tipo_falla + ", id_empleado="
+				+ id_empleado + ", id_subfalla=" + id_subfalla + ", descripcion=" + descripcion + ", prioridad="
+				+ prioridad + ", observaciones=" + observaciones + ", estatus=" + estatus + ", fecha_registro="
+				+ fecha_registro + ", id_equipo=" + id_equipo + ", id_obra=" + id_obra + ", nombreequipo="
+				+ nombreequipo + ", descripcionequipo=" + descripcionequipo + ", tipoadquisicion=" + tipoadquisicion
+				+ ", numeroserie=" + numeroserie + ", id_tipocategoria=" + id_tipocategoria + ", tipocategoria="
+				+ tipocategoria + ", id_categoria=" + id_categoria + ", categoria=" + categoria + ", numeroeconomico="
+				+ numeroeconomico + ", clave_obra=" + clave_obra + ", nombreobra=" + nombreobra + ", descripcionobra="
+				+ descripcionobra + ", falla=" + falla + ", subfalla=" + subfalla + ", fechaInicio=" + fechaInicio
+				+ ", fechaFin=" + fechaFin + ", estatusProceso=" + estatusProceso + "]";
 	}
 
 }

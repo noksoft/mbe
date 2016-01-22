@@ -34,4 +34,14 @@ public class FallaEquipoDAOImpl extends SqlMapClientDaoSupport implements
 		return (Boolean)this.getSqlMapClientTemplate().queryForObject("deleteFallaEquipo", dto);
 	}
 
+	@Override
+	public FallaEquipoDTO insertFallaEquipoComplement(FallaEquipoDTO dto) throws Exception {
+		return (FallaEquipoDTO)this.getSqlMapClientTemplate().queryForObject("insertFallaEquipoComplement", dto);
+	}
+
+	@Override
+	public FallaEquipoDTO updateFallaEquipoComplement(FallaEquipoDTO dto) throws Exception {
+		return (FallaEquipoDTO)this.getSqlMapClientTemplate().queryForObject("updateFallaEquipoComplement", dto);
+	}
+
 }
