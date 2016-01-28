@@ -35,8 +35,17 @@ public class FallaEquipoDTO implements Serializable {
     private String fechaInicio;
     private String fechaFin;
     private String estatusProceso;
-	
-	
+    /**	Propiedades de Reparador **/
+    private String idEmpleadoReparador;
+    private String rfcEmpleadoReparador;
+    private String nombreReparador;
+    private String paternoReparador;
+    private String maternoReparador;
+    private String rfcEmpleado;
+    private String nombre;
+    private String paterno;
+    private String materno;
+    
 	public String getId_tfallas() {
 		return id_tfallas;
 	}
@@ -245,6 +254,60 @@ public class FallaEquipoDTO implements Serializable {
 				+ numeroeconomico + ", clave_obra=" + clave_obra + ", nombreobra=" + nombreobra + ", descripcionobra="
 				+ descripcionobra + ", falla=" + falla + ", subfalla=" + subfalla + ", fechaInicio=" + fechaInicio
 				+ ", fechaFin=" + fechaFin + ", estatusProceso=" + estatusProceso + "]";
+	}
+	public String getIdEmpleadoReparador() {
+		return idEmpleadoReparador;
+	}
+	public void setIdEmpleadoReparador(String idEmpleadoReparador) {
+		this.idEmpleadoReparador = idEmpleadoReparador;
+	}
+	public String getRfcEmpleadoReparador() {
+		return rfcEmpleadoReparador;
+	}
+	public void setRfcEmpleadoReparador(String rfcEmpleadoReparador) {
+		this.rfcEmpleadoReparador = rfcEmpleadoReparador;
+	}
+	public String getNombreReparador() {
+		return nombreReparador;
+	}
+	public void setNombreReparador(String nombreReparador) {
+		this.nombreReparador = nombreReparador;
+	}
+	public String getPaternoReparador() {
+		return paternoReparador;
+	}
+	public void setPaternoReparador(String paternoReparador) {
+		this.paternoReparador = paternoReparador;
+	}
+	public String getMaternoReparador() {
+		return maternoReparador;
+	}
+	public void setMaternoReparador(String maternoReparador) {
+		this.maternoReparador = maternoReparador;
+	}
+	public String getRfcEmpleado() {
+		return rfcEmpleado;
+	}
+	public void setRfcEmpleado(String rfcEmpleado) {
+		this.rfcEmpleado = rfcEmpleado;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getPaterno() {
+		return paterno;
+	}
+	public void setPaterno(String paterno) {
+		this.paterno = paterno;
+	}
+	public String getMaterno() {
+		return materno;
+	}
+	public void setMaterno(String materno) {
+		this.materno = materno;
 	}
 
 }

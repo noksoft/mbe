@@ -32,6 +32,17 @@
 		<result property="fechaInicio"			column="fecha_inicio"/>
 		<result property="fechaFin"				column="fecha_fin"/>
 		<result property="estatusProceso"		column="estatus_proceso"/>
+		
+		<!-- Propiedades de Empleado Reparador -->
+		<result property="idEmpleadoReparador"			column="id_empleado_reparador"/>
+		<result property="rfcEmpleadoReparador"			column="rfc_empleado_reparador"/>
+		<result property="nombreReparador"				column="nombre_reparador"/>
+		<result property="paternoReparador"				column="paterno_reparador"/>
+		<result property="maternoReparador"				column="materno_reparador"/>
+		<result property="rfcEmpleado"					column="rfc_empleado"/>
+		<result property="nombre"						column="nombre"/>
+		<result property="paterno"						column="paterno"/>
+		<result property="materno"						column="materno"/>
 	</resultMap>
 
 
@@ -107,6 +118,7 @@
 						#fechaInicio#,
 						#fechaFin#,
 						#estatusProceso#,
+						#idEmpleadoReparador#,
 						#estatus#)
 	</procedure>
 	
