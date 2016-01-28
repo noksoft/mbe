@@ -141,7 +141,7 @@ body{
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Taller <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/falla/falla.action?titpant=index.datogral','','falla',1024,900,1,1);">Alta de fallas </a></li>
-				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/categoria/categoria.action?titpant=index.datogral','Categorias','categorias',1024,900,1,1);">Seguimiento de reparación</a></li>
+				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/segimientoreparaciones/segimientoreparaciones.action?titpant=index.datogral','Categorias','categorias',1024,900,1,1);">Seguimiento de reparación</a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/solicitudTaller/solicitudTaller.action?titpant=index.datogral','','solicitudTaller',1024,900,1,1);">Solicitud de refacciones y adicionales </a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/equipo/equipo.action?titpant=index.datogral','Equipo','equipo',1024,900,1,1);">Equipos</a></li>
 				<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/diagnostico/diagnostico.action?titpant=index.datogral','Diagnostico','diagnostico',1024,900,1,1);">Diagnostico de Equipo</a></li>

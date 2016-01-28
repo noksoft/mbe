@@ -26,6 +26,7 @@ public class LoginBusiness implements LoginService{
 		UsuarioDTO usuarioNok = null;
 		try {
 		boolean flag=loginDAO.logUsr(dtoTmp);
+		System.out.println("flag: " + flag);
 		if(flag){	
 			usuarioNok = loginDAO.getInfoUsuario(dtoTmp);
 			log.debug(":::: Acceso permitido usuario valido");
@@ -97,6 +98,7 @@ public class LoginBusiness implements LoginService{
 			try {
 				System.out.println("Into logOut");
 				 flg=loginDAO.logUsr(dtoTmp);
+				 System.out.println("logOut flg: " + flg);
 				if (flg){
 					FlexContext.getHttpRequest().getSession().invalidate();//Matamos la session 
 					log.debug("El usuario se ha deslogueado exitosamente");					
