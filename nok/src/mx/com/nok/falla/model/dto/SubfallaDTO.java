@@ -12,6 +12,7 @@ public class SubfallaDTO implements Serializable{
 	private String idSubfalla;
 	private String subfalla;
 	private boolean estatus;
+	private boolean estatusFalla;
 	
 	
 	private String filterEstatusSubfalla="";
@@ -97,5 +98,17 @@ public class SubfallaDTO implements Serializable{
 
 	public void setFilterEstatusSubfalla(String filterEstatusSubfalla) {
 		this.filterEstatusSubfalla = filterEstatusSubfalla;
+	}
+
+
+
+	public boolean isEstatusFalla() {
+		return estatusFalla;
+	}
+
+
+
+	public void setEstatusFalla(boolean estatusFalla) {
+		this.estatusFalla = estatusFalla;
 	}
 }

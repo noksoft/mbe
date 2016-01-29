@@ -5,19 +5,20 @@
 	<typeAlias alias ="classSubfallaMap" type="mx.com.nok.falla.model.dto.SubfallaDTO"/>
 
 			
-	<resultMap id="fallaMap" class="classFallaMap">		
-		<result property="idFalla" 		column="id_falla" />
-		<result property="falla" 		column="falla" />		
-		<result property="estatus" 		column="estatus" />		
+	<resultMap id="fallaMap" 			class="classFallaMap">		
+		<result property="idFalla" 			column="id_falla" />
+		<result property="falla" 			column="falla" />		
+		<result property="estatus" 			column="estatus" />		
 	</resultMap>
 	
 	
-	<resultMap id="subfallaMap" class="classSubfallaMap">		
-		<result property="idFalla" 		column="id_falla" />
-		<result property="falla" 		column="falla" />		
+	<resultMap id="subfallaMap" 		class="classSubfallaMap">		
+		<result property="idFalla" 			column="id_falla" />
+		<result property="falla" 			column="falla" />		
 		<result property="idSubfalla" 		column="id_subfalla" />
 		<result property="subfalla" 		column="subfalla" />		
-		<result property="estatus" 		column="estatus" />		
+		<result property="estatus" 			column="estatus" />	
+		<result property="estatusFalla" 	column="estatus_falla"/>	
 	</resultMap>
 	
 	
