@@ -110,7 +110,6 @@
 	
 	<procedure id="insertEquipoWhioutMarcaMotor" resultMap="equipoMap" parameterClass="classEquipoMap">
 		SELECT * FROM spi_equipo_without_marcamotor(
-					        #id_equipo#,
 		   					#nombre#,
 							#id_submarca#,
 							#descripcion#,
