@@ -57,6 +57,8 @@ public class EquipoDTO implements Serializable{
 	private String anioadquisicion;
 	private String filterEstatusEquipo;
 	
+	private Boolean estatus;
+	
 	public String getModelomotor() {
 		return modelomotor;
 	}
@@ -70,7 +72,6 @@ public class EquipoDTO implements Serializable{
 	public void setFilterEstatusEquipo(String filterEstatusEquipo) {
 		this.filterEstatusEquipo = filterEstatusEquipo;
 	}
-	private Boolean estatus;
 	
 	//Propiedades de la imagen de la foto
 	private byte[] contentFoto;

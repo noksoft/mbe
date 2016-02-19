@@ -27,6 +27,9 @@
 	
 	UsuarioDTO usrdto = (UsuarioDTO) request.getSession().getAttribute("usrNok");
 	
+	System.out.println("usrNok" + usrdto);
+	
+	
 	String rfcUser = "";
 	if (request.getSession(false) != null){
 		props = (Properties)request.getSession(false).getAttribute("propsURL");
@@ -125,6 +128,9 @@ body{
               <%
               	value = Integer.parseInt(usrdto.getIdPerfil());
               	System.out.println("Before");
+              	
+              	
+              	
               	if(value == 2){%>
 					<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/obra/obra.action?titpant=index.datogral','','obra',1024,900,1,1);">Alta de Obras </a></li>
 					<li><a href="#" onclick="openPopUp('<%=request.getContextPath()%>/obraasignacion/obraasignacion.action?titpant=index.datogral','Asignacion Obras','obraasignacion',1024,900,1,1);">Asignación de recursos a la obra </a></li>

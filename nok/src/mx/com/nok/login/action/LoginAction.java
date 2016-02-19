@@ -48,7 +48,7 @@ public class LoginAction extends ActionSupport implements ServletRequestAware, S
     		     		     		 
     		 usrdto = (UsuarioDTO)loginService.logIn(usrdto);
     		 
-    		 servletRequest.getSession().setAttribute("usrNok", usrdto);
+    		 servletRequest.getSession(true).setAttribute("usrNok", usrdto);
 
     		 if(usrdto.getIdUsuario() != null && usrdto.getIdUsuario() != ""){
     			return SUCCESS;	
