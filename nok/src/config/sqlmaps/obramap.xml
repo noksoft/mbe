@@ -202,8 +202,7 @@
 
 	<procedure id="deleteObra" resultClass="java.lang.Boolean"
 		parameterClass="classObraMap">
-		SELECT * FROM
-		 (#idObra#,#idEmpleado#)
+		SELECT * FROM spd_obra(#idObra#,#idEmpleado#)
 	</procedure>
 	
 	<procedure id="getEmpleadoConMaquinaria" resultMap="obraMap" parameterClass = "classEquiposMap">

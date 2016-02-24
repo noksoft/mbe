@@ -78,6 +78,7 @@
 		<result property="telefono" 				column="telefono"/>
 		<result property="celular" 					column="celular"/>
 		<result property="estatus"					column="estatus"/>
+		<result property="estatusdiagnostico"		column="estatusdiagnostico"/>
 	</resultMap>
 	
 	<resultMap id="diagnosticoDetalleMap" class="classDiagnosticoDetalle">

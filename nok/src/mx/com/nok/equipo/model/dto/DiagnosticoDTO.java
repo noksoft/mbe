@@ -26,6 +26,7 @@ public class DiagnosticoDTO implements Serializable {
 	private String celular;
 	private String estatus;
 	private String type;
+	private Boolean estatusdiagnostico;
 	
 	private List<DiagnosticoDetalle> detalle;
 	
@@ -119,15 +120,6 @@ public class DiagnosticoDTO implements Serializable {
 	public void setDetalle(List<DiagnosticoDetalle> detalle) {
 		this.detalle = detalle;
 	}
-	@Override
-	public String toString() {
-		return "DiagnosticoDTO [id_t_diagnostico=" + id_t_diagnostico + ", id_equipo=" + id_equipo + ", descripcion="
-				+ descripcion + ", fecha_diagnostico=" + fecha_diagnostico + ", fecha_alta=" + fecha_alta
-				+ ", id_empleado=" + id_empleado + ", numeroeconomico=" + numeroeconomico + ", rfc_empleado="
-				+ rfc_empleado + ", nombre_empleado=" + nombre_empleado + ", paterno=" + paterno + ", materno="
-				+ materno + ", tipo_empleado=" + tipo_empleado + ", telefono=" + telefono + ", celular=" + celular
-				+ ", detalle=" + detalle + "]";
-	}
 	public String getEstatus() {
 		return estatus;
 	}
@@ -139,6 +131,22 @@ public class DiagnosticoDTO implements Serializable {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public Boolean getEstatusdiagnostico() {
+		return estatusdiagnostico;
+	}
+	public void setEstatusdiagnostico(Boolean estatusdiagnostico) {
+		this.estatusdiagnostico = estatusdiagnostico;
+	}
+	@Override
+	public String toString() {
+		return "DiagnosticoDTO [id_t_diagnostico=" + id_t_diagnostico + ", id_equipo=" + id_equipo + ", descripcion="
+				+ descripcion + ", fecha_diagnostico=" + fecha_diagnostico + ", fecha_alta=" + fecha_alta
+				+ ", id_empleado=" + id_empleado + ", numeroeconomico=" + numeroeconomico + ", rfc_empleado="
+				+ rfc_empleado + ", nombre_empleado=" + nombre_empleado + ", paterno=" + paterno + ", materno="
+				+ materno + ", tipo_empleado=" + tipo_empleado + ", telefono=" + telefono + ", celular=" + celular
+				+ ", estatus=" + estatus + ", type=" + type + ", estatusdiagnostico=" + estatusdiagnostico
+				+ ", detalle=" + detalle + "]";
 	}
 	
 }
